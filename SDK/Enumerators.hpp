@@ -1,3 +1,5 @@
+#pragma once
+
 
 enum class ThreeState_t : std::uint32_t
 {
