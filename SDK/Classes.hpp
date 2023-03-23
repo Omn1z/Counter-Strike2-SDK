@@ -987,7 +987,7 @@ public:
       WATER_WAKE_WALKING = 2,
       WATER_WAKE_RUNNING = 3,
       WATER_WAKE_WATER_OVERHEAD = 4
-   }
+   };
 
    C_NetworkUtlVectorBase< CHandle< C_EconWearable > > m_hMyWearables; // 0xB28 - 0xB28
    std::int32_t m_bloodColor; // 0xB40 - 0xB40
@@ -5748,7 +5748,7 @@ public:
       SCRIPT_WALK_TO_MARK = 4,
       SCRIPT_RUN_TO_MARK = 5,
       SCRIPT_CUSTOM_MOVE_TO_MARK = 6
-   }
+   };
 
    enum class ChoreoState_t : std::uint32_t
    {
@@ -5759,7 +5759,7 @@ public:
       STATE_PLAY_SCRIPT = 4,
       STATE_PLAY_SCRIPT_POST_IDLE = 5,
       STATE_PLAY_SCRIPT_POST_IDLE_DONE = 6
-   }
+   };
 
    virtual class CSchemaClassInfo* GetClassInformation(void) = 0;
 
@@ -5853,7 +5853,7 @@ public:
       HUNT = 1,
       CHARGE_ENEMY = 2,
       DEFEND_INVESTIGATE = 3
-   }
+   };
 
    CUtlSymbolLarge m_szWeaponsToGive; // 0x4B0 - 0x4B0
    CUtlSymbolLarge m_szPlayerModelToUse; // 0x4B8 - 0x4B8
@@ -13881,7 +13881,7 @@ public:
       LOGIC_BRANCH_LISTENER_ALL_TRUE = 1,
       LOGIC_BRANCH_LISTENER_ALL_FALSE = 2,
       LOGIC_BRANCH_LISTENER_MIXED = 3
-   }
+   };
 
    CUtlSymbolLarge m_nLogicBranchNames[16]; // 0x4A0 - 0x4A0
    CUtlVector< CHandle< CBaseEntity > > m_LogicBranchList; // 0x520 - 0x520
@@ -16790,7 +16790,7 @@ public:
    {
       MAX_RESPONSE_NAME = 192,
       MAX_RULE_NAME = 128
-   }
+   };
 
    std::uint8_t m_Type; // 0x0 - 0x0
    char m_szResponseName[192]; // 0x1 - 0x1
@@ -30687,7 +30687,7 @@ public:
       BLEND_PREALIGNED = 1048576,
       FLAG_RIGIDLENGTH = 2097152,
       FLAG_PROCEDURAL = 4194304
-   }
+   };
 
    CUtlVector< CUtlString > m_boneName; // 0x0 - 0x0
    CUtlVector< int16 > m_nParent; // 0x18 - 0x18
@@ -31020,7 +31020,7 @@ public:
       FLAG_ANIMATION_DRIVEN_FLEXES = 2097152,
       FLAG_IMPLICIT_BIND_POSE_SEQUENCE = 4194304,
       FLAG_MODEL_DOC = 8388608
-   }
+   };
 
    std::uint32_t m_nFlags; // 0x0 - 0x0
    Vector m_vHullMin; // 0x4 - 0x4
@@ -31294,7 +31294,7 @@ public:
       QUEST_WRONG_MODE = 10,
       QUEST_NOT_SYNCED_WITH_SERVER = 11,
       QUEST_REASON_MAX = 12
-   }
+   };
 
 
 }; // size - 0x1
@@ -31677,7 +31677,7 @@ public:
       kMIN_THRESHOLD = 0,
       kMIN_FULL = 1,
       kHIGHWATER = 2
-   }
+   };
 
    SimpleConstraintSoundProfile::SimpleConstraintsSoundProfileKeypoints_t eKeypoints; // 0x8 - 0x8
    float32 m_keyPoints[2]; // 0xC - 0xC
@@ -32211,7 +32211,7 @@ public:
       FLAG_IS_POLYSOUP_GEOMETRY = 1,
       FLAG_LEVEL_COLLISION = 16,
       FLAG_IGNORE_SCALE_OBSOLETE_DO_NOT_USE = 32
-   }
+   };
 
    std::uint16_t m_nFlags; // 0x0 - 0x0
    std::uint16_t m_nRefCounter; // 0x2 - 0x2
@@ -32244,7 +32244,7 @@ public:
       FLAG_JOINT = 4,
       FLAG_MASS = 8,
       FLAG_ALWAYS_DYNAMIC_ON_CLIENT = 16
-   }
+   };
 
    std::uint32_t m_nFlags; // 0x0 - 0x0
    std::float_t m_flMass; // 0x4 - 0x4
@@ -32298,7 +32298,7 @@ public:
       FLAG0_SHIFT_CONSTRAIN = 1,
       FLAG0_SHIFT_BREAKABLE_FORCE = 2,
       FLAG0_SHIFT_BREAKABLE_TORQUE = 3
-   }
+   };
 
    std::int8_t m_nType; // 0x0 - 0x0
    std::int8_t m_nTranslateMotion; // 0x1 - 0x1
@@ -32358,7 +32358,7 @@ public:
    {
       JOINT_FLAGS_NONE = 0,
       JOINT_FLAGS_BODY1_FIXED = 1
-   }
+   };
 
    std::uint16_t m_nType; // 0x0 - 0x0
    std::uint16_t m_nBody1; // 0x2 - 0x2
