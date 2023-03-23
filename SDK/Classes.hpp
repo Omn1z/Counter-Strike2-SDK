@@ -1016,6 +1016,7 @@ class CBrBaseItem : public CPhysicsPropMultiplayer
 {
 public:
 
+   unsigned char pad_B00[0x28] // 0xB00 - 0xB28
 
 }; // size - 0xB28
 
@@ -1137,6 +1138,7 @@ class CBoneConstraintBase
 {
 public:
 
+   unsigned char pad_0[0x28] // 0x0 - 0x28
 
 }; // size - 0x28
 
@@ -1443,6 +1445,7 @@ class CBtNode
 {
 public:
 
+   unsigned char pad_0[0x58] // 0x0 - 0x58
 
 }; // size - 0x58
 
@@ -1451,6 +1454,7 @@ class CEntitySubclassVDataBase
 {
 public:
 
+   unsigned char pad_0[0x28] // 0x0 - 0x28
 
 }; // size - 0x28
 
@@ -1489,6 +1493,7 @@ class CNavVolume
 {
 public:
 
+   unsigned char pad_0[0x70] // 0x0 - 0x70
 
 }; // size - 0x70
 
@@ -1562,6 +1567,7 @@ class CConditionBase
 {
 public:
 
+   unsigned char pad_0[0x28] // 0x0 - 0x28
 
 }; // size - 0x28
 
@@ -2337,6 +2343,7 @@ class CAnimActionBase
 {
 public:
 
+   unsigned char pad_0[0x28] // 0x0 - 0x28
 
 }; // size - 0x28
 
@@ -2345,6 +2352,7 @@ class CAnimActionUpdater
 {
 public:
 
+   unsigned char pad_0[0x18] // 0x0 - 0x18
 
 }; // size - 0x18
 
@@ -4353,6 +4361,7 @@ class CAnimGraphSettingsGroup
 {
 public:
 
+   unsigned char pad_0[0x20] // 0x0 - 0x20
 
 }; // size - 0x20
 
@@ -4832,17 +4841,16 @@ public:
    bool m_bDebugAbsOriginChanges; // 0xE6 - 0xE7
    bool m_bDormant; // 0xE7 - 0xE8
    bool m_bForceParentToBeNetworked; // 0xE8 - 0xE9
-   bitfield:1 m_bDirtyHierarchy; // 0x0 - 0x0
-   bitfield:1 m_bDirtyBoneMergeInfo; // 0x0 - 0x0
-   bitfield:1 m_bNetworkedPositionChanged; // 0x0 - 0x0
-   bitfield:1 m_bNetworkedAnglesChanged; // 0x0 - 0x0
-   bitfield:1 m_bNetworkedScaleChanged; // 0x0 - 0x0
-   bitfield:1 m_bWillBeCallingPostDataUpdate; // 0x0 - 0x0
-   bitfield:1 m_bNotifyBoneTransformsChanged; // 0x0 - 0x0
-   bitfield:1 m_bBoneMergeFlex; // 0x0 - 0x0
-   bitfield:2 m_nLatchAbsOrigin; // 0x0 - 0x0
-   bitfield:1 m_bDirtyBoneMergeBoneToRoot; // 0x0 - 0x0
-   unsigned char pad_0[0xEB] // 0x0 - 0xEB
+   unsigned char m_bDirtyHierarchy : 1;
+   unsigned char m_bDirtyBoneMergeInfo : 1;
+   unsigned char m_bNetworkedPositionChanged : 1;
+   unsigned char m_bNetworkedAnglesChanged : 1;
+   unsigned char m_bNetworkedScaleChanged : 1;
+   unsigned char m_bWillBeCallingPostDataUpdate : 1;
+   unsigned char m_bNotifyBoneTransformsChanged : 1;
+   unsigned char m_bBoneMergeFlex : 1;
+   unsigned char m_nLatchAbsOrigin : 2;
+   unsigned char m_bDirtyBoneMergeBoneToRoot : 1;
    uint8_t m_nHierarchicalDepth; // 0xEB - 0xEC
    uint8_t m_nHierarchyType; // 0xEC - 0xED
    uint8_t m_nDoNotSetAnimTimeInInvalidatePhysicsCount; // 0xED - 0xEE
@@ -4878,17 +4886,16 @@ public:
    bool m_bDebugAbsOriginChanges; // 0xE6 - 0xE7
    bool m_bDormant; // 0xE7 - 0xE8
    bool m_bForceParentToBeNetworked; // 0xE8 - 0xE9
-   bitfield:1 m_bDirtyHierarchy; // 0x0 - 0x0
-   bitfield:1 m_bDirtyBoneMergeInfo; // 0x0 - 0x0
-   bitfield:1 m_bNetworkedPositionChanged; // 0x0 - 0x0
-   bitfield:1 m_bNetworkedAnglesChanged; // 0x0 - 0x0
-   bitfield:1 m_bNetworkedScaleChanged; // 0x0 - 0x0
-   bitfield:1 m_bWillBeCallingPostDataUpdate; // 0x0 - 0x0
-   bitfield:1 m_bNotifyBoneTransformsChanged; // 0x0 - 0x0
-   bitfield:1 m_bBoneMergeFlex; // 0x0 - 0x0
-   bitfield:2 m_nLatchAbsOrigin; // 0x0 - 0x0
-   bitfield:1 m_bDirtyBoneMergeBoneToRoot; // 0x0 - 0x0
-   unsigned char pad_0[0xEB] // 0x0 - 0xEB
+   unsigned char m_bDirtyHierarchy : 1;
+   unsigned char m_bDirtyBoneMergeInfo : 1;
+   unsigned char m_bNetworkedPositionChanged : 1;
+   unsigned char m_bNetworkedAnglesChanged : 1;
+   unsigned char m_bNetworkedScaleChanged : 1;
+   unsigned char m_bWillBeCallingPostDataUpdate : 1;
+   unsigned char m_bNotifyBoneTransformsChanged : 1;
+   unsigned char m_bBoneMergeFlex : 1;
+   unsigned char m_nLatchAbsOrigin : 2;
+   unsigned char m_bDirtyBoneMergeBoneToRoot : 1;
    uint8_t m_nHierarchicalDepth; // 0xEB - 0xEC
    uint8_t m_nHierarchyType; // 0xEC - 0xED
    uint8_t m_nDoNotSetAnimTimeInInvalidatePhysicsCount; // 0xED - 0xEE
@@ -5130,6 +5137,7 @@ class CNavVolumeCalculatedVector : public CNavVolume
 {
 public:
 
+   unsigned char pad_70[0x28] // 0x70 - 0x98
 
 }; // size - 0x98
 
@@ -5574,6 +5582,7 @@ class CPointDZItemSpawn : public CServerOnlyPointEntity
 {
 public:
 
+   unsigned char pad_4A0[0x8] // 0x4A0 - 0x4A8
 
 }; // size - 0x4A8
 
@@ -6002,6 +6011,7 @@ class C_MolotovGrenade : public C_BaseCSGrenade
 {
 public:
 
+   unsigned char pad_1410[0x20] // 0x1410 - 0x1430
 
 }; // size - 0x1430
 
@@ -6830,6 +6840,7 @@ class CAndCondition : public CConditionBase
 {
 public:
 
+   unsigned char pad_28[0x38] // 0x28 - 0x60
 
 }; // size - 0x60
 
@@ -7867,6 +7878,7 @@ class CBindPoseUpdateNode : public CLeafUpdateNode
 {
 public:
 
+   unsigned char pad_58[0x8] // 0x58 - 0x60
 
 }; // size - 0x60
 
@@ -8660,6 +8672,7 @@ class CCSGOPlayerAnimGraphState
 {
 public:
 
+   unsigned char pad_0[0x120] // 0x0 - 0x120
 
 }; // size - 0x120
 
@@ -8973,6 +8986,7 @@ class CCSObserverPawn : public CCSPlayerPawnBase
 {
 public:
 
+   unsigned char pad_1570[0x28] // 0x1570 - 0x1598
 
 }; // size - 0x1598
 
@@ -9405,6 +9419,7 @@ class CCSPlayer_GlowServices : public CPlayerPawnComponent
 {
 public:
 
+   unsigned char pad_40[0x30] // 0x40 - 0x70
 
 }; // size - 0x70
 
@@ -9588,6 +9603,7 @@ class CCSPlayer_ParachuteServices : public CPlayerPawnComponent
 {
 public:
 
+   unsigned char pad_40[0x38] // 0x40 - 0x78
 
 }; // size - 0x78
 
@@ -9915,6 +9931,7 @@ class CChoreoUpdateNode : public CUnaryUpdateNode
 {
 public:
 
+   unsigned char pad_68[0x8] // 0x68 - 0x70
 
 }; // size - 0x70
 
@@ -9925,10 +9942,9 @@ public:
 
    uint8_t m_nRenderFX; // 0x10 - 0x11
    uint8_t m_nRenderMode; // 0x11 - 0x12
-   bitfield:1 m_bAlphaOverride; // 0x0 - 0x0
-   bitfield:1 m_bShadowAlphaOverride; // 0x0 - 0x0
-   bitfield:6 m_nReserved; // 0x0 - 0x0
-   unsigned char pad_0[0x13] // 0x0 - 0x13
+   unsigned char m_bAlphaOverride : 1;
+   unsigned char m_bShadowAlphaOverride : 1;
+   unsigned char m_nReserved : 6;
    uint8_t m_nAlpha; // 0x13 - 0x14
    uint16_t m_nDesyncOffset; // 0x14 - 0x16
    uint16_t m_nReserved2; // 0x16 - 0x18
@@ -13719,6 +13735,7 @@ class CGroupInputAnimNode : public CProxyAnimNodeBase
 {
 public:
 
+   unsigned char pad_58[0x8] // 0x58 - 0x60
 
 }; // size - 0x60
 
@@ -13933,6 +13950,7 @@ class CHostageRescueZone : public CHostageRescueZoneShim
 {
 public:
 
+   unsigned char pad_898[0x10] // 0x898 - 0x8A8
 
 }; // size - 0x8A8
 
@@ -13974,6 +13992,7 @@ class CInfoData : public CServerOnlyEntity
 {
 public:
 
+   unsigned char pad_4A0[0x390] // 0x4A0 - 0x830
 
 }; // size - 0x830
 
@@ -14282,6 +14301,7 @@ class CInputStreamUpdateNode : public CLeafUpdateNode
 {
 public:
 
+   unsigned char pad_58[0x8] // 0x58 - 0x60
 
 }; // size - 0x60
 
@@ -15798,6 +15818,7 @@ class CMotionNodeManager : public CAnimNodeManager
 {
 public:
 
+   unsigned char pad_48[0x8] // 0x48 - 0x50
 
 }; // size - 0x50
 
@@ -16082,6 +16103,7 @@ class CNavVolumeMarkupVolume : public CNavVolume
 {
 public:
 
+   unsigned char pad_70[0x68] // 0x70 - 0xD8
 
 }; // size - 0xD8
 
@@ -16211,20 +16233,20 @@ public:
    CNewParticleEffect* m_pPrev; // 0x18 - 0x20
    IParticleCollection* m_pParticles; // 0x20 - 0x28
    char* m_pDebugName; // 0x28 - 0x30
-   bitfield:1 m_bDontRemove; // 0x0 - 0x0
-   bitfield:1 m_bRemove; // 0x0 - 0x0
-   bitfield:1 m_bNeedsBBoxUpdate; // 0x0 - 0x0
-   bitfield:1 m_bIsFirstFrame; // 0x0 - 0x0
-   bitfield:1 m_bAutoUpdateBBox; // 0x0 - 0x0
-   bitfield:1 m_bAllocated; // 0x0 - 0x0
-   bitfield:1 m_bSimulate; // 0x0 - 0x0
-   bitfield:1 m_bShouldPerformCullCheck; // 0x0 - 0x0
-   bitfield:1 m_bForceNoDraw; // 0x0 - 0x0
-   bitfield:1 m_bShouldSave; // 0x0 - 0x0
-   bitfield:1 m_bDisableAggregation; // 0x0 - 0x0
-   bitfield:1 m_bShouldSimulateDuringGamePaused; // 0x0 - 0x0
-   bitfield:1 m_bShouldCheckFoW; // 0x0 - 0x0
-   unsigned char pad_0[0x40] // 0x0 - 0x40
+   unsigned char m_bDontRemove : 1;
+   unsigned char m_bRemove : 1;
+   unsigned char m_bNeedsBBoxUpdate : 1;
+   unsigned char m_bIsFirstFrame : 1;
+   unsigned char m_bAutoUpdateBBox : 1;
+   unsigned char m_bAllocated : 1;
+   unsigned char m_bSimulate : 1;
+   unsigned char m_bShouldPerformCullCheck : 1;
+   unsigned char m_bForceNoDraw : 1;
+   unsigned char m_bShouldSave : 1;
+   unsigned char m_bDisableAggregation : 1;
+   unsigned char m_bShouldSimulateDuringGamePaused : 1;
+   unsigned char m_bShouldCheckFoW : 1;
+   unsigned char pad_3D[0x3] // 0x3D - 0x40
    Vector m_vSortOrigin; // 0x40 - 0x4C
    float m_flScale; // 0x4C - 0x50
    PARTICLE_EHANDLE__* m_hOwner; // 0x50 - 0x58
@@ -16280,6 +16302,7 @@ class COrCondition : public CConditionBase
 {
 public:
 
+   unsigned char pad_28[0x38] // 0x28 - 0x60
 
 }; // size - 0x60
 
@@ -16392,6 +16415,7 @@ class CParticleProperty
 {
 public:
 
+   unsigned char pad_0[0x28] // 0x0 - 0x28
 
 }; // size - 0x28
 
@@ -17245,6 +17269,7 @@ class CPlayerSprayDecalRenderHelper
 {
 public:
 
+   unsigned char pad_0[0x30] // 0x0 - 0x30
 
 }; // size - 0x30
 
@@ -17435,6 +17460,7 @@ class CPointDZParachuteSpawn : public CServerOnlyPointEntity
 {
 public:
 
+   unsigned char pad_4A0[0x8] // 0x4A0 - 0x4A8
 
 }; // size - 0x4A8
 
@@ -17467,6 +17493,7 @@ class CPointDZWeaponSpawnGroup : public CPointDZItemSpawnGroup
 {
 public:
 
+   unsigned char pad_4C0[0x8] // 0x4C0 - 0x4C8
 
 }; // size - 0x4C8
 
@@ -17519,6 +17546,7 @@ class CPointHintUi : public CPointClientUIWorldPanel
 {
 public:
 
+   unsigned char pad_8F8[0x8] // 0x8F8 - 0x900
 
 }; // size - 0x900
 
@@ -19290,9 +19318,8 @@ public:
    bool m_bIsAnimationEnabled; // 0x390 - 0x391
    bool m_bUseParentRenderBounds; // 0x391 - 0x392
    bool m_bDisableSolidCollisionsForHierarchy; // 0x392 - 0x393
-   bitfield:1 m_bDirtyMotionType; // 0x0 - 0x0
-   bitfield:1 m_bIsGeneratingLatchedParentSpaceState; // 0x0 - 0x0
-   unsigned char pad_0[0x394] // 0x0 - 0x394
+   unsigned char m_bDirtyMotionType : 1;
+   unsigned char m_bIsGeneratingLatchedParentSpaceState : 1;
    CUtlStringToken m_materialGroup; // 0x394 - 0x398
    uint8_t m_nHitboxSet; // 0x398 - 0x399
 
@@ -19307,9 +19334,8 @@ public:
    bool m_bIsAnimationEnabled; // 0x390 - 0x391
    bool m_bUseParentRenderBounds; // 0x391 - 0x392
    bool m_bDisableSolidCollisionsForHierarchy; // 0x392 - 0x393
-   bitfield:1 m_bDirtyMotionType; // 0x0 - 0x0
-   bitfield:1 m_bIsGeneratingLatchedParentSpaceState; // 0x0 - 0x0
-   unsigned char pad_0[0x394] // 0x0 - 0x394
+   unsigned char m_bDirtyMotionType : 1;
+   unsigned char m_bIsGeneratingLatchedParentSpaceState : 1;
    CUtlStringToken m_materialGroup; // 0x394 - 0x398
    uint8_t m_nHitboxSet; // 0x398 - 0x399
 
@@ -19430,6 +19456,7 @@ class CSmokeGrenade : public CBaseCSGrenade
 {
 public:
 
+   unsigned char pad_D90[0x8] // 0xD90 - 0xD98
 
 }; // size - 0xD98
 
@@ -19783,6 +19810,7 @@ class CSplineConstraint : public CPhysConstraint
 {
 public:
 
+   unsigned char pad_4F8[0x48] // 0x4F8 - 0x540
 
 }; // size - 0x540
 
@@ -19936,7 +19964,7 @@ class CStateNodeStateData
 public:
 
    CAnimUpdateNodeRef m_pChild; // 0x0 - 0x10
-   bitfield:1 m_bExclusiveRootMotion; // 0x0 - 0x0
+   unsigned char m_bExclusiveRootMotion : 1;
 
 }; // size - 0x18
 
@@ -19948,8 +19976,8 @@ public:
    CBlendCurve m_curve; // 0x0 - 0x8
    CAnimValue< float32 > m_blendDuration; // 0x8 - 0x10
    CAnimValue< float32 > m_resetCycleValue; // 0x10 - 0x18
-   bitfield:1 m_bReset; // 0x0 - 0x0
-   bitfield:3 m_resetCycleOption; // 0x0 - 0x0
+   unsigned char m_bReset : 1;
+   unsigned char m_resetCycleOption : 3;
 
 }; // size - 0x1C
 
@@ -19978,9 +20006,9 @@ public:
    CUtlVector< int32 > m_transitionIndices; // 0x10 - 0x28
    CUtlVector< CStateActionUpdater > m_actions; // 0x28 - 0x40
    AnimStateID m_stateID; // 0x40 - 0x44
-   bitfield:1 m_bIsStartState; // 0x0 - 0x0
-   bitfield:1 m_bIsEndState; // 0x0 - 0x0
-   bitfield:1 m_bIsPassthrough; // 0x0 - 0x0
+   unsigned char m_bIsStartState : 1;
+   unsigned char m_bIsEndState : 1;
+   unsigned char m_bIsPassthrough : 1;
 
 }; // size - 0x48
 
@@ -19989,6 +20017,7 @@ class CStaticPoseCacheBuilder : public CStaticPoseCache
 {
 public:
 
+   unsigned char pad_30[0x8] // 0x30 - 0x38
 
 }; // size - 0x38
 
@@ -20054,6 +20083,7 @@ class CStringAnimTag : public CAnimTagBase
 {
 public:
 
+   unsigned char pad_38[0x8] // 0x38 - 0x40
 
 }; // size - 0x40
 
@@ -20225,6 +20255,7 @@ class CTabletBlocker : public CTabletBlockerShim
 {
 public:
 
+   unsigned char pad_898[0x8] // 0x898 - 0x8A0
 
 }; // size - 0x8A0
 
@@ -20494,6 +20525,7 @@ class CTouchExpansionComponent : public CEntityComponent
 {
 public:
 
+   unsigned char pad_8[0x18] // 0x8 - 0x20
 
 }; // size - 0x20
 
@@ -20504,7 +20536,7 @@ public:
 
    uint8_t m_srcStateIndex; // 0x0 - 0x1
    uint8_t m_destStateIndex; // 0x1 - 0x2
-   bitfield:1 m_bDisabled; // 0x0 - 0x0
+   unsigned char m_bDisabled : 1;
 
 }; // size - 0x3
 
@@ -20554,6 +20586,7 @@ class CTriggerCallback : public CBaseTrigger
 {
 public:
 
+   unsigned char pad_898[0x8] // 0x898 - 0x8A0
 
 }; // size - 0x8A0
 
@@ -20857,6 +20890,7 @@ class CTriggerTripWire : public CBaseTrigger
 {
 public:
 
+   unsigned char pad_898[0x8] // 0x898 - 0x8A0
 
 }; // size - 0x8A0
 
@@ -21021,6 +21055,7 @@ class CVariantDefaultAllocator
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -21581,6 +21616,7 @@ class CWeaponZoneRepulsor : public CWeaponCSBaseGun
 {
 public:
 
+   unsigned char pad_D70[0x20] // 0xD70 - 0xD90
 
 }; // size - 0xD90
 
@@ -21617,6 +21653,7 @@ class CZeroPoseUpdateNode : public CLeafUpdateNode
 {
 public:
 
+   unsigned char pad_58[0x8] // 0x58 - 0x60
 
 }; // size - 0x60
 
@@ -21730,6 +21767,7 @@ class C_BreachCharge : public C_WeaponCSBase
 {
 public:
 
+   unsigned char pad_13D0[0x10] // 0x13D0 - 0x13E0
 
 }; // size - 0x13E0
 
@@ -22666,6 +22704,7 @@ class C_EnvProjectedTexture : public C_ModelPointEntity
 {
 public:
 
+   unsigned char pad_838[0x2E8] // 0x838 - 0xB20
 
 }; // size - 0xB20
 
@@ -23149,6 +23188,7 @@ class C_HostageCarriableProp : public CBaseAnimGraph
 {
 public:
 
+   unsigned char pad_998[0x8] // 0x998 - 0x9A0
 
 }; // size - 0x9A0
 
@@ -28791,6 +28831,7 @@ class C_PhysPropRadarJammer : public C_PhysicsPropMultiplayer
 {
 public:
 
+   unsigned char pad_AF0[0x8] // 0xAF0 - 0xAF8
 
 }; // size - 0xAF8
 
@@ -29229,10 +29270,10 @@ public:
    Vector m_vCachedEndPointAttachmentPos[2]; // 0xBE8 - 0xC00
    QAngle m_vCachedEndPointAttachmentAngle[2]; // 0xC00 - 0xC18
    bool m_bConstrainBetweenEndpoints; // 0xC18 - 0xC19
-   bitfield:1 m_bEndPointAttachmentPositionsDirty; // 0x0 - 0x0
-   bitfield:1 m_bEndPointAttachmentAnglesDirty; // 0x0 - 0x0
-   bitfield:1 m_bNewDataThisFrame; // 0x0 - 0x0
-   bitfield:1 m_bPhysicsInitted; // 0x0 - 0x0
+   unsigned char m_bEndPointAttachmentPositionsDirty : 1;
+   unsigned char m_bEndPointAttachmentAnglesDirty : 1;
+   unsigned char m_bNewDataThisFrame : 1;
+   unsigned char m_bPhysicsInitted : 1;
 
 }; // size - 0xC20
 
@@ -29281,6 +29322,7 @@ class C_SensorGrenadeProjectile : public C_BaseCSGrenadeProjectile
 {
 public:
 
+   unsigned char pad_C00[0x20] // 0xC00 - 0xC20
 
 }; // size - 0xC20
 
@@ -29577,6 +29619,7 @@ class C_TintController : public C_BaseEntity
 {
 public:
 
+   unsigned char pad_538[0x18] // 0x538 - 0x550
 
 }; // size - 0x550
 
@@ -30382,6 +30425,7 @@ class EntInput_t
 {
 public:
 
+   unsigned char pad_0[0x30] // 0x0 - 0x30
 
 }; // size - 0x30
 
@@ -30390,6 +30434,7 @@ class EntOutput_t
 {
 public:
 
+   unsigned char pad_0[0x10] // 0x0 - 0x10
 
 }; // size - 0x10
 
@@ -30585,6 +30630,7 @@ class EventClientPredictionPostNetupdate_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -30614,6 +30660,7 @@ class EventClientProcessNetworking_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -30659,6 +30706,7 @@ class EventModInitialized_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -30770,6 +30818,7 @@ class EventSplitScreenStateChanged_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31735,6 +31784,7 @@ class IParticleCollection
 {
 public:
 
+   unsigned char pad_0[0x10] // 0x0 - 0x10
 
 }; // size - 0x10
 
@@ -31761,6 +31811,7 @@ class InfoForResourceTypeCAnimData
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31769,6 +31820,7 @@ class InfoForResourceTypeCAnimationGroup
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31777,6 +31829,7 @@ class InfoForResourceTypeCCSGOEconItem
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31785,6 +31838,7 @@ class InfoForResourceTypeCChoreoSceneFileData
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31793,6 +31847,7 @@ class InfoForResourceTypeCCompositeMaterialKit
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31801,6 +31856,7 @@ class InfoForResourceTypeCDACGameDefsData
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31809,6 +31865,7 @@ class InfoForResourceTypeCDOTAPatchNotesList
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31817,6 +31874,7 @@ class InfoForResourceTypeCDotaItemDefinitionResource
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31825,6 +31883,7 @@ class InfoForResourceTypeCEntityLump
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31833,6 +31892,7 @@ class InfoForResourceTypeCModel
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31841,6 +31901,7 @@ class InfoForResourceTypeCMorphSetData
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31849,6 +31910,7 @@ class InfoForResourceTypeCPanoramaDynamicImages
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31857,6 +31919,7 @@ class InfoForResourceTypeCPanoramaLayout
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31865,6 +31928,7 @@ class InfoForResourceTypeCPanoramaScript
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31873,6 +31937,7 @@ class InfoForResourceTypeCPanoramaStyle
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31881,6 +31946,7 @@ class InfoForResourceTypeCPanoramaTypeScript
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31889,6 +31955,7 @@ class InfoForResourceTypeCPhysAggregateData
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31897,6 +31964,7 @@ class InfoForResourceTypeCPostProcessingResource
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31905,6 +31973,7 @@ class InfoForResourceTypeCRenderMesh
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31913,6 +31982,7 @@ class InfoForResourceTypeCResourceManifestInternal
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31921,6 +31991,7 @@ class InfoForResourceTypeCResponseRulesList
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31929,6 +32000,7 @@ class InfoForResourceTypeCSequenceGroupData
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31937,6 +32009,7 @@ class InfoForResourceTypeCSmartProp
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31945,6 +32018,7 @@ class InfoForResourceTypeCTextureBase
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31953,6 +32027,7 @@ class InfoForResourceTypeCVDataResource
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31961,6 +32036,7 @@ class InfoForResourceTypeCVMixListResource
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31969,6 +32045,7 @@ class InfoForResourceTypeCVPhysXSurfacePropertiesList
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31977,6 +32054,7 @@ class InfoForResourceTypeCVSoundEventScriptList
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31985,6 +32063,7 @@ class InfoForResourceTypeCVSoundStackScriptList
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -31993,6 +32072,7 @@ class InfoForResourceTypeCVoxelVisibility
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32001,6 +32081,7 @@ class InfoForResourceTypeCWorldNode
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32009,6 +32090,7 @@ class InfoForResourceTypeIAnimGraphModelBinding
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32017,6 +32099,7 @@ class InfoForResourceTypeIMaterial2
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32025,6 +32108,7 @@ class InfoForResourceTypeIParticleSnapshot
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32033,6 +32117,7 @@ class InfoForResourceTypeIParticleSystemDefinition
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32041,6 +32126,7 @@ class InfoForResourceTypeIVectorGraphic
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32049,6 +32135,7 @@ class InfoForResourceTypeManifestTestResource_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32057,6 +32144,7 @@ class InfoForResourceTypeProceduralTestResource_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32065,6 +32153,7 @@ class InfoForResourceTypeTestResource_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32073,6 +32162,7 @@ class InfoForResourceTypeVMapResourceData_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32081,6 +32171,7 @@ class InfoForResourceTypeVSound_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32089,6 +32180,7 @@ class InfoForResourceTypeWorld_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -32979,6 +33071,7 @@ public:
       QUEST_REASON_MAX = 12
    };
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
@@ -33564,6 +33657,7 @@ class VMapResourceData_t
 {
 public:
 
+   unsigned char pad_0[0x1] // 0x0 - 0x1
 
 }; // size - 0x1
 
