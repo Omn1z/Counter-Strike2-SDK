@@ -1,4 +1,4 @@
-m_hActiveWeapon#pragma once
+#pragma once
 
 #include "SDK.hpp"
 
