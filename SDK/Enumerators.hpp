@@ -508,34 +508,35 @@ enum class AnimValueSource : std::uint32_t
    ManualFacingHeading = 5,
    LookHeading = 6,
    LookPitch = 7,
-   Parameter = 8,
-   WayPointHeading = 9,
-   WayPointDistance = 10,
-   BoundaryRadius = 11,
-   TargetMoveHeading = 12,
-   TargetMoveSpeed = 13,
-   AccelerationHeading = 14,
-   AccelerationSpeed = 15,
-   SlopeHeading = 16,
-   SlopeAngle = 17,
-   SlopePitch = 18,
-   SlopeYaw = 19,
-   GoalDistance = 20,
-   AccelerationLeftRight = 21,
-   AccelerationFrontBack = 22,
-   RootMotionSpeed = 23,
-   RootMotionTurnSpeed = 24,
-   MoveHeadingRelativeToLookHeading = 25,
-   MaxMoveSpeed = 26,
-   FingerCurl_Thumb = 27,
-   FingerCurl_Index = 28,
-   FingerCurl_Middle = 29,
-   FingerCurl_Ring = 30,
-   FingerCurl_Pinky = 31,
-   FingerSplay_Thumb_Index = 32,
-   FingerSplay_Index_Middle = 33,
-   FingerSplay_Middle_Ring = 34,
-   FingerSplay_Ring_Pinky = 35
+   LookDistance = 8,
+   Parameter = 9,
+   WayPointHeading = 10,
+   WayPointDistance = 11,
+   BoundaryRadius = 12,
+   TargetMoveHeading = 13,
+   TargetMoveSpeed = 14,
+   AccelerationHeading = 15,
+   AccelerationSpeed = 16,
+   SlopeHeading = 17,
+   SlopeAngle = 18,
+   SlopePitch = 19,
+   SlopeYaw = 20,
+   GoalDistance = 21,
+   AccelerationLeftRight = 22,
+   AccelerationFrontBack = 23,
+   RootMotionSpeed = 24,
+   RootMotionTurnSpeed = 25,
+   MoveHeadingRelativeToLookHeading = 26,
+   MaxMoveSpeed = 27,
+   FingerCurl_Thumb = 28,
+   FingerCurl_Index = 29,
+   FingerCurl_Middle = 30,
+   FingerCurl_Ring = 31,
+   FingerCurl_Pinky = 32,
+   FingerSplay_Thumb_Index = 33,
+   FingerSplay_Index_Middle = 34,
+   FingerSplay_Middle_Ring = 35,
+   FingerSplay_Ring_Pinky = 36
 };
 
 enum class AnimVectorSource : std::uint32_t
@@ -575,40 +576,41 @@ enum class ControlValue : std::uint32_t
    ControlValue_FacingHeading = 2,
    ControlValue_LookHeading = 3,
    ControlValue_LookPitch = 4,
-   ControlValue_WayPointHeading = 5,
-   ControlValue_WayPointDistance = 6,
-   ControlValue_BoundaryRadius = 7,
-   ControlValue_TotalTranslation_SourceState = 8,
-   ControlValue_TotalTranslation_TargetState = 9,
-   ControlValue_RemainingTranslation_SourceState = 10,
-   ControlValue_RemainingTranslation_TargetState = 11,
-   ControlValue_MoveVsFacingDelta = 12,
-   ControlValue_SourceStateBlendWeight = 13,
-   ControlValue_TargetStateBlendWeight = 14,
-   ControlValue_TargetMoveHeading = 15,
-   ControlValue_TargetMoveSpeed = 16,
-   ControlValue_AccelerationHeading = 17,
-   ControlValue_AccelerationSpeed = 18,
-   ControlValue_SlopeHeading = 19,
-   ControlValue_SlopeAngle = 20,
-   ControlValue_SlopeYaw = 21,
-   ControlValue_SlopePitch = 22,
-   ControlValue_GoalDistance = 23,
-   ControlValue_AccelerationLeftRight = 24,
-   ControlValue_AccelerationFrontBack = 25,
-   ControlValue_RootMotionSpeed = 26,
-   ControlValue_RootMotionTurnSpeed = 27,
-   ControlValue_MoveHeadingRelativeToLookHeading = 28,
-   ControlValue_FingerCurl_Thumb = 29,
-   ControlValue_FingerCurl_Index = 30,
-   ControlValue_FingerCurl_Middle = 31,
-   ControlValue_FingerCurl_Ring = 32,
-   ControlValue_FingerCurl_Pinky = 33,
-   ControlValue_FingerSplay_Thumb_Index = 34,
-   ControlValue_FingerSplay_Index_Middle = 35,
-   ControlValue_FingerSplay_Middle_Ring = 36,
-   ControlValue_FingerSplay_Ring_Pinky = 37,
-   ControlValue_Count = 38,
+   ControlValue_LookDistance = 5,
+   ControlValue_WayPointHeading = 6,
+   ControlValue_WayPointDistance = 7,
+   ControlValue_BoundaryRadius = 8,
+   ControlValue_TotalTranslation_SourceState = 9,
+   ControlValue_TotalTranslation_TargetState = 10,
+   ControlValue_RemainingTranslation_SourceState = 11,
+   ControlValue_RemainingTranslation_TargetState = 12,
+   ControlValue_MoveVsFacingDelta = 13,
+   ControlValue_SourceStateBlendWeight = 14,
+   ControlValue_TargetStateBlendWeight = 15,
+   ControlValue_TargetMoveHeading = 16,
+   ControlValue_TargetMoveSpeed = 17,
+   ControlValue_AccelerationHeading = 18,
+   ControlValue_AccelerationSpeed = 19,
+   ControlValue_SlopeHeading = 20,
+   ControlValue_SlopeAngle = 21,
+   ControlValue_SlopeYaw = 22,
+   ControlValue_SlopePitch = 23,
+   ControlValue_GoalDistance = 24,
+   ControlValue_AccelerationLeftRight = 25,
+   ControlValue_AccelerationFrontBack = 26,
+   ControlValue_RootMotionSpeed = 27,
+   ControlValue_RootMotionTurnSpeed = 28,
+   ControlValue_MoveHeadingRelativeToLookHeading = 29,
+   ControlValue_FingerCurl_Thumb = 30,
+   ControlValue_FingerCurl_Index = 31,
+   ControlValue_FingerCurl_Middle = 32,
+   ControlValue_FingerCurl_Ring = 33,
+   ControlValue_FingerCurl_Pinky = 34,
+   ControlValue_FingerSplay_Thumb_Index = 35,
+   ControlValue_FingerSplay_Index_Middle = 36,
+   ControlValue_FingerSplay_Middle_Ring = 37,
+   ControlValue_FingerSplay_Ring_Pinky = 38,
+   ControlValue_Count = 39,
    ControlValue_Invalid = 255
 };
 
@@ -1710,6 +1712,70 @@ enum class TextureRepetitionMode_t : std::uint32_t
    TEXTURE_REPETITION_PATH = 1
 };
 
+enum class PulseInstructionCode_t : std::uint16_t
+{
+   INVALID = 0,
+   IMMEDIATE_HALT = 1,
+   RETURN_VOID = 2,
+   RETURN_VALUE = 3,
+   NOP = 4,
+   JUMP = 5,
+   LEAP = 6,
+   COND_JUMP = 7,
+   COND_LEAP = 8,
+   PULSE_CALL = 9,
+   LANDING_PAD = 10,
+   CELL_INVOKE = 11,
+   LIBRARY_INVOKE = 12,
+   SET_VAR_REG_BOOL = 13,
+   SET_VAR_REG_INT = 14,
+   SET_VAR_REG_FLOAT = 15,
+   SET_VAR_REG_STR = 16,
+   SET_VAR_REG_EHANDLE = 17,
+   SET_VAR_REG_SNDEVT_GUID = 18,
+   SET_VAR_REG_VEC3 = 19,
+   GET_VAR_REG_BOOL = 20,
+   GET_VAR_REG_INT = 21,
+   GET_VAR_REG_FLOAT = 22,
+   GET_VAR_REG_STR = 23,
+   GET_VAR_REG_EHANDLE = 24,
+   GET_VAR_REG_SNDEVT_GUID = 25,
+   GET_VAR_REG_VEC3 = 26,
+   SET_REGISTER_LIT_BOOL = 27,
+   SET_REGISTER_LIT_INT = 28,
+   SET_REGISTER_LIT_FLOAT = 29,
+   SET_REGISTER_LIT_STR = 30,
+   SET_REGISTER_LIT_INVAL_EHANDLE = 31,
+   SET_REGISTER_LIT_INVAL_SNDEVT_GUID = 32,
+   SET_REGISTER_LIT_VEC3 = 33,
+   SET_REGISTER_DOMAIN_VALUE = 34,
+   COUNT = 35
+};
+
+enum class PulseValueType_t : std::int32_t
+{
+   PVAL_INVALID = -1,
+   PVAL_BOOL = 0,
+   PVAL_INT = 1,
+   PVAL_FLOAT = 2,
+   PVAL_STRING = 3,
+   PVAL_VEC3 = 4,
+   PVAL_TRANSFORM = 5,
+   PVAL_EHANDLE = 6,
+   PVAL_RESOURCE = 7,
+   PVAL_SNDEVT_GUID = 8,
+   PVAL_CURSOR_FLOW = 9,
+   PVAL_ANY = 10,
+   PVAL_COUNT = 11
+};
+
+enum class PulseCursorFlow_t : std::int32_t
+{
+   INVALID = -1,
+   TERMINATE = 0,
+   JUMP_OR_LEAP = 1
+};
+
 enum class ParticleFloatType_t : std::int32_t
 {
    PF_TYPE_INVALID = -1,
@@ -1723,15 +1789,17 @@ enum class ParticleFloatType_t : std::int32_t
    PF_TYPE_CONTROL_POINT_CHANGE_AGE = 7,
    PF_TYPE_CONTROL_POINT_SPEED = 8,
    PF_TYPE_PARTICLE_DETAIL_LEVEL = 9,
-   PF_TYPE_PARTICLE_NOISE = 10,
-   PF_TYPE_PARTICLE_AGE = 11,
-   PF_TYPE_PARTICLE_AGE_NORMALIZED = 12,
-   PF_TYPE_PARTICLE_FLOAT = 13,
-   PF_TYPE_PARTICLE_VECTOR_COMPONENT = 14,
-   PF_TYPE_PARTICLE_SPEED = 15,
-   PF_TYPE_PARTICLE_NUMBER = 16,
-   PF_TYPE_PARTICLE_NUMBER_NORMALIZED = 17,
-   PF_TYPE_COUNT = 18
+   PF_TYPE_RENDERER_CAMERA_DISTANCE = 10,
+   PF_TYPE_RENDERER_CAMERA_DOT_PRODUCT = 11,
+   PF_TYPE_PARTICLE_NOISE = 12,
+   PF_TYPE_PARTICLE_AGE = 13,
+   PF_TYPE_PARTICLE_AGE_NORMALIZED = 14,
+   PF_TYPE_PARTICLE_FLOAT = 15,
+   PF_TYPE_PARTICLE_VECTOR_COMPONENT = 16,
+   PF_TYPE_PARTICLE_SPEED = 17,
+   PF_TYPE_PARTICLE_NUMBER = 18,
+   PF_TYPE_PARTICLE_NUMBER_NORMALIZED = 19,
+   PF_TYPE_COUNT = 20
 };
 
 enum class ParticleFloatBiasType_t : std::int32_t
@@ -1804,6 +1872,15 @@ enum class ParticleTransformType_t : std::uint32_t
    PT_TYPE_CONTROL_POINT = 2,
    PT_TYPE_CONTROL_POINT_RANGE = 3,
    PT_TYPE_COUNT = 4
+};
+
+enum class ParticleModelType_t : std::uint32_t
+{
+   PM_TYPE_INVALID = 0,
+   PM_TYPE_NAMED_VALUE_MODEL = 1,
+   PM_TYPE_NAMED_VALUE_EHANDLE = 2,
+   PM_TYPE_CONTROL_POINT = 3,
+   PM_TYPE_COUNT = 4
 };
 
 enum class ParticleVecType_t : std::int32_t
@@ -1921,6 +1998,13 @@ enum class ChatIgnoreType_t : std::uint32_t
    CHAT_IGNORE_NONE = 0,
    CHAT_IGNORE_ALL = 1,
    CHAT_IGNORE_TEAM = 2
+};
+
+enum class FixAngleSet_t : std::uint8_t
+{
+   None = 0,
+   Absolute = 1,
+   Relative = 2
 };
 
 enum class CommandExecMode_t : std::uint32_t
@@ -3454,8 +3538,9 @@ enum class Hull_t : std::uint32_t
    HULL_LARGE = 6,
    HULL_LARGE_CENTERED = 7,
    HULL_MEDIUM_TALL = 8,
-   NUM_HULLS = 9,
-   HULL_NONE = 10
+   HULL_SMALL = 9,
+   NUM_HULLS = 10,
+   HULL_NONE = 11
 };
 
 enum class navproperties_t : std::uint32_t
@@ -4236,16 +4321,17 @@ enum class PlayerAnimEvent_t : std::uint32_t
    PLAYERANIMEVENT_THROW_GRENADE_UNDERHAND = 10,
    PLAYERANIMEVENT_CATCH_WEAPON = 11,
    PLAYERANIMEVENT_LOOKATWEAPON_REQUEST = 12,
-   PLAYERANIMEVENT_HAULBACK = 13,
-   PLAYERANIMEVENT_IDLE = 14,
-   PLAYERANIMEVENT_STRIKE_HIT = 15,
-   PLAYERANIMEVENT_STRIKE_MISS = 16,
-   PLAYERANIMEVENT_BACKSTAB = 17,
-   PLAYERANIMEVENT_DRYFIRE = 18,
-   PLAYERANIMEVENT_FIDGET = 19,
-   PLAYERANIMEVENT_RELEASE = 20,
-   PLAYERANIMEVENT_TAUNT = 21,
-   PLAYERANIMEVENT_COUNT = 22
+   PLAYERANIMEVENT_RELOAD_CANCEL_LOOKATWEAPON = 13,
+   PLAYERANIMEVENT_HAULBACK = 14,
+   PLAYERANIMEVENT_IDLE = 15,
+   PLAYERANIMEVENT_STRIKE_HIT = 16,
+   PLAYERANIMEVENT_STRIKE_MISS = 17,
+   PLAYERANIMEVENT_BACKSTAB = 18,
+   PLAYERANIMEVENT_DRYFIRE = 19,
+   PLAYERANIMEVENT_FIDGET = 20,
+   PLAYERANIMEVENT_RELEASE = 21,
+   PLAYERANIMEVENT_TAUNT = 22,
+   PLAYERANIMEVENT_COUNT = 23
 };
 
 enum class MedalRank_t : std::uint32_t
