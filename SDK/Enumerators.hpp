@@ -144,40 +144,8 @@ enum class RenderPrimitiveType_t : std::uint32_t
    RENDER_PRIM_TRIANGLE_STRIP_WITH_ADJACENCY = 8,
    RENDER_PRIM_INSTANCED_QUADS = 9,
    RENDER_PRIM_HETEROGENOUS = 10,
-   RENDER_PRIM_1_CONTROL_POINT_PATCHLIST = 11,
-   RENDER_PRIM_2_CONTROL_POINT_PATCHLIST = 12,
-   RENDER_PRIM_3_CONTROL_POINT_PATCHLIST = 13,
-   RENDER_PRIM_4_CONTROL_POINT_PATCHLIST = 14,
-   RENDER_PRIM_5_CONTROL_POINT_PATCHLIST = 15,
-   RENDER_PRIM_6_CONTROL_POINT_PATCHLIST = 16,
-   RENDER_PRIM_7_CONTROL_POINT_PATCHLIST = 17,
-   RENDER_PRIM_8_CONTROL_POINT_PATCHLIST = 18,
-   RENDER_PRIM_9_CONTROL_POINT_PATCHLIST = 19,
-   RENDER_PRIM_10_CONTROL_POINT_PATCHLIST = 20,
-   RENDER_PRIM_11_CONTROL_POINT_PATCHLIST = 21,
-   RENDER_PRIM_12_CONTROL_POINT_PATCHLIST = 22,
-   RENDER_PRIM_13_CONTROL_POINT_PATCHLIST = 23,
-   RENDER_PRIM_14_CONTROL_POINT_PATCHLIST = 24,
-   RENDER_PRIM_15_CONTROL_POINT_PATCHLIST = 25,
-   RENDER_PRIM_16_CONTROL_POINT_PATCHLIST = 26,
-   RENDER_PRIM_17_CONTROL_POINT_PATCHLIST = 27,
-   RENDER_PRIM_18_CONTROL_POINT_PATCHLIST = 28,
-   RENDER_PRIM_19_CONTROL_POINT_PATCHLIST = 29,
-   RENDER_PRIM_20_CONTROL_POINT_PATCHLIST = 30,
-   RENDER_PRIM_21_CONTROL_POINT_PATCHLIST = 31,
-   RENDER_PRIM_22_CONTROL_POINT_PATCHLIST = 32,
-   RENDER_PRIM_23_CONTROL_POINT_PATCHLIST = 33,
-   RENDER_PRIM_24_CONTROL_POINT_PATCHLIST = 34,
-   RENDER_PRIM_25_CONTROL_POINT_PATCHLIST = 35,
-   RENDER_PRIM_26_CONTROL_POINT_PATCHLIST = 36,
-   RENDER_PRIM_27_CONTROL_POINT_PATCHLIST = 37,
-   RENDER_PRIM_28_CONTROL_POINT_PATCHLIST = 38,
-   RENDER_PRIM_29_CONTROL_POINT_PATCHLIST = 39,
-   RENDER_PRIM_30_CONTROL_POINT_PATCHLIST = 40,
-   RENDER_PRIM_31_CONTROL_POINT_PATCHLIST = 41,
-   RENDER_PRIM_32_CONTROL_POINT_PATCHLIST = 42,
-   RENDER_PRIM_COMPUTE_SHADER = 43,
-   RENDER_PRIM_TYPE_COUNT = 44
+   RENDER_PRIM_COMPUTE_SHADER = 11,
+   RENDER_PRIM_TYPE_COUNT = 12
 };
 
 enum class InputLayoutVariation_t : std::uint32_t
@@ -346,15 +314,6 @@ enum class ParticleAttachment_t : std::int32_t
    MAX_PATTACH_TYPES = 16
 };
 
-enum class CAnimationGraphVisualizerPrimitiveType : std::uint32_t
-{
-   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Text = 0,
-   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Sphere = 1,
-   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Line = 2,
-   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Pie = 3,
-   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Axis = 4
-};
-
 enum class AnimParamType_t : std::uint8_t
 {
    ANIMPARAM_UNKNOWN = 0,
@@ -374,13 +333,6 @@ enum class BoneTransformSpace_t : std::int32_t
    BoneTransformSpace_Parent = 0,
    BoneTransformSpace_Model = 1,
    BoneTransformSpace_World = 2
-};
-
-enum class PoseType_t : std::uint8_t
-{
-   POSETYPE_STATIC = 0,
-   POSETYPE_DYNAMIC = 1,
-   POSETYPE_INVALID = 255
 };
 
 enum class AnimParamButton_t : std::uint32_t
@@ -407,26 +359,6 @@ enum class AnimParamNetworkSetting : std::uint32_t
    NeverNetwork = 2
 };
 
-enum class AnimNodeNetworkMode : std::uint32_t
-{
-   ServerAuthoritative = 0,
-   ClientSimulate = 1
-};
-
-enum class StateActionBehavior : std::uint32_t
-{
-   STATETAGBEHAVIOR_ACTIVE_WHILE_CURRENT = 0,
-   STATETAGBEHAVIOR_FIRE_ON_ENTER = 1,
-   STATETAGBEHAVIOR_FIRE_ON_EXIT = 2,
-   STATETAGBEHAVIOR_FIRE_ON_ENTER_AND_EXIT = 3
-};
-
-enum class SolveIKChainAnimNodeSettingSource : std::uint32_t
-{
-   SOLVEIKCHAINANIMNODESETTINGSOURCE_Default = 0,
-   SOLVEIKCHAINANIMNODESETTINGSOURCE_Override = 1
-};
-
 enum class FootstepLandedFootSoundType_t : std::uint32_t
 {
    FOOTSOUND_Left = 0,
@@ -439,13 +371,6 @@ enum class AnimPoseControl : std::uint32_t
    NoPoseControl = 0,
    AbsolutePoseControl = 1,
    RelativePoseControl = 2
-};
-
-enum class FacingMode : std::uint32_t
-{
-   FacingMode_Manual = 0,
-   FacingMode_Path = 1,
-   FacingMode_LookTarget = 2
 };
 
 enum class RagdollPoseControl : std::uint32_t
@@ -474,387 +399,6 @@ enum class AnimVrBoneTransformSource_t : std::uint32_t
    AnimVrBoneTransformSource_GripLimit = 1
 };
 
-enum class IKSolverType : std::uint32_t
-{
-   IKSOLVER_Perlin = 0,
-   IKSOLVER_TwoBone = 1,
-   IKSOLVER_Fabrik = 2,
-   IKSOLVER_DogLeg3Bone = 3,
-   IKSOLVER_CCD = 4,
-   IKSOLVER_COUNT = 5
-};
-
-enum class IKTargetSource : std::uint32_t
-{
-   IKTARGETSOURCE_Bone = 0,
-   IKTARGETSOURCE_AnimgraphParameter = 1,
-   IKTARGETSOURCE_COUNT = 2
-};
-
-enum class IKTargetCoordinateSystem : std::uint32_t
-{
-   IKTARGETCOORDINATESYSTEM_WorldSpace = 0,
-   IKTARGETCOORDINATESYSTEM_ModelSpace = 1,
-   IKTARGETCOORDINATESYSTEM_COUNT = 2
-};
-
-enum class AnimValueSource : std::uint32_t
-{
-   MoveHeading = 0,
-   MoveSpeed = 1,
-   ForwardSpeed = 2,
-   StrafeSpeed = 3,
-   FacingHeading = 4,
-   ManualFacingHeading = 5,
-   LookHeading = 6,
-   LookPitch = 7,
-   LookDistance = 8,
-   Parameter = 9,
-   WayPointHeading = 10,
-   WayPointDistance = 11,
-   BoundaryRadius = 12,
-   TargetMoveHeading = 13,
-   TargetMoveSpeed = 14,
-   AccelerationHeading = 15,
-   AccelerationSpeed = 16,
-   SlopeHeading = 17,
-   SlopeAngle = 18,
-   SlopePitch = 19,
-   SlopeYaw = 20,
-   GoalDistance = 21,
-   AccelerationLeftRight = 22,
-   AccelerationFrontBack = 23,
-   RootMotionSpeed = 24,
-   RootMotionTurnSpeed = 25,
-   MoveHeadingRelativeToLookHeading = 26,
-   MaxMoveSpeed = 27,
-   FingerCurl_Thumb = 28,
-   FingerCurl_Index = 29,
-   FingerCurl_Middle = 30,
-   FingerCurl_Ring = 31,
-   FingerCurl_Pinky = 32,
-   FingerSplay_Thumb_Index = 33,
-   FingerSplay_Index_Middle = 34,
-   FingerSplay_Middle_Ring = 35,
-   FingerSplay_Ring_Pinky = 36
-};
-
-enum class AnimVectorSource : std::uint32_t
-{
-   MoveDirection = 0,
-   FacingDirection = 1,
-   LookDirection = 2,
-   VectorParameter = 3,
-   WayPointDirection = 4,
-   Acceleration = 5,
-   SlopeNormal = 6,
-   SlopeNormal_WorldSpace = 7,
-   LookTarget = 8,
-   LookTarget_WorldSpace = 9,
-   WayPointPosition = 10,
-   GoalPosition = 11,
-   RootMotionVelocity = 12
-};
-
-enum class DampingSpeedFunction : std::uint32_t
-{
-   NoDamping = 0,
-   Constant = 1,
-   Spring = 2
-};
-
-enum class EAnimValueSource : std::uint32_t
-{
-   Constant = 0,
-   Parameter = 1
-};
-
-enum class ControlValue : std::uint32_t
-{
-   ControlValue_MoveHeading = 0,
-   ControlValue_MoveSpeed = 1,
-   ControlValue_FacingHeading = 2,
-   ControlValue_LookHeading = 3,
-   ControlValue_LookPitch = 4,
-   ControlValue_LookDistance = 5,
-   ControlValue_WayPointHeading = 6,
-   ControlValue_WayPointDistance = 7,
-   ControlValue_BoundaryRadius = 8,
-   ControlValue_TotalTranslation_SourceState = 9,
-   ControlValue_TotalTranslation_TargetState = 10,
-   ControlValue_RemainingTranslation_SourceState = 11,
-   ControlValue_RemainingTranslation_TargetState = 12,
-   ControlValue_MoveVsFacingDelta = 13,
-   ControlValue_SourceStateBlendWeight = 14,
-   ControlValue_TargetStateBlendWeight = 15,
-   ControlValue_TargetMoveHeading = 16,
-   ControlValue_TargetMoveSpeed = 17,
-   ControlValue_AccelerationHeading = 18,
-   ControlValue_AccelerationSpeed = 19,
-   ControlValue_SlopeHeading = 20,
-   ControlValue_SlopeAngle = 21,
-   ControlValue_SlopeYaw = 22,
-   ControlValue_SlopePitch = 23,
-   ControlValue_GoalDistance = 24,
-   ControlValue_AccelerationLeftRight = 25,
-   ControlValue_AccelerationFrontBack = 26,
-   ControlValue_RootMotionSpeed = 27,
-   ControlValue_RootMotionTurnSpeed = 28,
-   ControlValue_MoveHeadingRelativeToLookHeading = 29,
-   ControlValue_FingerCurl_Thumb = 30,
-   ControlValue_FingerCurl_Index = 31,
-   ControlValue_FingerCurl_Middle = 32,
-   ControlValue_FingerCurl_Ring = 33,
-   ControlValue_FingerCurl_Pinky = 34,
-   ControlValue_FingerSplay_Thumb_Index = 35,
-   ControlValue_FingerSplay_Index_Middle = 36,
-   ControlValue_FingerSplay_Middle_Ring = 37,
-   ControlValue_FingerSplay_Ring_Pinky = 38,
-   ControlValue_Count = 39,
-   ControlValue_Invalid = 255
-};
-
-enum class FieldNetworkOption : std::uint32_t
-{
-   Auto = 0,
-   ForceEnable = 1,
-   ForceDisable = 2
-};
-
-enum class DampedValueType : std::uint32_t
-{
-   FloatParameter = 0,
-   VectorParameter = 1
-};
-
-enum class SelectionSource_t : std::uint32_t
-{
-   SelectionSource_Bool = 0,
-   SelectionSource_Enum = 1
-};
-
-enum class SingleFrameSelection : std::uint32_t
-{
-   FirstFrame = 0,
-   LastFrame = 1,
-   SpecificFrame = 2
-};
-
-enum class Comparison_t : std::uint32_t
-{
-   COMPARISON_EQUALS = 0,
-   COMPARISON_NOT_EQUALS = 1,
-   COMPARISON_GREATER = 2,
-   COMPARISON_GREATER_OR_EQUAL = 3,
-   COMPARISON_LESS = 4,
-   COMPARISON_LESS_OR_EQUAL = 5,
-   COMPARISON_COUNT = 6
-};
-
-enum class ComparisonValueType : std::uint8_t
-{
-   COMPARISONVALUETYPE_FIXEDVALUE = 0,
-   COMPARISONVALUETYPE_PARAMETER = 1
-};
-
-enum class FinishedConditionOption : std::uint32_t
-{
-   FinishedConditionOption_OnFinished = 0,
-   FinishedConditionOption_OnAlmostFinished = 1
-};
-
-enum class StateComparisonValueType : std::uint32_t
-{
-   StateComparisonValue_FixedValue = 0,
-   StateComparisonValue_StateValue = 1,
-   StateComparisonValue_Parameter = 2
-};
-
-enum class StateValue : std::uint32_t
-{
-   TotalTranslation_SourceState = 0,
-   TotalTranslation_TargetState = 1,
-   SourceStateBlendWeight = 2,
-   TargetStateBlendWeight = 3,
-   Count = 4
-};
-
-enum class FootFallTagFoot_t : std::uint32_t
-{
-   FOOT1 = 0,
-   FOOT2 = 1,
-   FOOT3 = 2,
-   FOOT4 = 3,
-   FOOT5 = 4,
-   FOOT6 = 5,
-   FOOT7 = 6,
-   FOOT8 = 7
-};
-
-enum class MatterialAttributeTagType_t : std::uint32_t
-{
-   MATERIAL_ATTRIBUTE_TAG_VALUE = 0,
-   MATERIAL_ATTRIBUTE_TAG_COLOR = 1
-};
-
-enum class AnimScriptType : std::int16_t
-{
-   ANIMSCRIPT_TYPE_INVALID = -1,
-   ANIMSCRIPT_FUSE_GENERAL = 0,
-   ANIMSCRIPT_FUSE_STATEMACHINE = 1,
-   ANIMSCRIPT_EXPRTK = 2
-};
-
-enum class BlendKeyType : std::uint32_t
-{
-   BlendKey_UserValue = 0,
-   BlendKey_Velocity = 1,
-   BlendKey_Distance = 2,
-   BlendKey_RemainingDistance = 3
-};
-
-enum class ResetCycleOption : std::uint32_t
-{
-   Beginning = 0,
-   SameCycleAsSource = 1,
-   InverseSourceCycle = 2,
-   FixedValue = 3,
-   SameTimeAsSource = 4
-};
-
-enum class ChoiceMethod : std::uint32_t
-{
-   WeightedRandom = 0,
-   WeightedRandomNoRepeat = 1,
-   Iterate = 2,
-   IterateRandom = 3
-};
-
-enum class ChoiceChangeMethod : std::uint32_t
-{
-   OnReset = 0,
-   OnCycleEnd = 1,
-   OnResetOrCycleEnd = 2
-};
-
-enum class ChoiceBlendMethod : std::uint32_t
-{
-   SingleBlendTime = 0,
-   PerChoiceBlendTimes = 1
-};
-
-enum class IkEndEffectorType : std::uint32_t
-{
-   IkEndEffector_Attachment = 0,
-   IkEndEffector_Bone = 1
-};
-
-enum class IkTargetType : std::uint32_t
-{
-   IkTarget_Attachment = 0,
-   IkTarget_Bone = 1,
-   IkTarget_Parameter_ModelSpace = 2,
-   IkTarget_Parameter_WorldSpace = 3
-};
-
-enum class BinaryNodeTiming : std::uint32_t
-{
-   UseChild1 = 0,
-   UseChild2 = 1,
-   SyncChildren = 2
-};
-
-enum class BinaryNodeChildOption : std::uint32_t
-{
-   Child1 = 0,
-   Child2 = 1
-};
-
-enum class StanceOverrideMode : std::uint32_t
-{
-   Sequence = 0,
-   Node = 1
-};
-
-enum class SelectorTagBehavior_t : std::uint32_t
-{
-   SelectorTagBehavior_OnWhileCurrent = 0,
-   SelectorTagBehavior_OffWhenFinished = 1,
-   SelectorTagBehavior_OffBeforeFinished = 2
-};
-
-enum class Blend2DMode : std::uint32_t
-{
-   Blend2DMode_General = 0,
-   Blend2DMode_Directional = 1
-};
-
-enum class FootLockSubVisualization : std::uint32_t
-{
-   FOOTLOCKSUBVISUALIZATION_ReachabilityAnalysis = 0,
-   FOOTLOCKSUBVISUALIZATION_IKSolve = 1
-};
-
-enum class FootPinningTimingSource : std::uint32_t
-{
-   FootMotion = 0,
-   Tag = 1,
-   Parameter = 2
-};
-
-enum class JumpCorrectionMethod : std::uint32_t
-{
-   ScaleMotion = 0,
-   AddCorrectionDelta = 1
-};
-
-enum class StepPhase : std::uint32_t
-{
-   StepPhase_OnGround = 0,
-   StepPhase_InAir = 1
-};
-
-enum class VelocityMetricMode : std::uint8_t
-{
-   DirectionOnly = 0,
-   MagnitudeOnly = 1,
-   DirectionAndMagnitude = 2
-};
-
-enum class BoneMaskBlendSpace : std::uint32_t
-{
-   BlendSpace_Parent = 0,
-   BlendSpace_Model = 1,
-   BlendSpace_Model_RotationOnly = 2,
-   BlendSpace_Model_TranslationOnly = 3
-};
-
-enum class AimMatrixBlendMode : std::uint32_t
-{
-   AimMatrixBlendMode_None = 0,
-   AimMatrixBlendMode_Additive = 1,
-   AimMatrixBlendMode_ModelSpaceAdditive = 2,
-   AimMatrixBlendMode_BoneMask = 3
-};
-
-enum class SolveIKChainAnimNodeDebugSetting : std::uint32_t
-{
-   SOLVEIKCHAINANIMNODEDEBUGSETTING_None = 0,
-   SOLVEIKCHAINANIMNODEDEBUGSETTING_X_Axis_Circle = 1,
-   SOLVEIKCHAINANIMNODEDEBUGSETTING_Y_Axis_Circle = 2,
-   SOLVEIKCHAINANIMNODEDEBUGSETTING_Z_Axis_Circle = 3,
-   SOLVEIKCHAINANIMNODEDEBUGSETTING_Forward = 4,
-   SOLVEIKCHAINANIMNODEDEBUGSETTING_Up = 5,
-   SOLVEIKCHAINANIMNODEDEBUGSETTING_Left = 6
-};
-
-enum class JiggleBoneSimSpace : std::uint32_t
-{
-   SimSpace_Local = 0,
-   SimSpace_Model = 1,
-   SimSpace_World = 2
-};
-
 enum class VPhysXFlagEnum_t : std::uint32_t
 {
    FLAG_STATIC = 1,
@@ -875,7 +419,8 @@ enum class EnumFlags0_t : std::uint32_t
 enum class Flags_t : std::uint32_t
 {
    JOINT_FLAGS_NONE = 0,
-   JOINT_FLAGS_BODY1_FIXED = 1
+   JOINT_FLAGS_BODY1_FIXED = 1,
+   JOINT_FLAGS_USE_BLOCK_SOLVER = 2
 };
 
 enum class VPhysXFlagEnum_t : std::uint32_t
@@ -1020,6 +565,328 @@ enum class AnimVRFinger_t : std::uint32_t
    AnimVrFinger_Pinky = 4
 };
 
+enum class IKChannelMode : std::uint32_t
+{
+   TwoBone = 0,
+   TwoBone_Translate = 1,
+   OneBone = 2,
+   OneBone_Translate = 3
+};
+
+enum class EDemoBoneSelectionMode : std::uint32_t
+{
+   CaptureAllBones = 0,
+   CaptureSelectedBones = 1
+};
+
+enum class AnimValueSource : std::uint32_t
+{
+   MoveHeading = 0,
+   MoveSpeed = 1,
+   ForwardSpeed = 2,
+   StrafeSpeed = 3,
+   FacingHeading = 4,
+   ManualFacingHeading = 5,
+   LookHeading = 6,
+   LookPitch = 7,
+   LookDistance = 8,
+   Parameter = 9,
+   WayPointHeading = 10,
+   WayPointDistance = 11,
+   BoundaryRadius = 12,
+   TargetMoveHeading = 13,
+   TargetMoveSpeed = 14,
+   AccelerationHeading = 15,
+   AccelerationSpeed = 16,
+   SlopeHeading = 17,
+   SlopeAngle = 18,
+   SlopePitch = 19,
+   SlopeYaw = 20,
+   GoalDistance = 21,
+   AccelerationLeftRight = 22,
+   AccelerationFrontBack = 23,
+   RootMotionSpeed = 24,
+   RootMotionTurnSpeed = 25,
+   MoveHeadingRelativeToLookHeading = 26,
+   MaxMoveSpeed = 27,
+   FingerCurl_Thumb = 28,
+   FingerCurl_Index = 29,
+   FingerCurl_Middle = 30,
+   FingerCurl_Ring = 31,
+   FingerCurl_Pinky = 32,
+   FingerSplay_Thumb_Index = 33,
+   FingerSplay_Index_Middle = 34,
+   FingerSplay_Middle_Ring = 35,
+   FingerSplay_Ring_Pinky = 36
+};
+
+enum class AnimVectorSource : std::uint32_t
+{
+   MoveDirection = 0,
+   FacingDirection = 1,
+   LookDirection = 2,
+   VectorParameter = 3,
+   WayPointDirection = 4,
+   Acceleration = 5,
+   SlopeNormal = 6,
+   SlopeNormal_WorldSpace = 7,
+   LookTarget = 8,
+   LookTarget_WorldSpace = 9,
+   WayPointPosition = 10,
+   GoalPosition = 11,
+   RootMotionVelocity = 12
+};
+
+enum class DampingSpeedFunction : std::uint32_t
+{
+   NoDamping = 0,
+   Constant = 1,
+   Spring = 2
+};
+
+enum class AnimNodeNetworkMode : std::uint32_t
+{
+   ServerAuthoritative = 0,
+   ClientSimulate = 1
+};
+
+enum class StateActionBehavior : std::uint32_t
+{
+   STATETAGBEHAVIOR_ACTIVE_WHILE_CURRENT = 0,
+   STATETAGBEHAVIOR_FIRE_ON_ENTER = 1,
+   STATETAGBEHAVIOR_FIRE_ON_EXIT = 2,
+   STATETAGBEHAVIOR_FIRE_ON_ENTER_AND_EXIT = 3
+};
+
+enum class FieldNetworkOption : std::uint32_t
+{
+   Auto = 0,
+   ForceEnable = 1,
+   ForceDisable = 2
+};
+
+enum class FootFallTagFoot_t : std::uint32_t
+{
+   FOOT1 = 0,
+   FOOT2 = 1,
+   FOOT3 = 2,
+   FOOT4 = 3,
+   FOOT5 = 4,
+   FOOT6 = 5,
+   FOOT7 = 6,
+   FOOT8 = 7
+};
+
+enum class MatterialAttributeTagType_t : std::uint32_t
+{
+   MATERIAL_ATTRIBUTE_TAG_VALUE = 0,
+   MATERIAL_ATTRIBUTE_TAG_COLOR = 1
+};
+
+enum class VelocityMetricMode : std::uint8_t
+{
+   DirectionOnly = 0,
+   MagnitudeOnly = 1,
+   DirectionAndMagnitude = 2
+};
+
+enum class AimMatrixBlendMode : std::uint32_t
+{
+   AimMatrixBlendMode_None = 0,
+   AimMatrixBlendMode_Additive = 1,
+   AimMatrixBlendMode_ModelSpaceAdditive = 2,
+   AimMatrixBlendMode_BoneMask = 3
+};
+
+enum class BoneMaskBlendSpace : std::uint32_t
+{
+   BlendSpace_Parent = 0,
+   BlendSpace_Model = 1,
+   BlendSpace_Model_RotationOnly = 2,
+   BlendSpace_Model_TranslationOnly = 3
+};
+
+enum class JiggleBoneSimSpace : std::uint32_t
+{
+   SimSpace_Local = 0,
+   SimSpace_Model = 1,
+   SimSpace_World = 2
+};
+
+enum class SolveIKChainAnimNodeDebugSetting : std::uint32_t
+{
+   SOLVEIKCHAINANIMNODEDEBUGSETTING_None = 0,
+   SOLVEIKCHAINANIMNODEDEBUGSETTING_X_Axis_Circle = 1,
+   SOLVEIKCHAINANIMNODEDEBUGSETTING_Y_Axis_Circle = 2,
+   SOLVEIKCHAINANIMNODEDEBUGSETTING_Z_Axis_Circle = 3,
+   SOLVEIKCHAINANIMNODEDEBUGSETTING_Forward = 4,
+   SOLVEIKCHAINANIMNODEDEBUGSETTING_Up = 5,
+   SOLVEIKCHAINANIMNODEDEBUGSETTING_Left = 6
+};
+
+enum class AnimScriptType : std::int16_t
+{
+   ANIMSCRIPT_TYPE_INVALID = -1,
+   ANIMSCRIPT_FUSE_GENERAL = 0,
+   ANIMSCRIPT_FUSE_STATEMACHINE = 1
+};
+
+enum class BinaryNodeTiming : std::uint32_t
+{
+   UseChild1 = 0,
+   UseChild2 = 1,
+   SyncChildren = 2
+};
+
+enum class BinaryNodeChildOption : std::uint32_t
+{
+   Child1 = 0,
+   Child2 = 1
+};
+
+enum class BlendKeyType : std::uint32_t
+{
+   BlendKey_UserValue = 0,
+   BlendKey_Velocity = 1,
+   BlendKey_Distance = 2,
+   BlendKey_RemainingDistance = 3
+};
+
+enum class Blend2DMode : std::uint32_t
+{
+   Blend2DMode_General = 0,
+   Blend2DMode_Directional = 1
+};
+
+enum class ChoiceMethod : std::uint32_t
+{
+   WeightedRandom = 0,
+   WeightedRandomNoRepeat = 1,
+   Iterate = 2,
+   IterateRandom = 3
+};
+
+enum class ChoiceChangeMethod : std::uint32_t
+{
+   OnReset = 0,
+   OnCycleEnd = 1,
+   OnResetOrCycleEnd = 2
+};
+
+enum class ChoiceBlendMethod : std::uint32_t
+{
+   SingleBlendTime = 0,
+   PerChoiceBlendTimes = 1
+};
+
+enum class FootLockSubVisualization : std::uint32_t
+{
+   FOOTLOCKSUBVISUALIZATION_ReachabilityAnalysis = 0,
+   FOOTLOCKSUBVISUALIZATION_IKSolve = 1
+};
+
+enum class FootPinningTimingSource : std::uint32_t
+{
+   FootMotion = 0,
+   Tag = 1,
+   Parameter = 2
+};
+
+enum class StepPhase : std::uint32_t
+{
+   StepPhase_OnGround = 0,
+   StepPhase_InAir = 1
+};
+
+enum class JumpCorrectionMethod : std::uint32_t
+{
+   ScaleMotion = 0,
+   AddCorrectionDelta = 1
+};
+
+enum class SelectorTagBehavior_t : std::uint32_t
+{
+   SelectorTagBehavior_OnWhileCurrent = 0,
+   SelectorTagBehavior_OffWhenFinished = 1,
+   SelectorTagBehavior_OffBeforeFinished = 2
+};
+
+enum class StanceOverrideMode : std::uint32_t
+{
+   Sequence = 0,
+   Node = 1
+};
+
+enum class ResetCycleOption : std::uint32_t
+{
+   Beginning = 0,
+   SameCycleAsSource = 1,
+   InverseSourceCycle = 2,
+   FixedValue = 3,
+   SameTimeAsSource = 4
+};
+
+enum class IkEndEffectorType : std::uint32_t
+{
+   IkEndEffector_Attachment = 0,
+   IkEndEffector_Bone = 1
+};
+
+enum class IkTargetType : std::uint32_t
+{
+   IkTarget_Attachment = 0,
+   IkTarget_Bone = 1,
+   IkTarget_Parameter_ModelSpace = 2,
+   IkTarget_Parameter_WorldSpace = 3
+};
+
+enum class PoseType_t : std::uint8_t
+{
+   POSETYPE_STATIC = 0,
+   POSETYPE_DYNAMIC = 1,
+   POSETYPE_INVALID = 255
+};
+
+enum class CAnimationGraphVisualizerPrimitiveType : std::uint32_t
+{
+   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Text = 0,
+   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Sphere = 1,
+   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Line = 2,
+   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Pie = 3,
+   ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Axis = 4
+};
+
+enum class FacingMode : std::uint32_t
+{
+   FacingMode_Manual = 0,
+   FacingMode_Path = 1,
+   FacingMode_LookTarget = 2
+};
+
+enum class IKSolverType : std::uint32_t
+{
+   IKSOLVER_Perlin = 0,
+   IKSOLVER_TwoBone = 1,
+   IKSOLVER_Fabrik = 2,
+   IKSOLVER_DogLeg3Bone = 3,
+   IKSOLVER_CCD = 4,
+   IKSOLVER_COUNT = 5
+};
+
+enum class IKTargetSource : std::uint32_t
+{
+   IKTARGETSOURCE_Bone = 0,
+   IKTARGETSOURCE_AnimgraphParameter = 1,
+   IKTARGETSOURCE_COUNT = 2
+};
+
+enum class IKTargetCoordinateSystem : std::uint32_t
+{
+   IKTARGETCOORDINATESYSTEM_WorldSpace = 0,
+   IKTARGETCOORDINATESYSTEM_ModelSpace = 1,
+   IKTARGETCOORDINATESYSTEM_COUNT = 2
+};
+
 enum class JointAxis_t : std::uint32_t
 {
    JOINT_AXIS_X = 0,
@@ -1073,7 +940,8 @@ enum class ActionType_t : std::uint32_t
 {
    SOS_ACTION_NONE = 0,
    SOS_ACTION_LIMITER = 1,
-   SOS_ACTION_TIME_LIMIT = 2
+   SOS_ACTION_TIME_LIMIT = 2,
+   SOS_ACTION_SET_SOUNDEVENT_PARAM = 3
 };
 
 enum class SosActionStopType_t : std::uint32_t
@@ -1221,8 +1089,102 @@ enum class ObjectTypeFlags_t : std::uint32_t
    OBJECT_TYPE_RENDER_WITH_DYNAMIC = 512,
    OBJECT_TYPE_RENDER_TO_CUBEMAPS = 1024,
    OBJECT_TYPE_MODEL_HAS_LODS = 2048,
+   OBJECT_TYPE_OVERLAY = 8192,
    OBJECT_TYPE_PRECOMPUTED_VISMEMBERS = 16384,
    OBJECT_TYPE_STATIC_CUBE_MAP = 32768
+};
+
+enum class PulseInstructionCode_t : std::uint16_t
+{
+   INVALID = 0,
+   IMMEDIATE_HALT = 1,
+   RETURN_VOID = 2,
+   RETURN_VALUE = 3,
+   NOP = 4,
+   JUMP = 5,
+   JUMP_COND = 6,
+   CHUNK_LEAP = 7,
+   CHUNK_LEAP_COND = 8,
+   PULSE_CALL_SYNC = 9,
+   PULSE_CALL_ASYNC_FIRE = 10,
+   CELL_INVOKE = 11,
+   LIBRARY_INVOKE = 12,
+   TARGET_INVOKE = 13,
+   SET_VAR = 14,
+   GET_VAR = 15,
+   SET_REGISTER_LIT_BOOL = 16,
+   SET_REGISTER_LIT_INT = 17,
+   SET_REGISTER_LIT_FLOAT = 18,
+   SET_REGISTER_LIT_STR = 19,
+   SET_REGISTER_LIT_INVAL_EHANDLE = 20,
+   SET_REGISTER_LIT_INVAL_SNDEVT_GUID = 21,
+   SET_REGISTER_LIT_VEC3 = 22,
+   SET_REGISTER_DOMAIN_VALUE = 23,
+   COPY = 24,
+   NOT = 25,
+   NEGATE = 26,
+   ADD = 27,
+   SUB = 28,
+   MUL = 29,
+   DIV = 30,
+   MOD = 31,
+   LT = 32,
+   LTE = 33,
+   EQ = 34,
+   NE = 35,
+   AND = 36,
+   OR = 37,
+   CONVERT_VALUE = 38,
+   LAST_SERIALIZED_CODE = 39,
+   NEGATE_INT = 40,
+   NEGATE_FLOAT = 41,
+   ADD_INT = 42,
+   ADD_FLOAT = 43,
+   ADD_STRING = 44,
+   SUB_INT = 45,
+   SUB_FLOAT = 46,
+   MUL_INT = 47,
+   MUL_FLOAT = 48,
+   DIV_INT = 49,
+   DIV_FLOAT = 50,
+   MOD_INT = 51,
+   MOD_FLOAT = 52,
+   LT_INT = 53,
+   LT_FLOAT = 54,
+   LTE_INT = 55,
+   LTE_FLOAT = 56,
+   EQ_BOOL = 57,
+   EQ_INT = 58,
+   EQ_FLOAT = 59,
+   EQ_STRING = 60,
+   NE_BOOL = 61,
+   NE_INT = 62,
+   NE_FLOAT = 63,
+   NE_STRING = 64
+};
+
+enum class PulseMethodCallMode_t : std::uint32_t
+{
+   SYNC_WAIT_FOR_COMPLETION = 0,
+   ASYNC_FIRE_AND_FORGET = 1
+};
+
+enum class PulseValueType_t : std::int32_t
+{
+   PVAL_INVALID = -1,
+   PVAL_BOOL = 0,
+   PVAL_INT = 1,
+   PVAL_FLOAT = 2,
+   PVAL_STRING = 3,
+   PVAL_VEC3 = 4,
+   PVAL_TRANSFORM = 5,
+   PVAL_EHANDLE = 6,
+   PVAL_RESOURCE = 7,
+   PVAL_SNDEVT_GUID = 8,
+   PVAL_SCHEMA_PTR = 9,
+   PVAL_CURSOR_FLOW = 10,
+   PVAL_ANY = 11,
+   PVAL_COUNT = 12
 };
 
 enum class ParticleControlPointAxis_t : std::uint32_t
@@ -1434,7 +1396,8 @@ enum class ParticlePinDistance_t : std::int32_t
    PARTICLE_PIN_DISTANCE_CP_PAIR_EITHER = 7,
    PARTICLE_PIN_DISTANCE_CP_PAIR_BOTH = 8,
    PARTICLE_PIN_SPEED = 9,
-   PARTICLE_PIN_COLLECTION_AGE = 10
+   PARTICLE_PIN_COLLECTION_AGE = 10,
+   PARTICLE_PIN_FLOAT_VALUE = 11
 };
 
 enum class ParticleColorBlendType_t : std::uint32_t
@@ -1542,6 +1505,13 @@ enum class MaterialProxyType_t : std::uint32_t
 {
    MATERIAL_PROXY_STATUS_EFFECT = 0,
    MATERIAL_PROXY_TINT = 1
+};
+
+enum class BBoxVolumeType_t : std::uint32_t
+{
+   BBOX_VOLUME = 0,
+   BBOX_DIMENSIONS = 1,
+   BBOX_MINS_MAXS = 2
 };
 
 enum class ParticleOrientationChoiceList_t : std::uint32_t
@@ -1712,70 +1682,6 @@ enum class TextureRepetitionMode_t : std::uint32_t
    TEXTURE_REPETITION_PATH = 1
 };
 
-enum class PulseInstructionCode_t : std::uint16_t
-{
-   INVALID = 0,
-   IMMEDIATE_HALT = 1,
-   RETURN_VOID = 2,
-   RETURN_VALUE = 3,
-   NOP = 4,
-   JUMP = 5,
-   LEAP = 6,
-   COND_JUMP = 7,
-   COND_LEAP = 8,
-   PULSE_CALL = 9,
-   LANDING_PAD = 10,
-   CELL_INVOKE = 11,
-   LIBRARY_INVOKE = 12,
-   SET_VAR_REG_BOOL = 13,
-   SET_VAR_REG_INT = 14,
-   SET_VAR_REG_FLOAT = 15,
-   SET_VAR_REG_STR = 16,
-   SET_VAR_REG_EHANDLE = 17,
-   SET_VAR_REG_SNDEVT_GUID = 18,
-   SET_VAR_REG_VEC3 = 19,
-   GET_VAR_REG_BOOL = 20,
-   GET_VAR_REG_INT = 21,
-   GET_VAR_REG_FLOAT = 22,
-   GET_VAR_REG_STR = 23,
-   GET_VAR_REG_EHANDLE = 24,
-   GET_VAR_REG_SNDEVT_GUID = 25,
-   GET_VAR_REG_VEC3 = 26,
-   SET_REGISTER_LIT_BOOL = 27,
-   SET_REGISTER_LIT_INT = 28,
-   SET_REGISTER_LIT_FLOAT = 29,
-   SET_REGISTER_LIT_STR = 30,
-   SET_REGISTER_LIT_INVAL_EHANDLE = 31,
-   SET_REGISTER_LIT_INVAL_SNDEVT_GUID = 32,
-   SET_REGISTER_LIT_VEC3 = 33,
-   SET_REGISTER_DOMAIN_VALUE = 34,
-   COUNT = 35
-};
-
-enum class PulseValueType_t : std::int32_t
-{
-   PVAL_INVALID = -1,
-   PVAL_BOOL = 0,
-   PVAL_INT = 1,
-   PVAL_FLOAT = 2,
-   PVAL_STRING = 3,
-   PVAL_VEC3 = 4,
-   PVAL_TRANSFORM = 5,
-   PVAL_EHANDLE = 6,
-   PVAL_RESOURCE = 7,
-   PVAL_SNDEVT_GUID = 8,
-   PVAL_CURSOR_FLOW = 9,
-   PVAL_ANY = 10,
-   PVAL_COUNT = 11
-};
-
-enum class PulseCursorFlow_t : std::int32_t
-{
-   INVALID = -1,
-   TERMINATE = 0,
-   JUMP_OR_LEAP = 1
-};
-
 enum class ParticleFloatType_t : std::int32_t
 {
    PF_TYPE_INVALID = -1,
@@ -1789,17 +1695,19 @@ enum class ParticleFloatType_t : std::int32_t
    PF_TYPE_CONTROL_POINT_CHANGE_AGE = 7,
    PF_TYPE_CONTROL_POINT_SPEED = 8,
    PF_TYPE_PARTICLE_DETAIL_LEVEL = 9,
-   PF_TYPE_RENDERER_CAMERA_DISTANCE = 10,
-   PF_TYPE_RENDERER_CAMERA_DOT_PRODUCT = 11,
-   PF_TYPE_PARTICLE_NOISE = 12,
-   PF_TYPE_PARTICLE_AGE = 13,
-   PF_TYPE_PARTICLE_AGE_NORMALIZED = 14,
-   PF_TYPE_PARTICLE_FLOAT = 15,
-   PF_TYPE_PARTICLE_VECTOR_COMPONENT = 16,
-   PF_TYPE_PARTICLE_SPEED = 17,
-   PF_TYPE_PARTICLE_NUMBER = 18,
-   PF_TYPE_PARTICLE_NUMBER_NORMALIZED = 19,
-   PF_TYPE_COUNT = 20
+   PF_TYPE_CONCURRENT_DEF_COUNT = 10,
+   PF_TYPE_CLOSEST_CAMERA_DISTANCE = 11,
+   PF_TYPE_RENDERER_CAMERA_DISTANCE = 12,
+   PF_TYPE_RENDERER_CAMERA_DOT_PRODUCT = 13,
+   PF_TYPE_PARTICLE_NOISE = 14,
+   PF_TYPE_PARTICLE_AGE = 15,
+   PF_TYPE_PARTICLE_AGE_NORMALIZED = 16,
+   PF_TYPE_PARTICLE_FLOAT = 17,
+   PF_TYPE_PARTICLE_VECTOR_COMPONENT = 18,
+   PF_TYPE_PARTICLE_SPEED = 19,
+   PF_TYPE_PARTICLE_NUMBER = 20,
+   PF_TYPE_PARTICLE_NUMBER_NORMALIZED = 21,
+   PF_TYPE_COUNT = 22
 };
 
 enum class ParticleFloatBiasType_t : std::int32_t
@@ -1901,7 +1809,8 @@ enum class ParticleVecType_t : std::int32_t
    PVEC_TYPE_FLOAT_INTERP_GRADIENT = 12,
    PVEC_TYPE_RANDOM_UNIFORM = 13,
    PVEC_TYPE_RANDOM_UNIFORM_OFFSET = 14,
-   PVEC_TYPE_COUNT = 15
+   PVEC_TYPE_CP_DELTA = 15,
+   PVEC_TYPE_COUNT = 16
 };
 
 enum class ELayoutNodeType : std::uint32_t
@@ -1993,6 +1902,14 @@ enum class PerformanceMode_t : std::uint32_t
    PM_REDUCED_GIBS = 3
 };
 
+enum class AmmoPosition_t : std::int32_t
+{
+   AMMO_POSITION_INVALID = -1,
+   AMMO_POSITION_PRIMARY = 0,
+   AMMO_POSITION_SECONDARY = 1,
+   AMMO_POSITION_COUNT = 2
+};
+
 enum class ChatIgnoreType_t : std::uint32_t
 {
    CHAT_IGNORE_NONE = 0,
@@ -2059,12 +1976,9 @@ enum class GameAnimEventIndex_t : std::uint32_t
    AE_SV_HIDE_SILENCER = 33,
    AE_SV_DETACH_SILENCER_COMPLETE = 34,
    AE_CL_EJECT_MAG = 35,
-   AE_CL_EJECT_MAG_UNHIDE = 36,
-   AE_WPN_COMPLETE_RELOAD = 37,
-   AE_WPN_CZ_DUMP_CURRENT_MAG = 38,
-   AE_WPN_CZ_UPDATE_BODYGROUP = 39,
-   AE_WPN_HEALTHSHOT_INJECT = 40,
-   AE_CL_C4_SCREEN_TEXT = 41
+   AE_WPN_COMPLETE_RELOAD = 36,
+   AE_WPN_HEALTHSHOT_INJECT = 37,
+   AE_CL_C4_SCREEN_TEXT = 38
 };
 
 enum class ObserverMode_t : std::uint32_t
@@ -2119,1054 +2033,29 @@ enum class RumbleEffect_t : std::int32_t
 enum class WeaponSound_t : std::uint32_t
 {
    WEAPON_SOUND_EMPTY = 0,
-   WEAPON_SOUND_SINGLE = 1,
-   WEAPON_SOUND_DOUBLE = 2,
-   WEAPON_SOUND_RELOAD = 3,
-   WEAPON_SOUND_MELEE_MISS = 4,
-   WEAPON_SOUND_MELEE_HIT = 5,
-   WEAPON_SOUND_MELEE_HIT_WORLD = 6,
-   WEAPON_SOUND_MELEE_HIT_PLAYER = 7,
-   WEAPON_SOUND_SPECIAL1 = 8,
-   WEAPON_SOUND_SPECIAL2 = 9,
-   WEAPON_SOUND_SPECIAL3 = 10,
-   WEAPON_SOUND_NEARLYEMPTY = 11,
-   WEAPON_SOUND_IMPACT1 = 12,
-   WEAPON_SOUND_REFLECT = 13,
-   WEAPON_SOUND_SINGLE_ACCURATE = 14,
-   WEAPON_SOUND_ZOOM_IN = 15,
-   WEAPON_SOUND_ZOOM_OUT = 16,
-   WEAPON_SOUND_MOUSE_PRESSED = 17,
-   WEAPON_SOUND_DROP = 18,
-   WEAPON_SOUND_RADIO_USE = 19,
-   WEAPON_SOUND_NUM_TYPES = 20
-};
-
-enum class BaseActivity_t : std::uint32_t
-{
-   ACT_RESET = 0,
-   ACT_IDLE = 1,
-   ACT_TRANSITION = 2,
-   ACT_COVER = 3,
-   ACT_COVER_MED = 4,
-   ACT_COVER_LOW = 5,
-   ACT_WALK = 6,
-   ACT_WALK_AIM = 7,
-   ACT_WALK_CROUCH = 8,
-   ACT_WALK_CROUCH_AIM = 9,
-   ACT_RUN = 10,
-   ACT_RUN_AIM = 11,
-   ACT_RUN_CROUCH = 12,
-   ACT_RUN_CROUCH_AIM = 13,
-   ACT_RUN_PROTECTED = 14,
-   ACT_SCRIPT_CUSTOM_MOVE = 15,
-   ACT_RANGE_ATTACK1 = 16,
-   ACT_RANGE_ATTACK2 = 17,
-   ACT_RANGE_ATTACK1_LOW = 18,
-   ACT_RANGE_ATTACK2_LOW = 19,
-   ACT_DIESIMPLE = 20,
-   ACT_DIEBACKWARD = 21,
-   ACT_DIEFORWARD = 22,
-   ACT_DIEVIOLENT = 23,
-   ACT_DIERAGDOLL = 24,
-   ACT_FLY = 25,
-   ACT_HOVER = 26,
-   ACT_GLIDE = 27,
-   ACT_SWIM = 28,
-   ACT_JUMP = 29,
-   ACT_HOP = 30,
-   ACT_LEAP = 31,
-   ACT_LAND = 32,
-   ACT_CLIMB_UP = 33,
-   ACT_CLIMB_DOWN = 34,
-   ACT_CLIMB_DISMOUNT = 35,
-   ACT_SHIPLADDER_UP = 36,
-   ACT_SHIPLADDER_DOWN = 37,
-   ACT_STRAFE_LEFT = 38,
-   ACT_STRAFE_RIGHT = 39,
-   ACT_ROLL_LEFT = 40,
-   ACT_ROLL_RIGHT = 41,
-   ACT_TURN_LEFT = 42,
-   ACT_TURN_RIGHT = 43,
-   ACT_CROUCH = 44,
-   ACT_CROUCHIDLE = 45,
-   ACT_STAND = 46,
-   ACT_USE = 47,
-   ACT_ALIEN_BURROW_IDLE = 48,
-   ACT_ALIEN_BURROW_OUT = 49,
-   ACT_SIGNAL1 = 50,
-   ACT_SIGNAL2 = 51,
-   ACT_SIGNAL3 = 52,
-   ACT_SIGNAL_ADVANCE = 53,
-   ACT_SIGNAL_FORWARD = 54,
-   ACT_SIGNAL_GROUP = 55,
-   ACT_SIGNAL_HALT = 56,
-   ACT_SIGNAL_LEFT = 57,
-   ACT_SIGNAL_RIGHT = 58,
-   ACT_SIGNAL_TAKECOVER = 59,
-   ACT_LOOKBACK_RIGHT = 60,
-   ACT_LOOKBACK_LEFT = 61,
-   ACT_COWER = 62,
-   ACT_SMALL_FLINCH = 63,
-   ACT_BIG_FLINCH = 64,
-   ACT_MELEE_ATTACK1 = 65,
-   ACT_MELEE_ATTACK2 = 66,
-   ACT_RELOAD = 67,
-   ACT_RELOAD_START = 68,
-   ACT_RELOAD_FINISH = 69,
-   ACT_RELOAD_LOW = 70,
-   ACT_ARM = 71,
-   ACT_DISARM = 72,
-   ACT_DROP_WEAPON = 73,
-   ACT_DROP_WEAPON_SHOTGUN = 74,
-   ACT_PICKUP_GROUND = 75,
-   ACT_PICKUP_RACK = 76,
-   ACT_IDLE_ANGRY = 77,
-   ACT_IDLE_RELAXED = 78,
-   ACT_IDLE_STIMULATED = 79,
-   ACT_IDLE_AGITATED = 80,
-   ACT_IDLE_STEALTH = 81,
-   ACT_IDLE_HURT = 82,
-   ACT_WALK_RELAXED = 83,
-   ACT_WALK_STIMULATED = 84,
-   ACT_WALK_AGITATED = 85,
-   ACT_WALK_STEALTH = 86,
-   ACT_RUN_RELAXED = 87,
-   ACT_RUN_STIMULATED = 88,
-   ACT_RUN_AGITATED = 89,
-   ACT_RUN_STEALTH = 90,
-   ACT_IDLE_AIM_RELAXED = 91,
-   ACT_IDLE_AIM_STIMULATED = 92,
-   ACT_IDLE_AIM_AGITATED = 93,
-   ACT_IDLE_AIM_STEALTH = 94,
-   ACT_WALK_AIM_RELAXED = 95,
-   ACT_WALK_AIM_STIMULATED = 96,
-   ACT_WALK_AIM_AGITATED = 97,
-   ACT_WALK_AIM_STEALTH = 98,
-   ACT_RUN_AIM_RELAXED = 99,
-   ACT_RUN_AIM_STIMULATED = 100,
-   ACT_RUN_AIM_AGITATED = 101,
-   ACT_RUN_AIM_STEALTH = 102,
-   ACT_CROUCHIDLE_STIMULATED = 103,
-   ACT_CROUCHIDLE_AIM_STIMULATED = 104,
-   ACT_CROUCHIDLE_AGITATED = 105,
-   ACT_WALK_HURT = 106,
-   ACT_RUN_HURT = 107,
-   ACT_SPECIAL_ATTACK1 = 108,
-   ACT_SPECIAL_ATTACK2 = 109,
-   ACT_COMBAT_IDLE = 110,
-   ACT_WALK_SCARED = 111,
-   ACT_RUN_SCARED = 112,
-   ACT_VICTORY_DANCE = 113,
-   ACT_DIE_HEADSHOT = 114,
-   ACT_DIE_CHESTSHOT = 115,
-   ACT_DIE_GUTSHOT = 116,
-   ACT_DIE_BACKSHOT = 117,
-   ACT_FLINCH_HEAD = 118,
-   ACT_FLINCH_CHEST = 119,
-   ACT_FLINCH_STOMACH = 120,
-   ACT_FLINCH_LEFTARM = 121,
-   ACT_FLINCH_RIGHTARM = 122,
-   ACT_FLINCH_LEFTLEG = 123,
-   ACT_FLINCH_RIGHTLEG = 124,
-   ACT_FLINCH_PHYSICS = 125,
-   ACT_FLINCH_HEAD_BACK = 126,
-   ACT_FLINCH_CHEST_BACK = 127,
-   ACT_FLINCH_STOMACH_BACK = 128,
-   ACT_FLINCH_CROUCH_FRONT = 129,
-   ACT_FLINCH_CROUCH_BACK = 130,
-   ACT_FLINCH_CROUCH_LEFT = 131,
-   ACT_FLINCH_CROUCH_RIGHT = 132,
-   ACT_IDLE_ON_FIRE = 133,
-   ACT_WALK_ON_FIRE = 134,
-   ACT_RUN_ON_FIRE = 135,
-   ACT_180_LEFT = 137,
-   ACT_180_RIGHT = 138,
-   ACT_90_LEFT = 139,
-   ACT_90_RIGHT = 140,
-   ACT_STEP_LEFT = 141,
-   ACT_STEP_RIGHT = 142,
-   ACT_STEP_BACK = 143,
-   ACT_STEP_FORE = 144,
-   ACT_GESTURE_RANGE_ATTACK1 = 145,
-   ACT_GESTURE_RANGE_ATTACK2 = 146,
-   ACT_GESTURE_MELEE_ATTACK1 = 147,
-   ACT_GESTURE_MELEE_ATTACK2 = 148,
-   ACT_GESTURE_RANGE_ATTACK1_LOW = 149,
-   ACT_GESTURE_RANGE_ATTACK2_LOW = 150,
-   ACT_MELEE_ATTACK_SWING_GESTURE = 151,
-   ACT_GESTURE_SMALL_FLINCH = 152,
-   ACT_GESTURE_BIG_FLINCH = 153,
-   ACT_GESTURE_FLINCH_BLAST = 154,
-   ACT_GESTURE_FLINCH_BLAST_SHOTGUN = 155,
-   ACT_GESTURE_FLINCH_BLAST_DAMAGED = 156,
-   ACT_GESTURE_FLINCH_BLAST_DAMAGED_SHOTGUN = 157,
-   ACT_GESTURE_FLINCH_HEAD = 158,
-   ACT_GESTURE_FLINCH_CHEST = 159,
-   ACT_GESTURE_FLINCH_STOMACH = 160,
-   ACT_GESTURE_FLINCH_LEFTARM = 161,
-   ACT_GESTURE_FLINCH_RIGHTARM = 162,
-   ACT_GESTURE_FLINCH_LEFTLEG = 163,
-   ACT_GESTURE_FLINCH_RIGHTLEG = 164,
-   ACT_GESTURE_TURN_LEFT = 165,
-   ACT_GESTURE_TURN_RIGHT = 166,
-   ACT_GESTURE_TURN_LEFT45 = 167,
-   ACT_GESTURE_TURN_RIGHT45 = 168,
-   ACT_GESTURE_TURN_LEFT90 = 169,
-   ACT_GESTURE_TURN_RIGHT90 = 170,
-   ACT_GESTURE_TURN_LEFT45_FLAT = 171,
-   ACT_GESTURE_TURN_RIGHT45_FLAT = 172,
-   ACT_GESTURE_TURN_LEFT90_FLAT = 173,
-   ACT_GESTURE_TURN_RIGHT90_FLAT = 174,
-   ACT_BARNACLE_HIT = 175,
-   ACT_BARNACLE_PULL = 176,
-   ACT_BARNACLE_CHOMP = 177,
-   ACT_BARNACLE_CHEW = 178,
-   ACT_DO_NOT_DISTURB = 179,
-   ACT_SPECIFIC_SEQUENCE = 180,
-   ACT_VM_DEPLOY = 181,
-   ACT_VM_RELOAD_EMPTY = 182,
-   ACT_VM_DRAW = 183,
-   ACT_VM_HOLSTER = 184,
-   ACT_VM_IDLE = 185,
-   ACT_VM_FIDGET = 186,
-   ACT_VM_PULLBACK = 187,
-   ACT_VM_PULLBACK_HIGH = 188,
-   ACT_VM_PULLBACK_LOW = 189,
-   ACT_VM_THROW = 190,
-   ACT_VM_DROP = 191,
-   ACT_VM_PULLPIN = 192,
-   ACT_VM_PRIMARYATTACK = 193,
-   ACT_VM_SECONDARYATTACK = 194,
-   ACT_VM_RELOAD = 195,
-   ACT_VM_DRYFIRE = 196,
-   ACT_VM_HITLEFT = 197,
-   ACT_VM_HITLEFT2 = 198,
-   ACT_VM_HITRIGHT = 199,
-   ACT_VM_HITRIGHT2 = 200,
-   ACT_VM_HITCENTER = 201,
-   ACT_VM_HITCENTER2 = 202,
-   ACT_VM_MISSLEFT = 203,
-   ACT_VM_MISSLEFT2 = 204,
-   ACT_VM_MISSRIGHT = 205,
-   ACT_VM_MISSRIGHT2 = 206,
-   ACT_VM_MISSCENTER = 207,
-   ACT_VM_MISSCENTER2 = 208,
-   ACT_VM_HAULBACK = 209,
-   ACT_VM_SWINGHARD = 210,
-   ACT_VM_SWINGMISS = 211,
-   ACT_VM_SWINGHIT = 212,
-   ACT_VM_IDLE_TO_LOWERED = 213,
-   ACT_VM_IDLE_LOWERED = 214,
-   ACT_VM_LOWERED_TO_IDLE = 215,
-   ACT_VM_RECOIL1 = 216,
-   ACT_VM_RECOIL2 = 217,
-   ACT_VM_RECOIL3 = 218,
-   ACT_VM_PICKUP = 219,
-   ACT_VM_RELEASE = 220,
-   ACT_VM_MAUL_LOOP = 221,
-   ACT_VM_ATTACH_SILENCER = 222,
-   ACT_VM_DETACH_SILENCER = 223,
-   ACT_SLAM_STICKWALL_IDLE = 224,
-   ACT_SLAM_STICKWALL_ND_IDLE = 225,
-   ACT_SLAM_STICKWALL_ATTACH = 226,
-   ACT_SLAM_STICKWALL_ATTACH2 = 227,
-   ACT_SLAM_STICKWALL_ND_ATTACH = 228,
-   ACT_SLAM_STICKWALL_ND_ATTACH2 = 229,
-   ACT_SLAM_STICKWALL_DETONATE = 230,
-   ACT_SLAM_STICKWALL_DETONATOR_HOLSTER = 231,
-   ACT_SLAM_STICKWALL_DRAW = 232,
-   ACT_SLAM_STICKWALL_ND_DRAW = 233,
-   ACT_SLAM_STICKWALL_TO_THROW = 234,
-   ACT_SLAM_STICKWALL_TO_THROW_ND = 235,
-   ACT_SLAM_STICKWALL_TO_TRIPMINE_ND = 236,
-   ACT_SLAM_THROW_IDLE = 237,
-   ACT_SLAM_THROW_ND_IDLE = 238,
-   ACT_SLAM_THROW_THROW = 239,
-   ACT_SLAM_THROW_THROW2 = 240,
-   ACT_SLAM_THROW_THROW_ND = 241,
-   ACT_SLAM_THROW_THROW_ND2 = 242,
-   ACT_SLAM_THROW_DRAW = 243,
-   ACT_SLAM_THROW_ND_DRAW = 244,
-   ACT_SLAM_THROW_TO_STICKWALL = 245,
-   ACT_SLAM_THROW_TO_STICKWALL_ND = 246,
-   ACT_SLAM_THROW_DETONATE = 247,
-   ACT_SLAM_THROW_DETONATOR_HOLSTER = 248,
-   ACT_SLAM_THROW_TO_TRIPMINE_ND = 249,
-   ACT_SLAM_TRIPMINE_IDLE = 250,
-   ACT_SLAM_TRIPMINE_DRAW = 251,
-   ACT_SLAM_TRIPMINE_ATTACH = 252,
-   ACT_SLAM_TRIPMINE_ATTACH2 = 253,
-   ACT_SLAM_TRIPMINE_TO_STICKWALL_ND = 254,
-   ACT_SLAM_TRIPMINE_TO_THROW_ND = 255,
-   ACT_SLAM_DETONATOR_IDLE = 256,
-   ACT_SLAM_DETONATOR_DRAW = 257,
-   ACT_SLAM_DETONATOR_DETONATE = 258,
-   ACT_SLAM_DETONATOR_HOLSTER = 259,
-   ACT_SLAM_DETONATOR_STICKWALL_DRAW = 260,
-   ACT_SLAM_DETONATOR_THROW_DRAW = 261,
-   ACT_SHOTGUN_RELOAD_START = 262,
-   ACT_SHOTGUN_RELOAD_FINISH = 263,
-   ACT_SHOTGUN_PUMP = 264,
-   ACT_SMG2_IDLE2 = 265,
-   ACT_SMG2_FIRE2 = 266,
-   ACT_SMG2_DRAW2 = 267,
-   ACT_SMG2_RELOAD2 = 268,
-   ACT_SMG2_DRYFIRE2 = 269,
-   ACT_SMG2_TOAUTO = 270,
-   ACT_SMG2_TOBURST = 271,
-   ACT_PHYSCANNON_UPGRADE = 272,
-   ACT_RANGE_ATTACK_AR1 = 273,
-   ACT_RANGE_ATTACK_AR2 = 274,
-   ACT_RANGE_ATTACK_AR2_LOW = 275,
-   ACT_RANGE_ATTACK_AR2_GRENADE = 276,
-   ACT_RANGE_ATTACK_HMG1 = 277,
-   ACT_RANGE_ATTACK_ML = 278,
-   ACT_RANGE_ATTACK_SMG1 = 279,
-   ACT_RANGE_ATTACK_SMG1_LOW = 280,
-   ACT_RANGE_ATTACK_SMG2 = 281,
-   ACT_RANGE_ATTACK_SHOTGUN = 282,
-   ACT_RANGE_ATTACK_SHOTGUN_LOW = 283,
-   ACT_RANGE_ATTACK_PISTOL = 284,
-   ACT_RANGE_ATTACK_PISTOL_LOW = 285,
-   ACT_RANGE_ATTACK_SLAM = 286,
-   ACT_RANGE_ATTACK_TRIPWIRE = 287,
-   ACT_RANGE_ATTACK_THROW = 288,
-   ACT_RANGE_ATTACK_SNIPER_RIFLE = 289,
-   ACT_RANGE_ATTACK_RPG = 290,
-   ACT_MELEE_ATTACK_SWING = 291,
-   ACT_RANGE_AIM_LOW = 292,
-   ACT_RANGE_AIM_SMG1_LOW = 293,
-   ACT_RANGE_AIM_PISTOL_LOW = 294,
-   ACT_RANGE_AIM_AR2_LOW = 295,
-   ACT_COVER_PISTOL_LOW = 296,
-   ACT_COVER_SMG1_LOW = 297,
-   ACT_GESTURE_RANGE_ATTACK_AR1 = 298,
-   ACT_GESTURE_RANGE_ATTACK_AR2 = 299,
-   ACT_GESTURE_RANGE_ATTACK_AR2_GRENADE = 300,
-   ACT_GESTURE_RANGE_ATTACK_HMG1 = 301,
-   ACT_GESTURE_RANGE_ATTACK_ML = 302,
-   ACT_GESTURE_RANGE_ATTACK_SMG1 = 303,
-   ACT_GESTURE_RANGE_ATTACK_SMG1_LOW = 304,
-   ACT_GESTURE_RANGE_ATTACK_SMG2 = 305,
-   ACT_GESTURE_RANGE_ATTACK_SHOTGUN = 306,
-   ACT_GESTURE_RANGE_ATTACK_PISTOL = 307,
-   ACT_GESTURE_RANGE_ATTACK_PISTOL_LOW = 308,
-   ACT_GESTURE_RANGE_ATTACK_SLAM = 309,
-   ACT_GESTURE_RANGE_ATTACK_TRIPWIRE = 310,
-   ACT_GESTURE_RANGE_ATTACK_THROW = 311,
-   ACT_GESTURE_RANGE_ATTACK_SNIPER_RIFLE = 312,
-   ACT_GESTURE_MELEE_ATTACK_SWING = 313,
-   ACT_IDLE_RIFLE = 314,
-   ACT_IDLE_SMG1 = 315,
-   ACT_IDLE_ANGRY_SMG1 = 316,
-   ACT_IDLE_PISTOL = 317,
-   ACT_IDLE_ANGRY_PISTOL = 318,
-   ACT_IDLE_ANGRY_SHOTGUN = 319,
-   ACT_IDLE_STEALTH_PISTOL = 320,
-   ACT_IDLE_PACKAGE = 321,
-   ACT_WALK_PACKAGE = 322,
-   ACT_IDLE_SUITCASE = 323,
-   ACT_WALK_SUITCASE = 324,
-   ACT_IDLE_SMG1_RELAXED = 325,
-   ACT_IDLE_SMG1_STIMULATED = 326,
-   ACT_WALK_RIFLE_RELAXED = 327,
-   ACT_RUN_RIFLE_RELAXED = 328,
-   ACT_WALK_RIFLE_STIMULATED = 329,
-   ACT_RUN_RIFLE_STIMULATED = 330,
-   ACT_IDLE_AIM_RIFLE_STIMULATED = 331,
-   ACT_WALK_AIM_RIFLE_STIMULATED = 332,
-   ACT_RUN_AIM_RIFLE_STIMULATED = 333,
-   ACT_IDLE_SHOTGUN_RELAXED = 334,
-   ACT_IDLE_SHOTGUN_STIMULATED = 335,
-   ACT_IDLE_SHOTGUN_AGITATED = 336,
-   ACT_WALK_ANGRY = 337,
-   ACT_POLICE_HARASS1 = 338,
-   ACT_POLICE_HARASS2 = 339,
-   ACT_IDLE_MANNEDGUN = 340,
-   ACT_IDLE_MELEE = 341,
-   ACT_IDLE_ANGRY_MELEE = 342,
-   ACT_IDLE_RPG_RELAXED = 343,
-   ACT_IDLE_RPG = 344,
-   ACT_IDLE_ANGRY_RPG = 345,
-   ACT_COVER_LOW_RPG = 346,
-   ACT_WALK_RPG = 347,
-   ACT_RUN_RPG = 348,
-   ACT_WALK_CROUCH_RPG = 349,
-   ACT_RUN_CROUCH_RPG = 350,
-   ACT_WALK_RPG_RELAXED = 351,
-   ACT_RUN_RPG_RELAXED = 352,
-   ACT_WALK_RIFLE = 353,
-   ACT_WALK_AIM_RIFLE = 354,
-   ACT_WALK_CROUCH_RIFLE = 355,
-   ACT_WALK_CROUCH_AIM_RIFLE = 356,
-   ACT_RUN_RIFLE = 357,
-   ACT_RUN_AIM_RIFLE = 358,
-   ACT_RUN_CROUCH_RIFLE = 359,
-   ACT_RUN_CROUCH_AIM_RIFLE = 360,
-   ACT_RUN_STEALTH_PISTOL = 361,
-   ACT_WALK_AIM_SHOTGUN = 362,
-   ACT_RUN_AIM_SHOTGUN = 363,
-   ACT_WALK_PISTOL = 364,
-   ACT_RUN_PISTOL = 365,
-   ACT_WALK_AIM_PISTOL = 366,
-   ACT_RUN_AIM_PISTOL = 367,
-   ACT_WALK_STEALTH_PISTOL = 368,
-   ACT_WALK_AIM_STEALTH_PISTOL = 369,
-   ACT_RUN_AIM_STEALTH_PISTOL = 370,
-   ACT_RELOAD_PISTOL = 371,
-   ACT_RELOAD_PISTOL_LOW = 372,
-   ACT_RELOAD_SMG1 = 373,
-   ACT_RELOAD_SMG1_LOW = 374,
-   ACT_RELOAD_SHOTGUN = 375,
-   ACT_RELOAD_SHOTGUN_LOW = 376,
-   ACT_GESTURE_RELOAD = 377,
-   ACT_GESTURE_RELOAD_PISTOL = 378,
-   ACT_GESTURE_RELOAD_SMG1 = 379,
-   ACT_GESTURE_RELOAD_SHOTGUN = 380,
-   ACT_BUSY_LEAN_LEFT = 381,
-   ACT_BUSY_LEAN_LEFT_ENTRY = 382,
-   ACT_BUSY_LEAN_LEFT_EXIT = 383,
-   ACT_BUSY_LEAN_BACK = 384,
-   ACT_BUSY_LEAN_BACK_ENTRY = 385,
-   ACT_BUSY_LEAN_BACK_EXIT = 386,
-   ACT_BUSY_SIT_GROUND = 387,
-   ACT_BUSY_SIT_GROUND_ENTRY = 388,
-   ACT_BUSY_SIT_GROUND_EXIT = 389,
-   ACT_BUSY_SIT_CHAIR = 390,
-   ACT_BUSY_SIT_CHAIR_ENTRY = 391,
-   ACT_BUSY_SIT_CHAIR_EXIT = 392,
-   ACT_BUSY_STAND = 393,
-   ACT_BUSY_QUEUE = 394,
-   ACT_DUCK_DODGE = 395,
-   ACT_DIE_BARNACLE_SWALLOW = 396,
-   ACT_GESTURE_BARNACLE_STRANGLE = 397,
-   ACT_DIE_FRONTSIDE = 402,
-   ACT_DIE_RIGHTSIDE = 403,
-   ACT_DIE_BACKSIDE = 404,
-   ACT_DIE_LEFTSIDE = 405,
-   ACT_DIE_CROUCH_FRONTSIDE = 406,
-   ACT_DIE_CROUCH_RIGHTSIDE = 407,
-   ACT_DIE_CROUCH_BACKSIDE = 408,
-   ACT_DIE_CROUCH_LEFTSIDE = 409,
-   ACT_DIE_INCAP = 410,
-   ACT_DIE_STANDING = 411,
-   ACT_OPEN_DOOR = 412,
-   ACT_DI_ALYX_ZOMBIE_MELEE = 413,
-   ACT_DI_ALYX_ZOMBIE_TORSO_MELEE = 414,
-   ACT_DI_ALYX_HEADCRAB_MELEE = 415,
-   ACT_DI_ALYX_ANTLION = 416,
-   ACT_DI_ALYX_ZOMBIE_SHOTGUN64 = 417,
-   ACT_DI_ALYX_ZOMBIE_SHOTGUN26 = 418,
-   ACT_READINESS_RELAXED_TO_STIMULATED = 419,
-   ACT_READINESS_RELAXED_TO_STIMULATED_WALK = 420,
-   ACT_READINESS_AGITATED_TO_STIMULATED = 421,
-   ACT_READINESS_STIMULATED_TO_RELAXED = 422,
-   ACT_READINESS_PISTOL_RELAXED_TO_STIMULATED = 423,
-   ACT_READINESS_PISTOL_RELAXED_TO_STIMULATED_WALK = 424,
-   ACT_READINESS_PISTOL_AGITATED_TO_STIMULATED = 425,
-   ACT_READINESS_PISTOL_STIMULATED_TO_RELAXED = 426,
-   ACT_IDLE_CARRY = 427,
-   ACT_WALK_CARRY = 428,
-   ACT_STARTDYING = 429,
-   ACT_DYINGLOOP = 430,
-   ACT_DYINGTODEAD = 431,
-   ACT_RIDE_MANNED_GUN = 432,
-   ACT_VM_SPRINT_ENTER = 433,
-   ACT_VM_SPRINT_IDLE = 434,
-   ACT_VM_SPRINT_LEAVE = 435,
-   ACT_FIRE_START = 436,
-   ACT_FIRE_LOOP = 437,
-   ACT_FIRE_END = 438,
-   ACT_CROUCHING_GRENADEIDLE = 439,
-   ACT_CROUCHING_GRENADEREADY = 440,
-   ACT_CROUCHING_PRIMARYATTACK = 441,
-   ACT_OVERLAY_GRENADEIDLE = 442,
-   ACT_OVERLAY_GRENADEREADY = 443,
-   ACT_OVERLAY_PRIMARYATTACK = 444,
-   ACT_OVERLAY_SHIELD_UP = 445,
-   ACT_OVERLAY_SHIELD_DOWN = 446,
-   ACT_OVERLAY_SHIELD_UP_IDLE = 447,
-   ACT_OVERLAY_SHIELD_ATTACK = 448,
-   ACT_OVERLAY_SHIELD_KNOCKBACK = 449,
-   ACT_SHIELD_UP = 450,
-   ACT_SHIELD_DOWN = 451,
-   ACT_SHIELD_UP_IDLE = 452,
-   ACT_SHIELD_ATTACK = 453,
-   ACT_SHIELD_KNOCKBACK = 454,
-   ACT_CROUCHING_SHIELD_UP = 455,
-   ACT_CROUCHING_SHIELD_DOWN = 456,
-   ACT_CROUCHING_SHIELD_UP_IDLE = 457,
-   ACT_CROUCHING_SHIELD_ATTACK = 458,
-   ACT_CROUCHING_SHIELD_KNOCKBACK = 459,
-   ACT_TURNRIGHT45 = 460,
-   ACT_TURNLEFT45 = 461,
-   ACT_TURN = 462,
-   ACT_OBJ_ASSEMBLING = 463,
-   ACT_OBJ_DISMANTLING = 464,
-   ACT_OBJ_STARTUP = 465,
-   ACT_OBJ_RUNNING = 466,
-   ACT_OBJ_IDLE = 467,
-   ACT_OBJ_PLACING = 468,
-   ACT_OBJ_DETERIORATING = 469,
-   ACT_OBJ_UPGRADING = 470,
-   ACT_DEPLOY = 471,
-   ACT_DEPLOY_IDLE = 472,
-   ACT_UNDEPLOY = 473,
-   ACT_CROSSBOW_DRAW_UNLOADED = 474,
-   ACT_GAUSS_SPINUP = 475,
-   ACT_GAUSS_SPINCYCLE = 476,
-   ACT_VM_PRIMARYATTACK_SILENCED = 477,
-   ACT_VM_RELOAD_SILENCED = 478,
-   ACT_VM_DRYFIRE_SILENCED = 479,
-   ACT_VM_IDLE_SILENCED = 480,
-   ACT_VM_DRAW_SILENCED = 481,
-   ACT_VM_IDLE_EMPTY_LEFT = 482,
-   ACT_VM_DRYFIRE_LEFT = 483,
-   ACT_VM_IS_DRAW = 484,
-   ACT_VM_IS_HOLSTER = 485,
-   ACT_VM_IS_IDLE = 486,
-   ACT_VM_IS_PRIMARYATTACK = 487,
-   ACT_PLAYER_IDLE_FIRE = 488,
-   ACT_PLAYER_CROUCH_FIRE = 489,
-   ACT_PLAYER_CROUCH_WALK_FIRE = 490,
-   ACT_PLAYER_WALK_FIRE = 491,
-   ACT_PLAYER_RUN_FIRE = 492,
-   ACT_IDLETORUN = 493,
-   ACT_RUNTOIDLE = 494,
-   ACT_VM_DRAW_DEPLOYED = 495,
-   ACT_HL2MP_IDLE_MELEE = 496,
-   ACT_HL2MP_RUN_MELEE = 497,
-   ACT_HL2MP_IDLE_CROUCH_MELEE = 498,
-   ACT_HL2MP_WALK_CROUCH_MELEE = 499,
-   ACT_HL2MP_GESTURE_RANGE_ATTACK_MELEE = 500,
-   ACT_HL2MP_GESTURE_RELOAD_MELEE = 501,
-   ACT_HL2MP_JUMP_MELEE = 502,
-   ACT_MP_STAND_IDLE = 503,
-   ACT_MP_CROUCH_IDLE = 504,
-   ACT_MP_CROUCH_DEPLOYED_IDLE = 505,
-   ACT_MP_CROUCH_DEPLOYED = 506,
-   ACT_MP_DEPLOYED_IDLE = 507,
-   ACT_MP_RUN = 508,
-   ACT_MP_WALK = 509,
-   ACT_MP_AIRWALK = 510,
-   ACT_MP_CROUCHWALK = 511,
-   ACT_MP_SPRINT = 512,
-   ACT_MP_JUMP = 513,
-   ACT_MP_JUMP_START = 514,
-   ACT_MP_JUMP_FLOAT = 515,
-   ACT_MP_JUMP_LAND = 516,
-   ACT_MP_DOUBLEJUMP = 517,
-   ACT_MP_SWIM = 518,
-   ACT_MP_DEPLOYED = 519,
-   ACT_MP_SWIM_DEPLOYED = 520,
-   ACT_MP_VCD = 521,
-   ACT_MP_ATTACK_STAND_PRIMARYFIRE = 522,
-   ACT_MP_ATTACK_STAND_PRIMARYFIRE_DEPLOYED = 523,
-   ACT_MP_ATTACK_STAND_SECONDARYFIRE = 524,
-   ACT_MP_ATTACK_STAND_GRENADE = 525,
-   ACT_MP_ATTACK_CROUCH_PRIMARYFIRE = 526,
-   ACT_MP_ATTACK_CROUCH_PRIMARYFIRE_DEPLOYED = 527,
-   ACT_MP_ATTACK_CROUCH_SECONDARYFIRE = 528,
-   ACT_MP_ATTACK_CROUCH_GRENADE = 529,
-   ACT_MP_ATTACK_SWIM_PRIMARYFIRE = 530,
-   ACT_MP_ATTACK_SWIM_SECONDARYFIRE = 531,
-   ACT_MP_ATTACK_SWIM_GRENADE = 532,
-   ACT_MP_ATTACK_AIRWALK_PRIMARYFIRE = 533,
-   ACT_MP_ATTACK_AIRWALK_SECONDARYFIRE = 534,
-   ACT_MP_ATTACK_AIRWALK_GRENADE = 535,
-   ACT_MP_RELOAD_STAND = 536,
-   ACT_MP_RELOAD_STAND_LOOP = 537,
-   ACT_MP_RELOAD_STAND_END = 538,
-   ACT_MP_RELOAD_CROUCH = 539,
-   ACT_MP_RELOAD_CROUCH_LOOP = 540,
-   ACT_MP_RELOAD_CROUCH_END = 541,
-   ACT_MP_RELOAD_SWIM = 542,
-   ACT_MP_RELOAD_SWIM_LOOP = 543,
-   ACT_MP_RELOAD_SWIM_END = 544,
-   ACT_MP_RELOAD_AIRWALK = 545,
-   ACT_MP_RELOAD_AIRWALK_LOOP = 546,
-   ACT_MP_RELOAD_AIRWALK_END = 547,
-   ACT_MP_ATTACK_STAND_PREFIRE = 548,
-   ACT_MP_ATTACK_STAND_POSTFIRE = 549,
-   ACT_MP_ATTACK_STAND_STARTFIRE = 550,
-   ACT_MP_ATTACK_CROUCH_PREFIRE = 551,
-   ACT_MP_ATTACK_CROUCH_POSTFIRE = 552,
-   ACT_MP_ATTACK_SWIM_PREFIRE = 553,
-   ACT_MP_ATTACK_SWIM_POSTFIRE = 554,
-   ACT_MP_STAND_PRIMARY = 555,
-   ACT_MP_CROUCH_PRIMARY = 556,
-   ACT_MP_RUN_PRIMARY = 557,
-   ACT_MP_WALK_PRIMARY = 558,
-   ACT_MP_AIRWALK_PRIMARY = 559,
-   ACT_MP_CROUCHWALK_PRIMARY = 560,
-   ACT_MP_JUMP_PRIMARY = 561,
-   ACT_MP_JUMP_START_PRIMARY = 562,
-   ACT_MP_JUMP_FLOAT_PRIMARY = 563,
-   ACT_MP_JUMP_LAND_PRIMARY = 564,
-   ACT_MP_SWIM_PRIMARY = 565,
-   ACT_MP_DEPLOYED_PRIMARY = 566,
-   ACT_MP_SWIM_DEPLOYED_PRIMARY = 567,
-   ACT_MP_ATTACK_STAND_PRIMARY = 568,
-   ACT_MP_ATTACK_STAND_PRIMARY_DEPLOYED = 569,
-   ACT_MP_ATTACK_CROUCH_PRIMARY = 570,
-   ACT_MP_ATTACK_CROUCH_PRIMARY_DEPLOYED = 571,
-   ACT_MP_ATTACK_SWIM_PRIMARY = 572,
-   ACT_MP_ATTACK_AIRWALK_PRIMARY = 573,
-   ACT_MP_RELOAD_STAND_PRIMARY = 574,
-   ACT_MP_RELOAD_STAND_PRIMARY_LOOP = 575,
-   ACT_MP_RELOAD_STAND_PRIMARY_END = 576,
-   ACT_MP_RELOAD_CROUCH_PRIMARY = 577,
-   ACT_MP_RELOAD_CROUCH_PRIMARY_LOOP = 578,
-   ACT_MP_RELOAD_CROUCH_PRIMARY_END = 579,
-   ACT_MP_RELOAD_SWIM_PRIMARY = 580,
-   ACT_MP_RELOAD_SWIM_PRIMARY_LOOP = 581,
-   ACT_MP_RELOAD_SWIM_PRIMARY_END = 582,
-   ACT_MP_RELOAD_AIRWALK_PRIMARY = 583,
-   ACT_MP_RELOAD_AIRWALK_PRIMARY_LOOP = 584,
-   ACT_MP_RELOAD_AIRWALK_PRIMARY_END = 585,
-   ACT_MP_ATTACK_STAND_GRENADE_PRIMARY = 586,
-   ACT_MP_ATTACK_CROUCH_GRENADE_PRIMARY = 587,
-   ACT_MP_ATTACK_SWIM_GRENADE_PRIMARY = 588,
-   ACT_MP_ATTACK_AIRWALK_GRENADE_PRIMARY = 589,
-   ACT_MP_STAND_SECONDARY = 590,
-   ACT_MP_CROUCH_SECONDARY = 591,
-   ACT_MP_RUN_SECONDARY = 592,
-   ACT_MP_WALK_SECONDARY = 593,
-   ACT_MP_AIRWALK_SECONDARY = 594,
-   ACT_MP_CROUCHWALK_SECONDARY = 595,
-   ACT_MP_JUMP_SECONDARY = 596,
-   ACT_MP_JUMP_START_SECONDARY = 597,
-   ACT_MP_JUMP_FLOAT_SECONDARY = 598,
-   ACT_MP_JUMP_LAND_SECONDARY = 599,
-   ACT_MP_SWIM_SECONDARY = 600,
-   ACT_MP_ATTACK_STAND_SECONDARY = 601,
-   ACT_MP_ATTACK_CROUCH_SECONDARY = 602,
-   ACT_MP_ATTACK_SWIM_SECONDARY = 603,
-   ACT_MP_ATTACK_AIRWALK_SECONDARY = 604,
-   ACT_MP_RELOAD_STAND_SECONDARY = 605,
-   ACT_MP_RELOAD_STAND_SECONDARY_LOOP = 606,
-   ACT_MP_RELOAD_STAND_SECONDARY_END = 607,
-   ACT_MP_RELOAD_CROUCH_SECONDARY = 608,
-   ACT_MP_RELOAD_CROUCH_SECONDARY_LOOP = 609,
-   ACT_MP_RELOAD_CROUCH_SECONDARY_END = 610,
-   ACT_MP_RELOAD_SWIM_SECONDARY = 611,
-   ACT_MP_RELOAD_SWIM_SECONDARY_LOOP = 612,
-   ACT_MP_RELOAD_SWIM_SECONDARY_END = 613,
-   ACT_MP_RELOAD_AIRWALK_SECONDARY = 614,
-   ACT_MP_RELOAD_AIRWALK_SECONDARY_LOOP = 615,
-   ACT_MP_RELOAD_AIRWALK_SECONDARY_END = 616,
-   ACT_MP_ATTACK_STAND_GRENADE_SECONDARY = 617,
-   ACT_MP_ATTACK_CROUCH_GRENADE_SECONDARY = 618,
-   ACT_MP_ATTACK_SWIM_GRENADE_SECONDARY = 619,
-   ACT_MP_ATTACK_AIRWALK_GRENADE_SECONDARY = 620,
-   ACT_MP_STAND_MELEE = 621,
-   ACT_MP_CROUCH_MELEE = 622,
-   ACT_MP_RUN_MELEE = 623,
-   ACT_MP_WALK_MELEE = 624,
-   ACT_MP_AIRWALK_MELEE = 625,
-   ACT_MP_CROUCHWALK_MELEE = 626,
-   ACT_MP_JUMP_MELEE = 627,
-   ACT_MP_JUMP_START_MELEE = 628,
-   ACT_MP_JUMP_FLOAT_MELEE = 629,
-   ACT_MP_JUMP_LAND_MELEE = 630,
-   ACT_MP_SWIM_MELEE = 631,
-   ACT_MP_ATTACK_STAND_MELEE = 632,
-   ACT_MP_ATTACK_STAND_MELEE_SECONDARY = 633,
-   ACT_MP_ATTACK_CROUCH_MELEE = 634,
-   ACT_MP_ATTACK_CROUCH_MELEE_SECONDARY = 635,
-   ACT_MP_ATTACK_SWIM_MELEE = 636,
-   ACT_MP_ATTACK_AIRWALK_MELEE = 637,
-   ACT_MP_ATTACK_STAND_GRENADE_MELEE = 638,
-   ACT_MP_ATTACK_CROUCH_GRENADE_MELEE = 639,
-   ACT_MP_ATTACK_SWIM_GRENADE_MELEE = 640,
-   ACT_MP_ATTACK_AIRWALK_GRENADE_MELEE = 641,
-   ACT_MP_STAND_ITEM1 = 642,
-   ACT_MP_CROUCH_ITEM1 = 643,
-   ACT_MP_RUN_ITEM1 = 644,
-   ACT_MP_WALK_ITEM1 = 645,
-   ACT_MP_AIRWALK_ITEM1 = 646,
-   ACT_MP_CROUCHWALK_ITEM1 = 647,
-   ACT_MP_JUMP_ITEM1 = 648,
-   ACT_MP_JUMP_START_ITEM1 = 649,
-   ACT_MP_JUMP_FLOAT_ITEM1 = 650,
-   ACT_MP_JUMP_LAND_ITEM1 = 651,
-   ACT_MP_SWIM_ITEM1 = 652,
-   ACT_MP_ATTACK_STAND_ITEM1 = 653,
-   ACT_MP_ATTACK_STAND_ITEM1_SECONDARY = 654,
-   ACT_MP_ATTACK_CROUCH_ITEM1 = 655,
-   ACT_MP_ATTACK_CROUCH_ITEM1_SECONDARY = 656,
-   ACT_MP_ATTACK_SWIM_ITEM1 = 657,
-   ACT_MP_ATTACK_AIRWALK_ITEM1 = 658,
-   ACT_MP_STAND_ITEM2 = 659,
-   ACT_MP_CROUCH_ITEM2 = 660,
-   ACT_MP_RUN_ITEM2 = 661,
-   ACT_MP_WALK_ITEM2 = 662,
-   ACT_MP_AIRWALK_ITEM2 = 663,
-   ACT_MP_CROUCHWALK_ITEM2 = 664,
-   ACT_MP_JUMP_ITEM2 = 665,
-   ACT_MP_JUMP_START_ITEM2 = 666,
-   ACT_MP_JUMP_FLOAT_ITEM2 = 667,
-   ACT_MP_JUMP_LAND_ITEM2 = 668,
-   ACT_MP_SWIM_ITEM2 = 669,
-   ACT_MP_ATTACK_STAND_ITEM2 = 670,
-   ACT_MP_ATTACK_STAND_ITEM2_SECONDARY = 671,
-   ACT_MP_ATTACK_CROUCH_ITEM2 = 672,
-   ACT_MP_ATTACK_CROUCH_ITEM2_SECONDARY = 673,
-   ACT_MP_ATTACK_SWIM_ITEM2 = 674,
-   ACT_MP_ATTACK_AIRWALK_ITEM2 = 675,
-   ACT_MP_GESTURE_FLINCH = 676,
-   ACT_MP_GESTURE_FLINCH_PRIMARY = 677,
-   ACT_MP_GESTURE_FLINCH_SECONDARY = 678,
-   ACT_MP_GESTURE_FLINCH_MELEE = 679,
-   ACT_MP_GESTURE_FLINCH_ITEM1 = 680,
-   ACT_MP_GESTURE_FLINCH_ITEM2 = 681,
-   ACT_MP_GESTURE_FLINCH_HEAD = 682,
-   ACT_MP_GESTURE_FLINCH_CHEST = 683,
-   ACT_MP_GESTURE_FLINCH_STOMACH = 684,
-   ACT_MP_GESTURE_FLINCH_LEFTARM = 685,
-   ACT_MP_GESTURE_FLINCH_RIGHTARM = 686,
-   ACT_MP_GESTURE_FLINCH_LEFTLEG = 687,
-   ACT_MP_GESTURE_FLINCH_RIGHTLEG = 688,
-   ACT_MP_GRENADE1_DRAW = 689,
-   ACT_MP_GRENADE1_IDLE = 690,
-   ACT_MP_GRENADE1_ATTACK = 691,
-   ACT_MP_GRENADE2_DRAW = 692,
-   ACT_MP_GRENADE2_IDLE = 693,
-   ACT_MP_GRENADE2_ATTACK = 694,
-   ACT_MP_PRIMARY_GRENADE1_DRAW = 695,
-   ACT_MP_PRIMARY_GRENADE1_IDLE = 696,
-   ACT_MP_PRIMARY_GRENADE1_ATTACK = 697,
-   ACT_MP_PRIMARY_GRENADE2_DRAW = 698,
-   ACT_MP_PRIMARY_GRENADE2_IDLE = 699,
-   ACT_MP_PRIMARY_GRENADE2_ATTACK = 700,
-   ACT_MP_SECONDARY_GRENADE1_DRAW = 701,
-   ACT_MP_SECONDARY_GRENADE1_IDLE = 702,
-   ACT_MP_SECONDARY_GRENADE1_ATTACK = 703,
-   ACT_MP_SECONDARY_GRENADE2_DRAW = 704,
-   ACT_MP_SECONDARY_GRENADE2_IDLE = 705,
-   ACT_MP_SECONDARY_GRENADE2_ATTACK = 706,
-   ACT_MP_MELEE_GRENADE1_DRAW = 707,
-   ACT_MP_MELEE_GRENADE1_IDLE = 708,
-   ACT_MP_MELEE_GRENADE1_ATTACK = 709,
-   ACT_MP_MELEE_GRENADE2_DRAW = 710,
-   ACT_MP_MELEE_GRENADE2_IDLE = 711,
-   ACT_MP_MELEE_GRENADE2_ATTACK = 712,
-   ACT_MP_ITEM1_GRENADE1_DRAW = 713,
-   ACT_MP_ITEM1_GRENADE1_IDLE = 714,
-   ACT_MP_ITEM1_GRENADE1_ATTACK = 715,
-   ACT_MP_ITEM1_GRENADE2_DRAW = 716,
-   ACT_MP_ITEM1_GRENADE2_IDLE = 717,
-   ACT_MP_ITEM1_GRENADE2_ATTACK = 718,
-   ACT_MP_ITEM2_GRENADE1_DRAW = 719,
-   ACT_MP_ITEM2_GRENADE1_IDLE = 720,
-   ACT_MP_ITEM2_GRENADE1_ATTACK = 721,
-   ACT_MP_ITEM2_GRENADE2_DRAW = 722,
-   ACT_MP_ITEM2_GRENADE2_IDLE = 723,
-   ACT_MP_ITEM2_GRENADE2_ATTACK = 724,
-   ACT_MP_STAND_BUILDING = 725,
-   ACT_MP_CROUCH_BUILDING = 726,
-   ACT_MP_RUN_BUILDING = 727,
-   ACT_MP_WALK_BUILDING = 728,
-   ACT_MP_AIRWALK_BUILDING = 729,
-   ACT_MP_CROUCHWALK_BUILDING = 730,
-   ACT_MP_JUMP_BUILDING = 731,
-   ACT_MP_JUMP_START_BUILDING = 732,
-   ACT_MP_JUMP_FLOAT_BUILDING = 733,
-   ACT_MP_JUMP_LAND_BUILDING = 734,
-   ACT_MP_SWIM_BUILDING = 735,
-   ACT_MP_ATTACK_STAND_BUILDING = 736,
-   ACT_MP_ATTACK_CROUCH_BUILDING = 737,
-   ACT_MP_ATTACK_SWIM_BUILDING = 738,
-   ACT_MP_ATTACK_AIRWALK_BUILDING = 739,
-   ACT_MP_ATTACK_STAND_GRENADE_BUILDING = 740,
-   ACT_MP_ATTACK_CROUCH_GRENADE_BUILDING = 741,
-   ACT_MP_ATTACK_SWIM_GRENADE_BUILDING = 742,
-   ACT_MP_ATTACK_AIRWALK_GRENADE_BUILDING = 743,
-   ACT_MP_STAND_PDA = 744,
-   ACT_MP_CROUCH_PDA = 745,
-   ACT_MP_RUN_PDA = 746,
-   ACT_MP_WALK_PDA = 747,
-   ACT_MP_AIRWALK_PDA = 748,
-   ACT_MP_CROUCHWALK_PDA = 749,
-   ACT_MP_JUMP_PDA = 750,
-   ACT_MP_JUMP_START_PDA = 751,
-   ACT_MP_JUMP_FLOAT_PDA = 752,
-   ACT_MP_JUMP_LAND_PDA = 753,
-   ACT_MP_SWIM_PDA = 754,
-   ACT_MP_ATTACK_STAND_PDA = 755,
-   ACT_MP_ATTACK_SWIM_PDA = 756,
-   ACT_MP_GESTURE_VC_HANDMOUTH = 757,
-   ACT_MP_GESTURE_VC_FINGERPOINT = 758,
-   ACT_MP_GESTURE_VC_FISTPUMP = 759,
-   ACT_MP_GESTURE_VC_THUMBSUP = 760,
-   ACT_MP_GESTURE_VC_NODYES = 761,
-   ACT_MP_GESTURE_VC_NODNO = 762,
-   ACT_MP_GESTURE_VC_HANDMOUTH_PRIMARY = 763,
-   ACT_MP_GESTURE_VC_FINGERPOINT_PRIMARY = 764,
-   ACT_MP_GESTURE_VC_FISTPUMP_PRIMARY = 765,
-   ACT_MP_GESTURE_VC_THUMBSUP_PRIMARY = 766,
-   ACT_MP_GESTURE_VC_NODYES_PRIMARY = 767,
-   ACT_MP_GESTURE_VC_NODNO_PRIMARY = 768,
-   ACT_MP_GESTURE_VC_HANDMOUTH_SECONDARY = 769,
-   ACT_MP_GESTURE_VC_FINGERPOINT_SECONDARY = 770,
-   ACT_MP_GESTURE_VC_FISTPUMP_SECONDARY = 771,
-   ACT_MP_GESTURE_VC_THUMBSUP_SECONDARY = 772,
-   ACT_MP_GESTURE_VC_NODYES_SECONDARY = 773,
-   ACT_MP_GESTURE_VC_NODNO_SECONDARY = 774,
-   ACT_MP_GESTURE_VC_HANDMOUTH_MELEE = 775,
-   ACT_MP_GESTURE_VC_FINGERPOINT_MELEE = 776,
-   ACT_MP_GESTURE_VC_FISTPUMP_MELEE = 777,
-   ACT_MP_GESTURE_VC_THUMBSUP_MELEE = 778,
-   ACT_MP_GESTURE_VC_NODYES_MELEE = 779,
-   ACT_MP_GESTURE_VC_NODNO_MELEE = 780,
-   ACT_MP_GESTURE_VC_HANDMOUTH_ITEM1 = 781,
-   ACT_MP_GESTURE_VC_FINGERPOINT_ITEM1 = 782,
-   ACT_MP_GESTURE_VC_FISTPUMP_ITEM1 = 783,
-   ACT_MP_GESTURE_VC_THUMBSUP_ITEM1 = 784,
-   ACT_MP_GESTURE_VC_NODYES_ITEM1 = 785,
-   ACT_MP_GESTURE_VC_NODNO_ITEM1 = 786,
-   ACT_MP_GESTURE_VC_HANDMOUTH_ITEM2 = 787,
-   ACT_MP_GESTURE_VC_FINGERPOINT_ITEM2 = 788,
-   ACT_MP_GESTURE_VC_FISTPUMP_ITEM2 = 789,
-   ACT_MP_GESTURE_VC_THUMBSUP_ITEM2 = 790,
-   ACT_MP_GESTURE_VC_NODYES_ITEM2 = 791,
-   ACT_MP_GESTURE_VC_NODNO_ITEM2 = 792,
-   ACT_MP_GESTURE_VC_HANDMOUTH_BUILDING = 793,
-   ACT_MP_GESTURE_VC_FINGERPOINT_BUILDING = 794,
-   ACT_MP_GESTURE_VC_FISTPUMP_BUILDING = 795,
-   ACT_MP_GESTURE_VC_THUMBSUP_BUILDING = 796,
-   ACT_MP_GESTURE_VC_NODYES_BUILDING = 797,
-   ACT_MP_GESTURE_VC_NODNO_BUILDING = 798,
-   ACT_MP_GESTURE_VC_HANDMOUTH_PDA = 799,
-   ACT_MP_GESTURE_VC_FINGERPOINT_PDA = 800,
-   ACT_MP_GESTURE_VC_FISTPUMP_PDA = 801,
-   ACT_MP_GESTURE_VC_THUMBSUP_PDA = 802,
-   ACT_MP_GESTURE_VC_NODYES_PDA = 803,
-   ACT_MP_GESTURE_VC_NODNO_PDA = 804,
-   ACT_VM_UNUSABLE = 805,
-   ACT_VM_UNUSABLE_TO_USABLE = 806,
-   ACT_VM_USABLE_TO_UNUSABLE = 807,
-   ACT_PRIMARY_VM_DRAW = 808,
-   ACT_PRIMARY_VM_HOLSTER = 809,
-   ACT_PRIMARY_VM_IDLE = 810,
-   ACT_PRIMARY_VM_PULLBACK = 811,
-   ACT_PRIMARY_VM_PRIMARYATTACK = 812,
-   ACT_PRIMARY_VM_SECONDARYATTACK = 813,
-   ACT_PRIMARY_VM_RELOAD = 814,
-   ACT_PRIMARY_VM_DRYFIRE = 815,
-   ACT_PRIMARY_VM_IDLE_TO_LOWERED = 816,
-   ACT_PRIMARY_VM_IDLE_LOWERED = 817,
-   ACT_PRIMARY_VM_LOWERED_TO_IDLE = 818,
-   ACT_SECONDARY_VM_DRAW = 819,
-   ACT_SECONDARY_VM_HOLSTER = 820,
-   ACT_SECONDARY_VM_IDLE = 821,
-   ACT_SECONDARY_VM_PULLBACK = 822,
-   ACT_SECONDARY_VM_PRIMARYATTACK = 823,
-   ACT_SECONDARY_VM_SECONDARYATTACK = 824,
-   ACT_SECONDARY_VM_RELOAD = 825,
-   ACT_SECONDARY_VM_DRYFIRE = 826,
-   ACT_SECONDARY_VM_IDLE_TO_LOWERED = 827,
-   ACT_SECONDARY_VM_IDLE_LOWERED = 828,
-   ACT_SECONDARY_VM_LOWERED_TO_IDLE = 829,
-   ACT_MELEE_VM_DRAW = 830,
-   ACT_MELEE_VM_HOLSTER = 831,
-   ACT_MELEE_VM_IDLE = 832,
-   ACT_MELEE_VM_PULLBACK = 833,
-   ACT_MELEE_VM_PRIMARYATTACK = 834,
-   ACT_MELEE_VM_SECONDARYATTACK = 835,
-   ACT_MELEE_VM_RELOAD = 836,
-   ACT_MELEE_VM_DRYFIRE = 837,
-   ACT_MELEE_VM_IDLE_TO_LOWERED = 838,
-   ACT_MELEE_VM_IDLE_LOWERED = 839,
-   ACT_MELEE_VM_LOWERED_TO_IDLE = 840,
-   ACT_PDA_VM_DRAW = 841,
-   ACT_PDA_VM_HOLSTER = 842,
-   ACT_PDA_VM_IDLE = 843,
-   ACT_PDA_VM_PULLBACK = 844,
-   ACT_PDA_VM_PRIMARYATTACK = 845,
-   ACT_PDA_VM_SECONDARYATTACK = 846,
-   ACT_PDA_VM_RELOAD = 847,
-   ACT_PDA_VM_DRYFIRE = 848,
-   ACT_PDA_VM_IDLE_TO_LOWERED = 849,
-   ACT_PDA_VM_IDLE_LOWERED = 850,
-   ACT_PDA_VM_LOWERED_TO_IDLE = 851,
-   ACT_ITEM1_VM_DRAW = 852,
-   ACT_ITEM1_VM_HOLSTER = 853,
-   ACT_ITEM1_VM_IDLE = 854,
-   ACT_ITEM1_VM_PULLBACK = 855,
-   ACT_ITEM1_VM_PRIMARYATTACK = 856,
-   ACT_ITEM1_VM_SECONDARYATTACK = 857,
-   ACT_ITEM1_VM_RELOAD = 858,
-   ACT_ITEM1_VM_DRYFIRE = 859,
-   ACT_ITEM1_VM_IDLE_TO_LOWERED = 860,
-   ACT_ITEM1_VM_IDLE_LOWERED = 861,
-   ACT_ITEM1_VM_LOWERED_TO_IDLE = 862,
-   ACT_ITEM2_VM_DRAW = 863,
-   ACT_ITEM2_VM_HOLSTER = 864,
-   ACT_ITEM2_VM_IDLE = 865,
-   ACT_ITEM2_VM_PULLBACK = 866,
-   ACT_ITEM2_VM_PRIMARYATTACK = 867,
-   ACT_ITEM2_VM_SECONDARYATTACK = 868,
-   ACT_ITEM2_VM_RELOAD = 869,
-   ACT_ITEM2_VM_DRYFIRE = 870,
-   ACT_ITEM2_VM_IDLE_TO_LOWERED = 871,
-   ACT_ITEM2_VM_IDLE_LOWERED = 872,
-   ACT_ITEM2_VM_LOWERED_TO_IDLE = 873,
-   ACT_RELOAD_SUCCEED = 874,
-   ACT_RELOAD_FAIL = 875,
-   ACT_WALK_AIM_AUTOGUN = 876,
-   ACT_RUN_AIM_AUTOGUN = 877,
-   ACT_IDLE_AUTOGUN = 878,
-   ACT_IDLE_AIM_AUTOGUN = 879,
-   ACT_RELOAD_AUTOGUN = 880,
-   ACT_CROUCH_IDLE_AUTOGUN = 881,
-   ACT_RANGE_ATTACK_AUTOGUN = 882,
-   ACT_JUMP_AUTOGUN = 883,
-   ACT_IDLE_AIM_PISTOL = 884,
-   ACT_WALK_AIM_DUAL = 885,
-   ACT_RUN_AIM_DUAL = 886,
-   ACT_IDLE_DUAL = 887,
-   ACT_IDLE_AIM_DUAL = 888,
-   ACT_RELOAD_DUAL = 889,
-   ACT_CROUCH_IDLE_DUAL = 890,
-   ACT_RANGE_ATTACK_DUAL = 891,
-   ACT_JUMP_DUAL = 892,
-   ACT_IDLE_AIM_SHOTGUN = 893,
-   ACT_CROUCH_IDLE_SHOTGUN = 894,
-   ACT_IDLE_AIM_RIFLE = 895,
-   ACT_CROUCH_IDLE_RIFLE = 896,
-   ACT_RANGE_ATTACK_RIFLE = 897,
-   ACT_SLEEP = 898,
-   ACT_WAKE = 899,
-   ACT_FLICK_LEFT = 900,
-   ACT_FLICK_LEFT_MIDDLE = 901,
-   ACT_FLICK_RIGHT_MIDDLE = 902,
-   ACT_FLICK_RIGHT = 903,
-   ACT_SPINAROUND = 904,
-   ACT_PREP_TO_FIRE = 905,
-   ACT_FIRE = 906,
-   ACT_FIRE_RECOVER = 907,
-   ACT_SPRAY = 908,
-   ACT_PREP_EXPLODE = 909,
-   ACT_EXPLODE = 910,
-   ACT_SCRIPT_CUSTOM_0 = 911,
-   ACT_SCRIPT_CUSTOM_1 = 912,
-   ACT_SCRIPT_CUSTOM_2 = 913,
-   ACT_SCRIPT_CUSTOM_3 = 914,
-   ACT_SCRIPT_CUSTOM_4 = 915,
-   ACT_SCRIPT_CUSTOM_5 = 916,
-   ACT_SCRIPT_CUSTOM_6 = 917,
-   ACT_SCRIPT_CUSTOM_7 = 918,
-   ACT_SCRIPT_CUSTOM_8 = 919,
-   ACT_SCRIPT_CUSTOM_9 = 920,
-   ACT_SCRIPT_CUSTOM_10 = 921,
-   ACT_SCRIPT_CUSTOM_11 = 922,
-   ACT_SCRIPT_CUSTOM_12 = 923,
-   ACT_SCRIPT_CUSTOM_13 = 924,
-   ACT_SCRIPT_CUSTOM_14 = 925,
-   ACT_SCRIPT_CUSTOM_15 = 926,
-   ACT_SCRIPT_CUSTOM_16 = 927,
-   ACT_SCRIPT_CUSTOM_17 = 928,
-   ACT_SCRIPT_CUSTOM_18 = 929,
-   ACT_SCRIPT_CUSTOM_19 = 930,
-   ACT_SCRIPT_CUSTOM_20 = 931,
-   ACT_SCRIPT_CUSTOM_21 = 932,
-   ACT_SCRIPT_CUSTOM_22 = 933,
-   ACT_SCRIPT_CUSTOM_23 = 934,
-   ACT_SCRIPT_CUSTOM_24 = 935,
-   ACT_SCRIPT_CUSTOM_25 = 936,
-   ACT_SCRIPT_CUSTOM_26 = 937,
-   ACT_SCRIPT_CUSTOM_27 = 938,
-   ACT_SCRIPT_CUSTOM_28 = 939,
-   ACT_SCRIPT_CUSTOM_29 = 940,
-   ACT_SCRIPT_CUSTOM_30 = 941,
-   ACT_SCRIPT_CUSTOM_31 = 942,
-   ACT_VR_PISTOL_LAST_SHOT = 943,
-   ACT_VR_PISTOL_SLIDE_RELEASE = 944,
-   ACT_VR_PISTOL_CLIP_OUT_CHAMBERED = 945,
-   ACT_VR_PISTOL_CLIP_OUT_SLIDE_BACK = 946,
-   ACT_VR_PISTOL_CLIP_IN_CHAMBERED = 947,
-   ACT_VR_PISTOL_CLIP_IN_SLIDE_BACK = 948,
-   ACT_VR_PISTOL_IDLE_SLIDE_BACK = 949,
-   ACT_VR_PISTOL_IDLE_SLIDE_BACK_CLIP_READY = 950,
-   ACT_RAGDOLL_RECOVERY_FRONT = 951,
-   ACT_RAGDOLL_RECOVERY_BACK = 952,
-   ACT_RAGDOLL_RECOVERY_LEFT = 953,
-   ACT_RAGDOLL_RECOVERY_RIGHT = 954,
-   ACT_GRABBITYGLOVES_GRAB = 955,
-   ACT_GRABBITYGLOVES_RELEASE = 956,
-   ACT_GRABBITYGLOVES_GRAB_IDLE = 957,
-   ACT_GRABBITYGLOVES_ACTIVE = 958,
-   ACT_GRABBITYGLOVES_ACTIVE_IDLE = 959,
-   ACT_GRABBITYGLOVES_DEACTIVATE = 960,
-   ACT_GRABBITYGLOVES_PULL = 961,
-   ACT_HEADCRAB_SMOKE_BOMB = 962,
-   ACT_HEADCRAB_SPIT = 963,
-   ACT_ZOMBIE_TRIP = 964,
-   ACT_ZOMBIE_LUNGE = 965,
-   ACT_NEUTRAL_REF_POSE = 966,
-   ACT_ANTLION_SCUTTLE_FORWARD = 967,
-   ACT_ANTLION_SCUTTLE_BACK = 968,
-   ACT_ANTLION_SCUTTLE_LEFT = 969,
-   ACT_ANTLION_SCUTTLE_RIGHT = 970,
-   ACT_VR_PISTOL_EMPTY_CLIP_IN_SLIDE_BACK = 971,
-   ACT_VR_SHOTGUN_IDLE = 972,
-   ACT_VR_SHOTGUN_OPEN_CHAMBER = 973,
-   ACT_VR_SHOTGUN_RELOAD_1 = 974,
-   ACT_VR_SHOTGUN_RELOAD_2 = 975,
-   ACT_VR_SHOTGUN_RELOAD_3 = 976,
-   ACT_VR_SHOTGUN_CLOSE_CHAMBER = 977,
-   ACT_VR_SHOTGUN_TRIGGER_SQUEEZE = 978,
-   ACT_VR_SHOTGUN_SHOOT = 979,
-   ACT_VR_SHOTGUN_SLIDE_BACK = 980,
-   ACT_VR_SHOTGUN_SLIDE_FORWARD = 981,
-   ACT_VR_PISTOL_LONG_CLIP_IN_CHAMBERED = 982,
-   ACT_VR_PISTOL_LONG_CLIP_IN_SLIDE_BACK = 983,
-   ACT_VR_PISTOL_BURST_TOGGLE = 984,
-   ACT_VR_PISTOL_LOW_KICK = 985,
-   ACT_VR_PISTOL_BURST_ATTACK = 986,
-   ACT_VR_SHOTGUN_GRENADE_TWIST = 987,
-   ACT_DIE_STAND = 988,
-   ACT_DIE_STAND_HEADSHOT = 989,
-   ACT_DIE_CROUCH = 990,
-   ACT_DIE_CROUCH_HEADSHOT = 991,
-   ACT_CSGO_NULL = 992,
-   ACT_CSGO_DEFUSE = 993,
-   ACT_CSGO_DEFUSE_WITH_KIT = 994,
-   ACT_CSGO_FLASHBANG_REACTION = 995,
-   ACT_CSGO_FIRE_PRIMARY = 996,
-   ACT_CSGO_FIRE_PRIMARY_OPT_1 = 997,
-   ACT_CSGO_FIRE_PRIMARY_OPT_2 = 998,
-   ACT_CSGO_FIRE_SECONDARY = 999,
-   ACT_CSGO_FIRE_SECONDARY_OPT_1 = 1000,
-   ACT_CSGO_FIRE_SECONDARY_OPT_2 = 1001,
-   ACT_CSGO_RELOAD = 1002,
-   ACT_CSGO_RELOAD_START = 1003,
-   ACT_CSGO_RELOAD_LOOP = 1004,
-   ACT_CSGO_RELOAD_END = 1005,
-   ACT_CSGO_OPERATE = 1006,
-   ACT_CSGO_DEPLOY = 1007,
-   ACT_CSGO_CATCH = 1008,
-   ACT_CSGO_SILENCER_DETACH = 1009,
-   ACT_CSGO_SILENCER_ATTACH = 1010,
-   ACT_CSGO_TWITCH = 1011,
-   ACT_CSGO_TWITCH_BUYZONE = 1012,
-   ACT_CSGO_PLANT_BOMB = 1013,
-   ACT_CSGO_IDLE_TURN_BALANCEADJUST = 1014,
-   ACT_CSGO_IDLE_ADJUST_STOPPEDMOVING = 1015,
-   ACT_CSGO_ALIVE_LOOP = 1016,
-   ACT_CSGO_FLINCH = 1017,
-   ACT_CSGO_FLINCH_HEAD = 1018,
-   ACT_CSGO_FLINCH_MOLOTOV = 1019,
-   ACT_CSGO_JUMP = 1020,
-   ACT_CSGO_FALL = 1021,
-   ACT_CSGO_CLIMB_LADDER = 1022,
-   ACT_CSGO_LAND_LIGHT = 1023,
-   ACT_CSGO_LAND_HEAVY = 1024,
-   ACT_CSGO_EXIT_LADDER_TOP = 1025,
-   ACT_CSGO_EXIT_LADDER_BOTTOM = 1026,
-   ACT_CSGO_PARACHUTE = 1027,
-   ACT_CSGO_TAUNT = 1028
+   WEAPON_SOUND_SECONDARY_EMPTY = 1,
+   WEAPON_SOUND_SINGLE = 2,
+   WEAPON_SOUND_SECONDARY_ATTACK = 3,
+   WEAPON_SOUND_RELOAD = 4,
+   WEAPON_SOUND_MELEE_MISS = 5,
+   WEAPON_SOUND_MELEE_HIT = 6,
+   WEAPON_SOUND_MELEE_HIT_WORLD = 7,
+   WEAPON_SOUND_MELEE_HIT_PLAYER = 8,
+   WEAPON_SOUND_SPECIAL1 = 9,
+   WEAPON_SOUND_SPECIAL2 = 10,
+   WEAPON_SOUND_SPECIAL3 = 11,
+   WEAPON_SOUND_NEARLYEMPTY = 12,
+   WEAPON_SOUND_IMPACT = 13,
+   WEAPON_SOUND_REFLECT = 14,
+   WEAPON_SOUND_SECONDARY_IMPACT = 15,
+   WEAPON_SOUND_SECONDARY_REFLECT = 16,
+   WEAPON_SOUND_SINGLE_ACCURATE = 17,
+   WEAPON_SOUND_ZOOM_IN = 18,
+   WEAPON_SOUND_ZOOM_OUT = 19,
+   WEAPON_SOUND_MOUSE_PRESSED = 20,
+   WEAPON_SOUND_DROP = 21,
+   WEAPON_SOUND_RADIO_USE = 22,
+   WEAPON_SOUND_NUM_TYPES = 23
 };
 
 enum class AmmoFlags_t : std::uint32_t
@@ -3322,7 +2211,7 @@ enum class InputBitMask_t : std::int64_t
    IN_USEORRELOAD = 0,
    IN_SCORE = 0,
    IN_ZOOM = 0,
-   IN_JUMP_THROW_RELEASE = 0
+   IN_LOOK_AT_WEAPON = 0
 };
 
 enum class EInButtonState : std::uint32_t
@@ -3658,6 +2547,13 @@ enum class TRAIN_CODE : std::uint32_t
    TRAIN_FOLLOWING = 2
 };
 
+enum class SoundEventStartType_t : std::uint32_t
+{
+   SOUNDEVENT_START_PLAYER = 0,
+   SOUNDEVENT_START_WORLD = 1,
+   SOUNDEVENT_START_ENTITY = 2
+};
+
 enum class TOGGLE_STATE : std::uint32_t
 {
    TS_AT_TOP = 0,
@@ -3879,6 +2775,14 @@ enum class PlayerConnectedState : std::int32_t
    PlayerReserved = 5
 };
 
+enum class WeaponAttackType_t : std::int32_t
+{
+   WEAPON_ATTACK_INVALID = -1,
+   WEAPON_PRIMARY_ATTACK = 0,
+   WEAPON_SECONDARY_ATTACK = 1,
+   WEAPON_ATTACK_COUNT = 2
+};
+
 enum class vote_create_failed_t : std::uint32_t
 {
    VOTE_FAILED_GENERIC = 0,
@@ -3969,10 +2873,11 @@ enum class WaterLevel_t : std::uint8_t
 {
    WL_NotInWater = 0,
    WL_Feet = 1,
-   WL_Waist = 2,
-   WL_Chest = 3,
-   WL_FullyUnderwater = 4,
-   WL_Count = 5
+   WL_Knees = 2,
+   WL_Waist = 3,
+   WL_Chest = 4,
+   WL_FullyUnderwater = 5,
+   WL_Count = 6
 };
 
 enum class DoorState_t : std::uint32_t
@@ -3999,8 +2904,11 @@ enum class Class_T : std::uint32_t
    CLASS_DZ_SPAWN_CHOPPER = 4,
    CLASS_BOMB = 5,
    CLASS_FOOT_CONTACT_SHADOW = 6,
-   CLASS_WEAPON_VIEWMODEL = 7,
-   NUM_CLASSIFY_CLASSES = 8
+   CLASS_WEAPON = 7,
+   CLASS_WATER_SPLASHER = 8,
+   CLASS_WEAPON_VIEWMODEL = 9,
+   CLASS_DOOR = 10,
+   NUM_CLASSIFY_CLASSES = 11
 };
 
 enum class Disposition_t : std::uint32_t
@@ -4041,13 +2949,21 @@ enum class StanceType_t : std::int32_t
    STANCE_CURRENT = -1,
    STANCE_DEFAULT = 0,
    STANCE_CROUCHING = 1,
-   NUM_STANCES = 2
+   STANCE_PRONE = 2,
+   NUM_STANCES = 3
 };
 
 enum class ModifyDamageReturn_t : std::uint32_t
 {
    CONTINUE_TO_APPLY_DAMAGE = 0,
    ABORT_DO_NOT_APPLY_DAMAGE = 1
+};
+
+enum class BeginDeathLifeStateTransition_t : std::uint8_t
+{
+   NO_CHANGE_IN_LIFESTATE = 0,
+   TRANSITION_TO_LIFESTATE_DYING = 1,
+   TRANSITION_TO_LIFESTATE_DEAD = 2
 };
 
 enum class WorldTextPanelHorizontalAlign_t : std::uint32_t
@@ -4069,14 +2985,6 @@ enum class WorldTextPanelOrientation_t : std::uint32_t
    WORLDTEXT_ORIENTATION_DEFAULT = 0,
    WORLDTEXT_ORIENTATION_FACEUSER = 1,
    WORLDTEXT_ORIENTATION_FACEUSER_UPRIGHT = 2
-};
-
-enum class WorldTextAttachmentType_t : std::uint32_t
-{
-   ATTACHED_NONE = 0,
-   ATTACHED_ENTITY = 1,
-   ATTACHED_ENTITY_LARGE = 2,
-   ATTACHED_HAND_SPECIFIED_IN_EVENT = 3
 };
 
 enum class attributeprovidertypes_t : std::uint32_t
@@ -4176,81 +3084,81 @@ enum class Reason : std::uint32_t
    QUEST_REASON_MAX = 12
 };
 
-enum class loadout_positions_t : std::int32_t
+enum class loadout_slot_t : std::int32_t
 {
-   LOADOUT_POSITION_INVALID = -1,
-   LOADOUT_POSITION_MELEE = 0,
-   LOADOUT_POSITION_C4 = 1,
-   LOADOUT_POSITION_FIRST_AUTO_BUY_WEAPON = 0,
-   LOADOUT_POSITION_LAST_AUTO_BUY_WEAPON = 1,
-   LOADOUT_POSITION_SECONDARY0 = 2,
-   LOADOUT_POSITION_SECONDARY1 = 3,
-   LOADOUT_POSITION_SECONDARY2 = 4,
-   LOADOUT_POSITION_SECONDARY3 = 5,
-   LOADOUT_POSITION_SECONDARY4 = 6,
-   LOADOUT_POSITION_SECONDARY5 = 7,
-   LOADOUT_POSITION_SMG0 = 8,
-   LOADOUT_POSITION_SMG1 = 9,
-   LOADOUT_POSITION_SMG2 = 10,
-   LOADOUT_POSITION_SMG3 = 11,
-   LOADOUT_POSITION_SMG4 = 12,
-   LOADOUT_POSITION_SMG5 = 13,
-   LOADOUT_POSITION_RIFLE0 = 14,
-   LOADOUT_POSITION_RIFLE1 = 15,
-   LOADOUT_POSITION_RIFLE2 = 16,
-   LOADOUT_POSITION_RIFLE3 = 17,
-   LOADOUT_POSITION_RIFLE4 = 18,
-   LOADOUT_POSITION_RIFLE5 = 19,
-   LOADOUT_POSITION_HEAVY0 = 20,
-   LOADOUT_POSITION_HEAVY1 = 21,
-   LOADOUT_POSITION_HEAVY2 = 22,
-   LOADOUT_POSITION_HEAVY3 = 23,
-   LOADOUT_POSITION_HEAVY4 = 24,
-   LOADOUT_POSITION_HEAVY5 = 25,
-   LOADOUT_POSITION_FIRST_WHEEL_WEAPON = 2,
-   LOADOUT_POSITION_LAST_WHEEL_WEAPON = 25,
-   LOADOUT_POSITION_FIRST_PRIMARY_WEAPON = 8,
-   LOADOUT_POSITION_LAST_PRIMARY_WEAPON = 25,
-   LOADOUT_POSITION_FIRST_WHEEL_GRENADE = 26,
-   LOADOUT_POSITION_GRENADE0 = 26,
-   LOADOUT_POSITION_GRENADE1 = 27,
-   LOADOUT_POSITION_GRENADE2 = 28,
-   LOADOUT_POSITION_GRENADE3 = 29,
-   LOADOUT_POSITION_GRENADE4 = 30,
-   LOADOUT_POSITION_GRENADE5 = 31,
-   LOADOUT_POSITION_LAST_WHEEL_GRENADE = 31,
-   LOADOUT_POSITION_EQUIPMENT0 = 32,
-   LOADOUT_POSITION_EQUIPMENT1 = 33,
-   LOADOUT_POSITION_EQUIPMENT2 = 34,
-   LOADOUT_POSITION_EQUIPMENT3 = 35,
-   LOADOUT_POSITION_EQUIPMENT4 = 36,
-   LOADOUT_POSITION_EQUIPMENT5 = 37,
-   LOADOUT_POSITION_FIRST_WHEEL_EQUIPMENT = 32,
-   LOADOUT_POSITION_LAST_WHEEL_EQUIPMENT = 37,
-   LOADOUT_POSITION_CLOTHING_CUSTOMPLAYER = 38,
-   LOADOUT_POSITION_PET = 39,
-   LOADOUT_POSITION_CLOTHING_FACEMASK = 40,
-   LOADOUT_POSITION_CLOTHING_HANDS = 41,
-   LOADOUT_POSITION_FIRST_COSMETIC = 41,
-   LOADOUT_POSITION_LAST_COSMETIC = 41,
-   LOADOUT_POSITION_CLOTHING_EYEWEAR = 42,
-   LOADOUT_POSITION_CLOTHING_HAT = 43,
-   LOADOUT_POSITION_CLOTHING_LOWERBODY = 44,
-   LOADOUT_POSITION_CLOTHING_TORSO = 45,
-   LOADOUT_POSITION_CLOTHING_APPEARANCE = 46,
-   LOADOUT_POSITION_MISC0 = 47,
-   LOADOUT_POSITION_MISC1 = 48,
-   LOADOUT_POSITION_MISC2 = 49,
-   LOADOUT_POSITION_MISC3 = 50,
-   LOADOUT_POSITION_MISC4 = 51,
-   LOADOUT_POSITION_MISC5 = 52,
-   LOADOUT_POSITION_MISC6 = 53,
-   LOADOUT_POSITION_MUSICKIT = 54,
-   LOADOUT_POSITION_FLAIR0 = 55,
-   LOADOUT_POSITION_SPRAY0 = 56,
-   LOADOUT_POSITION_FIRST_ALL_CHARACTER = 54,
-   LOADOUT_POSITION_LAST_ALL_CHARACTER = 56,
-   LOADOUT_POSITION_COUNT = 57
+   LOADOUT_SLOT_INVALID = -1,
+   LOADOUT_SLOT_MELEE = 0,
+   LOADOUT_SLOT_C4 = 1,
+   LOADOUT_SLOT_FIRST_AUTO_BUY_WEAPON = 0,
+   LOADOUT_SLOT_LAST_AUTO_BUY_WEAPON = 1,
+   LOADOUT_SLOT_SECONDARY0 = 2,
+   LOADOUT_SLOT_SECONDARY1 = 3,
+   LOADOUT_SLOT_SECONDARY2 = 4,
+   LOADOUT_SLOT_SECONDARY3 = 5,
+   LOADOUT_SLOT_SECONDARY4 = 6,
+   LOADOUT_SLOT_SECONDARY5 = 7,
+   LOADOUT_SLOT_SMG0 = 8,
+   LOADOUT_SLOT_SMG1 = 9,
+   LOADOUT_SLOT_SMG2 = 10,
+   LOADOUT_SLOT_SMG3 = 11,
+   LOADOUT_SLOT_SMG4 = 12,
+   LOADOUT_SLOT_SMG5 = 13,
+   LOADOUT_SLOT_RIFLE0 = 14,
+   LOADOUT_SLOT_RIFLE1 = 15,
+   LOADOUT_SLOT_RIFLE2 = 16,
+   LOADOUT_SLOT_RIFLE3 = 17,
+   LOADOUT_SLOT_RIFLE4 = 18,
+   LOADOUT_SLOT_RIFLE5 = 19,
+   LOADOUT_SLOT_HEAVY0 = 20,
+   LOADOUT_SLOT_HEAVY1 = 21,
+   LOADOUT_SLOT_HEAVY2 = 22,
+   LOADOUT_SLOT_HEAVY3 = 23,
+   LOADOUT_SLOT_HEAVY4 = 24,
+   LOADOUT_SLOT_HEAVY5 = 25,
+   LOADOUT_SLOT_FIRST_WHEEL_WEAPON = 2,
+   LOADOUT_SLOT_LAST_WHEEL_WEAPON = 25,
+   LOADOUT_SLOT_FIRST_PRIMARY_WEAPON = 8,
+   LOADOUT_SLOT_LAST_PRIMARY_WEAPON = 25,
+   LOADOUT_SLOT_FIRST_WHEEL_GRENADE = 26,
+   LOADOUT_SLOT_GRENADE0 = 26,
+   LOADOUT_SLOT_GRENADE1 = 27,
+   LOADOUT_SLOT_GRENADE2 = 28,
+   LOADOUT_SLOT_GRENADE3 = 29,
+   LOADOUT_SLOT_GRENADE4 = 30,
+   LOADOUT_SLOT_GRENADE5 = 31,
+   LOADOUT_SLOT_LAST_WHEEL_GRENADE = 31,
+   LOADOUT_SLOT_EQUIPMENT0 = 32,
+   LOADOUT_SLOT_EQUIPMENT1 = 33,
+   LOADOUT_SLOT_EQUIPMENT2 = 34,
+   LOADOUT_SLOT_EQUIPMENT3 = 35,
+   LOADOUT_SLOT_EQUIPMENT4 = 36,
+   LOADOUT_SLOT_EQUIPMENT5 = 37,
+   LOADOUT_SLOT_FIRST_WHEEL_EQUIPMENT = 32,
+   LOADOUT_SLOT_LAST_WHEEL_EQUIPMENT = 37,
+   LOADOUT_SLOT_CLOTHING_CUSTOMPLAYER = 38,
+   LOADOUT_SLOT_PET = 39,
+   LOADOUT_SLOT_CLOTHING_FACEMASK = 40,
+   LOADOUT_SLOT_CLOTHING_HANDS = 41,
+   LOADOUT_SLOT_FIRST_COSMETIC = 41,
+   LOADOUT_SLOT_LAST_COSMETIC = 41,
+   LOADOUT_SLOT_CLOTHING_EYEWEAR = 42,
+   LOADOUT_SLOT_CLOTHING_HAT = 43,
+   LOADOUT_SLOT_CLOTHING_LOWERBODY = 44,
+   LOADOUT_SLOT_CLOTHING_TORSO = 45,
+   LOADOUT_SLOT_CLOTHING_APPEARANCE = 46,
+   LOADOUT_SLOT_MISC0 = 47,
+   LOADOUT_SLOT_MISC1 = 48,
+   LOADOUT_SLOT_MISC2 = 49,
+   LOADOUT_SLOT_MISC3 = 50,
+   LOADOUT_SLOT_MISC4 = 51,
+   LOADOUT_SLOT_MISC5 = 52,
+   LOADOUT_SLOT_MISC6 = 53,
+   LOADOUT_SLOT_MUSICKIT = 54,
+   LOADOUT_SLOT_FLAIR0 = 55,
+   LOADOUT_SLOT_SPRAY0 = 56,
+   LOADOUT_SLOT_FIRST_ALL_CHARACTER = 54,
+   LOADOUT_SLOT_LAST_ALL_CHARACTER = 56,
+   LOADOUT_SLOT_COUNT = 57
 };
 
 enum class EKillTypes_t : std::uint8_t
@@ -4261,7 +3169,8 @@ enum class EKillTypes_t : std::uint8_t
    KILL_BLAST = 3,
    KILL_BURN = 4,
    KILL_SLASH = 5,
-   KILLTYPE_COUNT = 6
+   KILL_SHOCK = 6,
+   KILLTYPE_COUNT = 7
 };
 
 enum class CSWeaponType : std::uint32_t
@@ -4479,7 +3388,12 @@ enum class CompositeMaterialInputLooseVariableType_t : std::uint32_t
 enum class CompositeMaterialInputTextureType_t : std::uint32_t
 {
    INPUT_TEXTURE_TYPE_DEFAULT = 0,
-   INPUT_TEXTURE_TYPE_NORMALMAP = 1
+   INPUT_TEXTURE_TYPE_NORMALMAP = 1,
+   INPUT_TEXTURE_TYPE_COLOR = 2,
+   INPUT_TEXTURE_TYPE_MASKS = 3,
+   INPUT_TEXTURE_TYPE_ROUGHNESS = 4,
+   INPUT_TEXTURE_TYPE_PEARLESCENCE_MASK = 5,
+   INPUT_TEXTURE_TYPE_AO = 6
 };
 
 enum class CompMatPropertyMutatorType_t : std::uint32_t
