@@ -534,7 +534,6 @@ class CGameSceneNodeHandle;
 class CGameSceneNodeHandle;
 class CGameScriptedMoveData;
 class CGameText;
-class CGameWeaponManager;
 class CGeneralRandomRotation;
 class CGeneralSpin;
 class CGenericConstraint;
