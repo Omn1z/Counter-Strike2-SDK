@@ -1475,18 +1475,19 @@ public:
 class C_BaseCSGrenade /* "client" */ : public C_WeaponCSBase /* "client" */
 {
 public:
-   unsigned char pad_18D0[0x20]; // 0x18D0 - 0x18F0
-   bool m_bRedraw; // 0x18F0 - 0x18F1
-   bool m_bIsHeldByPlayer; // 0x18F1 - 0x18F2
-   bool m_bPinPulled; // 0x18F2 - 0x18F3
-   bool m_bJumpThrow; // 0x18F3 - 0x18F4
-   EGrenadeThrowState m_eThrowStatus; // 0x18F4 - 0x18F8
-   GameTime_t m_fThrowTime; // 0x18F8 - 0x18FC
-   float m_flThrowStrength; // 0x18FC - 0x1900
-   float m_flThrowStrengthApproach; // 0x1900 - 0x1904
-   GameTime_t m_fDropTime; // 0x1904 - 0x1908
-   unsigned char pad_1908[0x8]; // 0x1908 - 0x1910
-}; // size - 0x1910
+   bool m_bClientPredictDelete; // 0x18D0 - 0x18D1
+   unsigned char pad_18D1[0x27]; // 0x18D1 - 0x18F8
+   bool m_bRedraw; // 0x18F8 - 0x18F9
+   bool m_bIsHeldByPlayer; // 0x18F9 - 0x18FA
+   bool m_bPinPulled; // 0x18FA - 0x18FB
+   bool m_bJumpThrow; // 0x18FB - 0x18FC
+   EGrenadeThrowState m_eThrowStatus; // 0x18FC - 0x1900
+   GameTime_t m_fThrowTime; // 0x1900 - 0x1904
+   float m_flThrowStrength; // 0x1904 - 0x1908
+   float m_flThrowStrengthApproach; // 0x1908 - 0x190C
+   GameTime_t m_fDropTime; // 0x190C - 0x1910
+   unsigned char pad_1910[0x10]; // 0x1910 - 0x1920
+}; // size - 0x1920
 
 
 class C_PointEntity /* "client" */ : public C_BaseEntity /* "client" */
@@ -5679,8 +5680,8 @@ public:
 class C_MolotovGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1930]; // 0x0 - 0x1930
-}; // size - 0x1930
+   unsigned char pad_0[0x1940]; // 0x0 - 0x1940
+}; // size - 0x1940
 
 
 class C_OP_RenderPoints /* "particles" */ : public CParticleFunctionRenderer /* "particles" */
@@ -19989,8 +19990,8 @@ public:
 class C_DecoyGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1910]; // 0x0 - 0x1910
-}; // size - 0x1910
+   unsigned char pad_0[0x1920]; // 0x0 - 0x1920
+}; // size - 0x1920
 
 
 class C_DecoyProjectile /* "client" */ : public C_BaseCSGrenadeProjectile /* "client" */
@@ -20595,8 +20596,8 @@ public:
 class C_Flashbang /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1910]; // 0x0 - 0x1910
-}; // size - 0x1910
+   unsigned char pad_0[0x1920]; // 0x0 - 0x1920
+}; // size - 0x1920
 
 
 class C_FogController /* "client" */ : public C_BaseEntity /* "client" */
@@ -20748,8 +20749,8 @@ public:
 class C_HEGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1910]; // 0x0 - 0x1910
-}; // size - 0x1910
+   unsigned char pad_0[0x1920]; // 0x0 - 0x1920
+}; // size - 0x1920
 
 
 class C_HandleTest /* "client" */ : public C_BaseEntity /* "client" */
@@ -22178,8 +22179,8 @@ public:
 class C_IncendiaryGrenade /* "client" */ : public C_MolotovGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1930]; // 0x0 - 0x1930
-}; // size - 0x1930
+   unsigned char pad_0[0x1940]; // 0x0 - 0x1940
+}; // size - 0x1940
 
 
 class C_InfoInstructorHintHostageRescueZone /* "client" */ : public C_PointEntity /* "client" */
@@ -26587,8 +26588,8 @@ public:
 class C_SensorGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1910]; // 0x0 - 0x1910
-}; // size - 0x1910
+   unsigned char pad_0[0x1920]; // 0x0 - 0x1920
+}; // size - 0x1920
 
 
 class C_SensorGrenadeProjectile /* "client" */ : public C_BaseCSGrenadeProjectile /* "client" */
@@ -26627,8 +26628,8 @@ public:
 class C_SmokeGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1910]; // 0x0 - 0x1910
-}; // size - 0x1910
+   unsigned char pad_0[0x1920]; // 0x0 - 0x1920
+}; // size - 0x1920
 
 
 class C_SmokeGrenadeProjectile /* "client" */ : public C_BaseCSGrenadeProjectile /* "client" */
@@ -26910,8 +26911,8 @@ public:
 class C_TripWireFire /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1910]; // 0x0 - 0x1910
-}; // size - 0x1910
+   unsigned char pad_0[0x1920]; // 0x0 - 0x1920
+}; // size - 0x1920
 
 
 class C_TripWireFireProjectile /* "client" */ : public C_BaseGrenade /* "client" */
