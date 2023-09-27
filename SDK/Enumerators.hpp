@@ -1286,7 +1286,8 @@ enum class ParticleTraceSet_t : std::uint32_t
 {
    PARTICLE_TRACE_SET_ALL = 0,
    PARTICLE_TRACE_SET_STATIC = 1,
-   PARTICLE_TRACE_SET_DYNAMIC = 2
+   PARTICLE_TRACE_SET_STATIC_AND_KEYFRAMED = 2,
+   PARTICLE_TRACE_SET_DYNAMIC = 3
 };
 
 enum class ParticleCollisionMode_t : std::int32_t
@@ -1512,6 +1513,12 @@ enum class BBoxVolumeType_t : std::uint32_t
    BBOX_VOLUME = 0,
    BBOX_DIMENSIONS = 1,
    BBOX_MINS_MAXS = 2
+};
+
+enum class ParticleHitboxDataSelection_t : std::uint32_t
+{
+   PARTICLE_HITBOX_AVERAGE_SPEED = 0,
+   PARTICLE_HITBOX_COUNT = 1
 };
 
 enum class ParticleOrientationChoiceList_t : std::uint32_t
@@ -1810,7 +1817,8 @@ enum class ParticleVecType_t : std::int32_t
    PVEC_TYPE_RANDOM_UNIFORM = 13,
    PVEC_TYPE_RANDOM_UNIFORM_OFFSET = 14,
    PVEC_TYPE_CP_DELTA = 15,
-   PVEC_TYPE_COUNT = 16
+   PVEC_TYPE_CLOSEST_CAMERA_POSITION = 16,
+   PVEC_TYPE_COUNT = 17
 };
 
 enum class ELayoutNodeType : std::uint32_t
@@ -2894,15 +2902,13 @@ enum class Class_T : std::uint32_t
    CLASS_NONE = 0,
    CLASS_PLAYER = 1,
    CLASS_PLAYER_ALLY = 2,
-   CLASS_DZ_DRONE = 3,
-   CLASS_DZ_SPAWN_CHOPPER = 4,
-   CLASS_BOMB = 5,
-   CLASS_FOOT_CONTACT_SHADOW = 6,
-   CLASS_WEAPON = 7,
-   CLASS_WATER_SPLASHER = 8,
-   CLASS_WEAPON_VIEWMODEL = 9,
-   CLASS_DOOR = 10,
-   NUM_CLASSIFY_CLASSES = 11
+   CLASS_BOMB = 3,
+   CLASS_FOOT_CONTACT_SHADOW = 4,
+   CLASS_WEAPON = 5,
+   CLASS_WATER_SPLASHER = 6,
+   CLASS_WEAPON_VIEWMODEL = 7,
+   CLASS_DOOR = 8,
+   NUM_CLASSIFY_CLASSES = 9
 };
 
 enum class Disposition_t : std::uint32_t
@@ -3049,16 +3055,6 @@ enum class GrenadeType_t : std::uint32_t
    GRENADE_TYPE_SENSOR = 5,
    GRENADE_TYPE_SNOWBALL = 6,
    GRENADE_TYPE_TOTAL = 7
-};
-
-enum class RelativeDamagedDirection_t : std::uint32_t
-{
-   DAMAGED_DIR_NONE = 0,
-   DAMAGED_DIR_FRONT = 1,
-   DAMAGED_DIR_BACK = 2,
-   DAMAGED_DIR_LEFT = 3,
-   DAMAGED_DIR_RIGHT = 4,
-   DAMAGED_DIR_TOTAL = 5
 };
 
 enum class Reason : std::uint32_t
@@ -3246,44 +3242,7 @@ enum class MedalRank_t : std::uint32_t
    MEDAL_RANK_COUNT = 4
 };
 
-enum class ESurvivalSpawnTileState : std::uint8_t
-{
-   kSurvivalSpawn_Available = 0,
-   kSurvivalSpawn_Unused = 1,
-   kSurvivalSpawn_Blocked = 2,
-   kSurvivalSpawn_Occupied = 3,
-   kSurvivalSpawn_Blockupied = 4,
-   kSurvivalSpawn_Locked = 5,
-   kSurvivalSpawn_ProximityBlocked = 6,
-   kSurvivalSpawn_TileStateCount = 7,
-   kSurvivalSpawn_UI_Invalid = 127,
-   kSurvivalSpawn_UI_LocalPlayerFlag = 128
-};
-
-enum class ESurvivalGameRuleDecision_t : std::uint32_t
-{
-   k_ESurvivalGameRuleDecision_Unknown = 0,
-   k_ESurvivalGameRuleDecision_Tablet_Purchase_Pistol_DefIdx = 1,
-   k_ESurvivalGameRuleDecision_Tablet_Purchase_SMG_DefIdx = 2,
-   k_ESurvivalGameRuleDecision_Tablet_Purchase_Rifle_DefIdx = 3,
-   k_ESurvivalGameRuleDecision_Tablet_Purchase_Sniper_DefIdx = 4,
-   k_ESurvivalGameRuleDecision_Tablet_Purchase_MegaPistol_DefIdx = 5,
-   k_ESurvivalGameRuleDecision_TotalCount = 6
-};
-
-enum class SpawnStage_t : std::uint32_t
-{
-   SPAWN_STAGE_NONE = 0,
-   SPAWN_STAGE_SELECTION = 1,
-   SPAWN_STAGE_LOCKED = 3,
-   SPAWN_STAGE_ALL_READY = 2,
-   SPAWN_STAGE_PERK_SELECTION = 4,
-   SPAWN_STAGE_PERK_ALL_READY = 5,
-   SPAWN_STAGE_PLAYERS_CAN_RESPAWN = 6,
-   SPAWN_STAGE_COUNT = 7
-};
-
-enum class WeaponState_t : std::uint32_t
+enum class CSWeaponState_t : std::uint32_t
 {
    WEAPON_NOT_CARRIED = 0,
    WEAPON_IS_CARRIED_BY_PLAYER = 1,
@@ -3302,13 +3261,6 @@ enum class EGrenadeThrowState : std::uint32_t
    NotThrowing = 0,
    Throwing = 1,
    ThrowComplete = 2
-};
-
-enum class tablet_skin_state_t : std::uint8_t
-{
-   TABLET_SKIN_STATE_BLANK = 0,
-   TABLET_SKIN_STATE_RADAR = 1,
-   TABLET_SKIN_STATE_BUYMENU = 2
 };
 
 enum class gear_slot_t : std::int32_t
