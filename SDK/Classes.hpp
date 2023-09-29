@@ -8092,7 +8092,9 @@ public:
    bool m_bPlayedTeamIntroVO; // 0x17F4 - 0x17F5
    unsigned char pad_17F5[0xFBB]; // 0x17F5 - 0x27B0
    float64 m_flLastPerfSampleTime; // 0x27B0 - 0x27B8
-}; // size - 0x27B8
+   bool m_bSkipNextPerfSample; // 0x27B8 - 0x27B9
+   unsigned char pad_27B9[0x7]; // 0x27B9 - 0x27C0
+}; // size - 0x27C0
 
 
 class CCSGameRulesProxy /* "server" */ : public CGameRulesProxy /* "server" */
@@ -19010,7 +19012,9 @@ public:
    bool m_bTeamIntroPeriod; // 0xEB4 - 0xEB5
    unsigned char pad_EB5[0xFBB]; // 0xEB5 - 0x1E70
    float64 m_flLastPerfSampleTime; // 0x1E70 - 0x1E78
-}; // size - 0x1E78
+   bool m_bSkipNextPerfSample; // 0x1E78 - 0x1E79
+   unsigned char pad_1E79[0x7]; // 0x1E79 - 0x1E80
+}; // size - 0x1E80
 
 
 class C_CSGameRulesProxy /* "client" */ : public C_GameRulesProxy /* "client" */
