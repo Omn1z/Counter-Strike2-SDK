@@ -2303,3 +2303,5 @@ class sky3dparams_t;
 class sky3dparams_t;
 class thinkfunc_t;
 class vphysics_save_cphysicsbody_t;
+
+#include "SDK/Classes.hpp"

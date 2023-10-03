@@ -690,19 +690,20 @@ public:
    HSequence m_seqFirePrimary; // 0x15E4 - 0x15E8
    HSequence m_seqFireSecondary; // 0x15E8 - 0x15EC
    unsigned char pad_15EC[0x14]; // 0x15EC - 0x1600
-   CSWeaponState_t m_iState; // 0x1600 - 0x1604
-   float m_flCrosshairDistance; // 0x1604 - 0x1608
-   int32_t m_iAmmoLastCheck; // 0x1608 - 0x160C
-   int32_t m_iAlpha; // 0x160C - 0x1610
-   int32_t m_iScopeTextureID; // 0x1610 - 0x1614
-   int32_t m_iCrosshairTextureID; // 0x1614 - 0x1618
-   float m_flGunAccuracyPosition; // 0x1618 - 0x161C
-   uint32_t m_nViewModelIndex; // 0x161C - 0x1620
-   bool m_bReloadsWithClips; // 0x1620 - 0x1621
-   unsigned char pad_1621[0x3]; // 0x1621 - 0x1624
-   GameTime_t m_flTimeWeaponIdle; // 0x1624 - 0x1628
-   bool m_bFireOnEmpty; // 0x1628 - 0x1629
-   unsigned char pad_1629[0x7]; // 0x1629 - 0x1630
+   CSWeaponState_t m_ClientPreviousWeaponState; // 0x1600 - 0x1604
+   CSWeaponState_t m_iState; // 0x1604 - 0x1608
+   float m_flCrosshairDistance; // 0x1608 - 0x160C
+   int32_t m_iAmmoLastCheck; // 0x160C - 0x1610
+   int32_t m_iAlpha; // 0x1610 - 0x1614
+   int32_t m_iScopeTextureID; // 0x1614 - 0x1618
+   int32_t m_iCrosshairTextureID; // 0x1618 - 0x161C
+   float m_flGunAccuracyPosition; // 0x161C - 0x1620
+   uint32_t m_nViewModelIndex; // 0x1620 - 0x1624
+   bool m_bReloadsWithClips; // 0x1624 - 0x1625
+   unsigned char pad_1625[0x3]; // 0x1625 - 0x1628
+   GameTime_t m_flTimeWeaponIdle; // 0x1628 - 0x162C
+   bool m_bFireOnEmpty; // 0x162C - 0x162D
+   unsigned char pad_162D[0x3]; // 0x162D - 0x1630
    CEntityIOOutput m_OnPlayerPickup; // 0x1630 - 0x1658
    CSWeaponMode m_weaponMode; // 0x1658 - 0x165C
    float m_flTurningInaccuracyDelta; // 0x165C - 0x1660
@@ -750,14 +751,14 @@ public:
    uint32_t m_smokeAttachments; // 0x177C - 0x1780
    GameTime_t m_lastSmokeTime; // 0x1780 - 0x1784
    float m_flLastClientFireBulletTime; // 0x1784 - 0x1788
-   unsigned char pad_1788[0x58]; // 0x1788 - 0x17E0
-   C_IronSightController m_IronSightController; // 0x17E0 - 0x1890
-   int32_t m_iIronSightMode; // 0x1890 - 0x1894
-   unsigned char pad_1894[0xC]; // 0x1894 - 0x18A0
-   GameTime_t m_flLastLOSTraceFailureTime; // 0x18A0 - 0x18A4
-   int32_t m_iNumEmptyAttacks; // 0x18A4 - 0x18A8
-   unsigned char pad_18A8[0x38]; // 0x18A8 - 0x18E0
-}; // size - 0x18E0
+   unsigned char pad_1788[0xB8]; // 0x1788 - 0x1840
+   C_IronSightController m_IronSightController; // 0x1840 - 0x18F0
+   int32_t m_iIronSightMode; // 0x18F0 - 0x18F4
+   unsigned char pad_18F4[0xC]; // 0x18F4 - 0x1900
+   GameTime_t m_flLastLOSTraceFailureTime; // 0x1900 - 0x1904
+   int32_t m_iNumEmptyAttacks; // 0x1904 - 0x1908
+   unsigned char pad_1908[0x38]; // 0x1908 - 0x1940
+}; // size - 0x1940
 
 
 class CPulseCell_Base /* "pulse_runtime_lib" */
@@ -847,15 +848,15 @@ public:
 class C_CSWeaponBaseGun /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   int32_t m_zoomLevel; // 0x18E0 - 0x18E4
-   int32_t m_iBurstShotsRemaining; // 0x18E4 - 0x18E8
-   int32_t m_iSilencerBodygroup; // 0x18E8 - 0x18EC
-   unsigned char pad_18EC[0xC]; // 0x18EC - 0x18F8
-   int32_t m_silencedModelIndex; // 0x18F8 - 0x18FC
-   bool m_inPrecache; // 0x18FC - 0x18FD
-   bool m_bNeedsBoltAction; // 0x18FD - 0x18FE
-   unsigned char pad_18FE[0x2]; // 0x18FE - 0x1900
-}; // size - 0x1900
+   int32_t m_zoomLevel; // 0x1940 - 0x1944
+   int32_t m_iBurstShotsRemaining; // 0x1944 - 0x1948
+   int32_t m_iSilencerBodygroup; // 0x1948 - 0x194C
+   unsigned char pad_194C[0xC]; // 0x194C - 0x1958
+   int32_t m_silencedModelIndex; // 0x1958 - 0x195C
+   bool m_inPrecache; // 0x195C - 0x195D
+   bool m_bNeedsBoltAction; // 0x195D - 0x195E
+   unsigned char pad_195E[0x2]; // 0x195E - 0x1960
+}; // size - 0x1960
 
 
 class CUnaryUpdateNode /* "animgraphlib" */ : public CAnimUpdateNodeBase /* "animgraphlib" */
@@ -1405,19 +1406,19 @@ public:
 class C_BaseCSGrenade /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   bool m_bClientPredictDelete; // 0x18E0 - 0x18E1
-   unsigned char pad_18E1[0x27]; // 0x18E1 - 0x1908
-   bool m_bRedraw; // 0x1908 - 0x1909
-   bool m_bIsHeldByPlayer; // 0x1909 - 0x190A
-   bool m_bPinPulled; // 0x190A - 0x190B
-   bool m_bJumpThrow; // 0x190B - 0x190C
-   EGrenadeThrowState m_eThrowStatus; // 0x190C - 0x1910
-   GameTime_t m_fThrowTime; // 0x1910 - 0x1914
-   float m_flThrowStrength; // 0x1914 - 0x1918
-   float m_flThrowStrengthApproach; // 0x1918 - 0x191C
-   GameTime_t m_fDropTime; // 0x191C - 0x1920
-   unsigned char pad_1920[0x10]; // 0x1920 - 0x1930
-}; // size - 0x1930
+   bool m_bClientPredictDelete; // 0x1940 - 0x1941
+   unsigned char pad_1941[0x27]; // 0x1941 - 0x1968
+   bool m_bRedraw; // 0x1968 - 0x1969
+   bool m_bIsHeldByPlayer; // 0x1969 - 0x196A
+   bool m_bPinPulled; // 0x196A - 0x196B
+   bool m_bJumpThrow; // 0x196B - 0x196C
+   EGrenadeThrowState m_eThrowStatus; // 0x196C - 0x1970
+   GameTime_t m_fThrowTime; // 0x1970 - 0x1974
+   float m_flThrowStrength; // 0x1974 - 0x1978
+   float m_flThrowStrengthApproach; // 0x1978 - 0x197C
+   GameTime_t m_fDropTime; // 0x197C - 0x1980
+   unsigned char pad_1980[0x10]; // 0x1980 - 0x1990
+}; // size - 0x1990
 
 
 class C_PointEntity /* "client" */ : public C_BaseEntity /* "client" */
@@ -5532,8 +5533,8 @@ public:
 class C_MolotovGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1950]; // 0x0 - 0x1950
-}; // size - 0x1950
+   unsigned char pad_0[0x19B0]; // 0x0 - 0x19B0
+}; // size - 0x19B0
 
 
 class C_OP_RenderPoints /* "particles" */ : public CParticleFunctionRenderer /* "particles" */
@@ -5674,10 +5675,10 @@ public:
 class C_WeaponBaseItem /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   CountdownTimer m_SequenceCompleteTimer; // 0x18E0 - 0x18F8
-   bool m_bRedraw; // 0x18F8 - 0x18F9
-   unsigned char pad_18F9[0x7]; // 0x18F9 - 0x1900
-}; // size - 0x1900
+   CountdownTimer m_SequenceCompleteTimer; // 0x1940 - 0x1958
+   bool m_bRedraw; // 0x1958 - 0x1959
+   unsigned char pad_1959[0x7]; // 0x1959 - 0x1960
+}; // size - 0x1960
 
 
 class FeBoxRigid_t /* "physicslib" */
@@ -7316,8 +7317,8 @@ public:
 class CBreachCharge /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   unsigned char pad_0[0x18E0]; // 0x0 - 0x18E0
-}; // size - 0x18E0
+   unsigned char pad_0[0x1940]; // 0x0 - 0x1940
+}; // size - 0x1940
 
 
 class CBreachChargeProjectile /* "server" */ : public CBaseGrenade /* "server" */
@@ -7440,8 +7441,8 @@ public:
 class CBumpMine /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   unsigned char pad_0[0x18E0]; // 0x0 - 0x18E0
-}; // size - 0x18E0
+   unsigned char pad_0[0x1940]; // 0x0 - 0x1940
+}; // size - 0x1940
 
 
 class CBumpMine /* "server" */ : public CCSWeaponBase /* "server" */
@@ -8092,9 +8093,9 @@ public:
    bool m_bPlayedTeamIntroVO; // 0x17F4 - 0x17F5
    unsigned char pad_17F5[0xFBB]; // 0x17F5 - 0x27B0
    float64 m_flLastPerfSampleTime; // 0x27B0 - 0x27B8
-   bool m_bSkipNextPerfSample; // 0x27B8 - 0x27B9
-   unsigned char pad_27B9[0x7]; // 0x27B9 - 0x27C0
-}; // size - 0x27C0
+   bool m_bSkipNextServerPerfSample; // 0x27B8 - 0x27B9
+   unsigned char pad_27B9[0x2F1F]; // 0x27B9 - 0x56D8
+}; // size - 0x56D8
 
 
 class CCSGameRulesProxy /* "server" */ : public CGameRulesProxy /* "server" */
@@ -17676,8 +17677,8 @@ public:
 class CTablet /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   unsigned char pad_0[0x18E0]; // 0x0 - 0x18E0
-}; // size - 0x18E0
+   unsigned char pad_0[0x1940]; // 0x0 - 0x1940
+}; // size - 0x1940
 
 
 class CTablet /* "server" */ : public CCSWeaponBase /* "server" */
@@ -18185,8 +18186,8 @@ public:
 class CTripWireFire /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1930]; // 0x0 - 0x1930
-}; // size - 0x1930
+   unsigned char pad_0[0x1990]; // 0x0 - 0x1990
+}; // size - 0x1990
 
 
 class CTripWireFire /* "server" */ : public CBaseCSGrenade /* "server" */
@@ -18595,8 +18596,8 @@ public:
 class CWeaponZoneRepulsor /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class CWeaponZoneRepulsor /* "server" */ : public CCSWeaponBaseGun /* "server" */
@@ -18634,8 +18635,8 @@ public:
 class C_AK47 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_AttributeContainer /* "client" */ : public CAttributeManager /* "client" */
@@ -18734,21 +18735,21 @@ public:
 class C_C4 /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   char m_szScreenText[32]; // 0x18E0 - 0x1900
-   ParticleIndex_t m_bombdroppedlightParticleIndex; // 0x1900 - 0x1904
-   bool m_bStartedArming; // 0x1904 - 0x1905
-   unsigned char pad_1905[0x3]; // 0x1905 - 0x1908
-   GameTime_t m_fArmedTime; // 0x1908 - 0x190C
-   bool m_bBombPlacedAnimation; // 0x190C - 0x190D
-   bool m_bIsPlantingViaUse; // 0x190D - 0x190E
-   unsigned char pad_190E[0x2]; // 0x190E - 0x1910
-   EntitySpottedState_t m_entitySpottedState; // 0x1910 - 0x1928
-   int32_t m_nSpotRules; // 0x1928 - 0x192C
-   bool m_bPlayedArmingBeeps[7]; // 0x192C - 0x1933
-   bool m_bBombPlanted; // 0x1933 - 0x1934
-   bool m_bDroppedFromDeath; // 0x1934 - 0x1935
-   unsigned char pad_1935[0xB]; // 0x1935 - 0x1940
-}; // size - 0x1940
+   char m_szScreenText[32]; // 0x1940 - 0x1960
+   ParticleIndex_t m_bombdroppedlightParticleIndex; // 0x1960 - 0x1964
+   bool m_bStartedArming; // 0x1964 - 0x1965
+   unsigned char pad_1965[0x3]; // 0x1965 - 0x1968
+   GameTime_t m_fArmedTime; // 0x1968 - 0x196C
+   bool m_bBombPlacedAnimation; // 0x196C - 0x196D
+   bool m_bIsPlantingViaUse; // 0x196D - 0x196E
+   unsigned char pad_196E[0x2]; // 0x196E - 0x1970
+   EntitySpottedState_t m_entitySpottedState; // 0x1970 - 0x1988
+   int32_t m_nSpotRules; // 0x1988 - 0x198C
+   bool m_bPlayedArmingBeeps[7]; // 0x198C - 0x1993
+   bool m_bBombPlanted; // 0x1993 - 0x1994
+   bool m_bDroppedFromDeath; // 0x1994 - 0x1995
+   unsigned char pad_1995[0xB]; // 0x1995 - 0x19A0
+}; // size - 0x19A0
 
 
 class C_CSGOViewModel /* "client" */ : public C_PredictedViewModel /* "client" */
@@ -19012,9 +19013,7 @@ public:
    bool m_bTeamIntroPeriod; // 0xEB4 - 0xEB5
    unsigned char pad_EB5[0xFBB]; // 0xEB5 - 0x1E70
    float64 m_flLastPerfSampleTime; // 0x1E70 - 0x1E78
-   bool m_bSkipNextPerfSample; // 0x1E78 - 0x1E79
-   unsigned char pad_1E79[0x7]; // 0x1E79 - 0x1E80
-}; // size - 0x1E80
+}; // size - 0x1E78
 
 
 class C_CSGameRulesProxy /* "client" */ : public C_GameRulesProxy /* "client" */
@@ -19181,15 +19180,15 @@ public:
 class C_DEagle /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_DecoyGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1930]; // 0x0 - 0x1930
-}; // size - 0x1930
+   unsigned char pad_0[0x1990]; // 0x0 - 0x1990
+}; // size - 0x1990
 
 
 class C_DecoyProjectile /* "client" */ : public C_BaseCSGrenadeProjectile /* "client" */
@@ -19703,18 +19702,18 @@ public:
 class C_Fists /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   bool m_bPlayingUninterruptableAct; // 0x18E0 - 0x18E1
-   unsigned char pad_18E1[0x3]; // 0x18E1 - 0x18E4
-   PlayerAnimEvent_t m_nUninterruptableActivity; // 0x18E4 - 0x18E8
-   unsigned char pad_18E8[0x8]; // 0x18E8 - 0x18F0
-}; // size - 0x18F0
+   bool m_bPlayingUninterruptableAct; // 0x1940 - 0x1941
+   unsigned char pad_1941[0x3]; // 0x1941 - 0x1944
+   PlayerAnimEvent_t m_nUninterruptableActivity; // 0x1944 - 0x1948
+   unsigned char pad_1948[0x8]; // 0x1948 - 0x1950
+}; // size - 0x1950
 
 
 class C_Flashbang /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1930]; // 0x0 - 0x1930
-}; // size - 0x1930
+   unsigned char pad_0[0x1990]; // 0x0 - 0x1990
+}; // size - 0x1990
 
 
 class C_FogController /* "client" */ : public C_BaseEntity /* "client" */
@@ -19855,8 +19854,8 @@ public:
 class C_HEGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1930]; // 0x0 - 0x1930
-}; // size - 0x1930
+   unsigned char pad_0[0x1990]; // 0x0 - 0x1990
+}; // size - 0x1990
 
 
 class C_HandleTest /* "client" */ : public C_BaseEntity /* "client" */
@@ -21285,8 +21284,8 @@ public:
 class C_IncendiaryGrenade /* "client" */ : public C_MolotovGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1950]; // 0x0 - 0x1950
-}; // size - 0x1950
+   unsigned char pad_0[0x19B0]; // 0x0 - 0x19B0
+}; // size - 0x19B0
 
 
 class C_InfoInstructorHintHostageRescueZone /* "client" */ : public C_PointEntity /* "client" */
@@ -21347,15 +21346,15 @@ public:
 class C_Item_Healthshot /* "client" */ : public C_WeaponBaseItem /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_Knife /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   unsigned char pad_0[0x18E0]; // 0x0 - 0x18E0
-}; // size - 0x18E0
+   unsigned char pad_0[0x1940]; // 0x0 - 0x1940
+}; // size - 0x1940
 
 
 class C_LightEnvironmentEntity /* "client" */ : public C_LightDirectionalEntity /* "client" */
@@ -21477,9 +21476,9 @@ public:
 class C_Melee /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   GameTime_t m_flThrowAt; // 0x18E0 - 0x18E4
-   unsigned char pad_18E4[0xC]; // 0x18E4 - 0x18F0
-}; // size - 0x18F0
+   GameTime_t m_flThrowAt; // 0x1940 - 0x1944
+   unsigned char pad_1944[0xC]; // 0x1944 - 0x1950
+}; // size - 0x1950
 
 
 class C_MolotovProjectile /* "client" */ : public C_BaseCSGrenadeProjectile /* "client" */
@@ -25667,8 +25666,8 @@ public:
 class C_SensorGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1930]; // 0x0 - 0x1930
-}; // size - 0x1930
+   unsigned char pad_0[0x1990]; // 0x0 - 0x1990
+}; // size - 0x1990
 
 
 class C_SensorGrenadeProjectile /* "client" */ : public C_BaseCSGrenadeProjectile /* "client" */
@@ -25707,8 +25706,8 @@ public:
 class C_SmokeGrenade /* "client" */ : public C_BaseCSGrenade /* "client" */
 {
 public:
-   unsigned char pad_0[0x1930]; // 0x0 - 0x1930
-}; // size - 0x1930
+   unsigned char pad_0[0x1990]; // 0x0 - 0x1990
+}; // size - 0x1990
 
 
 class C_SmokeGrenadeProjectile /* "client" */ : public C_BaseCSGrenadeProjectile /* "client" */
@@ -25955,206 +25954,206 @@ public:
 class C_WeaponAWP /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponAug /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponBizon /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponElite /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponFamas /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponFiveSeven /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponG3SG1 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponGalilAR /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponGlock /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponHKP2000 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponM249 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponM4A1 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponMAC10 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponMP7 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponMP9 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponMag7 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponNOVA /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   unsigned char pad_0[0x18E0]; // 0x0 - 0x18E0
-}; // size - 0x18E0
+   unsigned char pad_0[0x1940]; // 0x0 - 0x1940
+}; // size - 0x1940
 
 
 class C_WeaponNegev /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponP250 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponP90 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponSCAR20 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponSG556 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponSSG08 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponSawedoff /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   unsigned char pad_0[0x18E0]; // 0x0 - 0x18E0
-}; // size - 0x18E0
+   unsigned char pad_0[0x1940]; // 0x0 - 0x1940
+}; // size - 0x1940
 
 
 class C_WeaponShield /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   float m_flDisplayHealth; // 0x1900 - 0x1904
-   unsigned char pad_1904[0xC]; // 0x1904 - 0x1910
-}; // size - 0x1910
+   float m_flDisplayHealth; // 0x1960 - 0x1964
+   unsigned char pad_1964[0xC]; // 0x1964 - 0x1970
+}; // size - 0x1970
 
 
 class C_WeaponTaser /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   GameTime_t m_fFireTime; // 0x1900 - 0x1904
-   unsigned char pad_1904[0xC]; // 0x1904 - 0x1910
-}; // size - 0x1910
+   GameTime_t m_fFireTime; // 0x1960 - 0x1964
+   unsigned char pad_1964[0xC]; // 0x1964 - 0x1970
+}; // size - 0x1970
 
 
 class C_WeaponTec9 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponUMP45 /* "client" */ : public C_CSWeaponBaseGun /* "client" */
 {
 public:
-   unsigned char pad_0[0x1900]; // 0x0 - 0x1900
-}; // size - 0x1900
+   unsigned char pad_0[0x1960]; // 0x0 - 0x1960
+}; // size - 0x1960
 
 
 class C_WeaponXM1014 /* "client" */ : public C_CSWeaponBase /* "client" */
 {
 public:
-   unsigned char pad_0[0x18E0]; // 0x0 - 0x18E0
-}; // size - 0x18E0
+   unsigned char pad_0[0x1940]; // 0x0 - 0x1940
+}; // size - 0x1940
 
 
 class C_World /* "client" */ : public C_BaseModelEntity /* "client" */
@@ -30587,5 +30586,80 @@ public:
    CUtlStringToken m_SurfacePropStringToken; // 0x58 - 0x5C
    CUtlStringToken m_LightGroup; // 0x5C - 0x60
 }; // size - 0x60
+
+
+class shard_model_desc_t /* "client" */
+{
+public:
+   unsigned char pad_0[0x8]; // 0x0 - 0x8
+   int32_t m_nModelID; // 0x8 - 0xC
+   unsigned char pad_C[0x4]; // 0xC - 0x10
+   CStrongHandle< InfoForResourceTypeIMaterial2 > m_hMaterial; // 0x10 - 0x18
+   ShardSolid_t m_solid; // 0x18 - 0x19
+   ShatterPanelMode m_ShatterPanelMode; // 0x19 - 0x1A
+   unsigned char pad_1A[0x2]; // 0x1A - 0x1C
+   Vector2D m_vecPanelSize; // 0x1C - 0x24
+   Vector2D m_vecStressPositionA; // 0x24 - 0x2C
+   Vector2D m_vecStressPositionB; // 0x2C - 0x34
+   unsigned char pad_34[0x4]; // 0x34 - 0x38
+   C_NetworkUtlVectorBase< Vector2D > m_vecPanelVertices; // 0x38 - 0x50
+   float m_flGlassHalfThickness; // 0x50 - 0x54
+   bool m_bHasParent; // 0x54 - 0x55
+   bool m_bParentFrozen; // 0x55 - 0x56
+   unsigned char pad_56[0x2]; // 0x56 - 0x58
+   CUtlStringToken m_SurfacePropStringToken; // 0x58 - 0x5C
+   CUtlStringToken m_LightGroup; // 0x5C - 0x60
+}; // size - 0x60
+
+
+class sky3dparams_t /* "client" */
+{
+public:
+   unsigned char pad_0[0x8]; // 0x0 - 0x8
+   int16_t scale; // 0x8 - 0xA
+   unsigned char pad_A[0x2]; // 0xA - 0xC
+   Vector origin; // 0xC - 0x18
+   bool bClip3DSkyBoxNearToWorldFar; // 0x18 - 0x19
+   unsigned char pad_19[0x3]; // 0x19 - 0x1C
+   float flClip3DSkyBoxNearToWorldFarOffset; // 0x1C - 0x20
+   fogparams_t fog; // 0x20 - 0x88
+   WorldGroupId_t m_nWorldGroupID; // 0x88 - 0x8C
+   unsigned char pad_8C[0x4]; // 0x8C - 0x90
+}; // size - 0x90
+
+
+class sky3dparams_t /* "server" */
+{
+public:
+   unsigned char pad_0[0x8]; // 0x0 - 0x8
+   int16_t scale; // 0x8 - 0xA
+   unsigned char pad_A[0x2]; // 0xA - 0xC
+   Vector origin; // 0xC - 0x18
+   bool bClip3DSkyBoxNearToWorldFar; // 0x18 - 0x19
+   unsigned char pad_19[0x3]; // 0x19 - 0x1C
+   float flClip3DSkyBoxNearToWorldFarOffset; // 0x1C - 0x20
+   fogparams_t fog; // 0x20 - 0x88
+   WorldGroupId_t m_nWorldGroupID; // 0x88 - 0x8C
+   unsigned char pad_8C[0x4]; // 0x8C - 0x90
+}; // size - 0x90
+
+
+class thinkfunc_t /* "server" */
+{
+public:
+   unsigned char pad_0[0x8]; // 0x0 - 0x8
+   HSCRIPT m_hFn; // 0x8 - 0x10
+   CUtlStringToken m_nContext; // 0x10 - 0x14
+   GameTick_t m_nNextThinkTick; // 0x14 - 0x18
+   GameTick_t m_nLastThinkTick; // 0x18 - 0x1C
+   unsigned char pad_1C[0x4]; // 0x1C - 0x20
+}; // size - 0x20
+
+
+class vphysics_save_cphysicsbody_t /* "vphysics2" */ : public RnBodyDesc_t /* "vphysics2" */
+{
+public:
+   uint64_t m_nOldPointer; // 0xD0 - 0xD8
+}; // size - 0xD8
 
 
