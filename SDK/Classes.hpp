@@ -2404,15 +2404,15 @@ public:
    Vector m_vRagdollDamagePosition; // 0x1D04 - 0x1D10
    char m_szRagdollDamageWeaponName[64]; // 0x1D10 - 0x1D50
    bool m_bRagdollDamageHeadshot; // 0x1D50 - 0x1D51
-   unsigned char pad_1D51[0x51F]; // 0x1D51 - 0x2270
-   bool m_bLastHeadBoneTransformIsValid; // 0x2270 - 0x2271
-   unsigned char pad_2271[0x3]; // 0x2271 - 0x2274
-   GameTime_t m_lastLandTime; // 0x2274 - 0x2278
-   unsigned char pad_2278[0x18]; // 0x2278 - 0x2290
-   QAngle m_qDeathEyeAngles; // 0x2290 - 0x229C
-   bool m_bSkipOneHeadConstraintUpdate; // 0x229C - 0x229D
-   unsigned char pad_229D[0x3]; // 0x229D - 0x22A0
-}; // size - 0x22A0
+   unsigned char pad_1D51[0x527]; // 0x1D51 - 0x2278
+   bool m_bLastHeadBoneTransformIsValid; // 0x2278 - 0x2279
+   unsigned char pad_2279[0x3]; // 0x2279 - 0x227C
+   GameTime_t m_lastLandTime; // 0x227C - 0x2280
+   unsigned char pad_2280[0x18]; // 0x2280 - 0x2298
+   QAngle m_qDeathEyeAngles; // 0x2298 - 0x22A4
+   bool m_bSkipOneHeadConstraintUpdate; // 0x22A4 - 0x22A5
+   unsigned char pad_22A5[0x3]; // 0x22A5 - 0x22A8
+}; // size - 0x22A8
 
 
 class ISkeletonAnimationController /* "server" */
@@ -3789,11 +3789,11 @@ public:
 class C_CSGO_PreviewPlayer /* "client" */ : public C_CSPlayerPawn /* "client" */
 {
 public:
-   CUtlString m_animgraph; // 0x22A0 - 0x22A8
-   CUtlString m_animgraphCharacterModeString; // 0x22A8 - 0x22B0
-   float m_flInitialModelScale; // 0x22B0 - 0x22B4
-   unsigned char pad_22B4[0x84]; // 0x22B4 - 0x2338
-}; // size - 0x2338
+   CUtlString m_animgraph; // 0x22A8 - 0x22B0
+   CUtlString m_animgraphCharacterModeString; // 0x22B0 - 0x22B8
+   float m_flInitialModelScale; // 0x22B8 - 0x22BC
+   unsigned char pad_22BC[0x84]; // 0x22BC - 0x2340
+}; // size - 0x2340
 
 
 class C_CSGO_TeamSelectCharacterPosition /* "client" */ : public C_CSGO_TeamPreviewCharacterPosition /* "client" */
@@ -7701,8 +7701,8 @@ public:
 class CCSGOPlayerAnimGraphState /* "server" */
 {
 public:
-   unsigned char pad_0[0x518]; // 0x0 - 0x518
-}; // size - 0x518
+   unsigned char pad_0[0x520]; // 0x0 - 0x520
+}; // size - 0x520
 
 
 class CCSGOViewModel /* "server" */ : public CPredictedViewModel /* "server" */
@@ -18832,8 +18832,8 @@ public:
 class C_CSGO_PreviewPlayerAlias_csgo_player_previewmodel /* "client" */ : public C_CSGO_PreviewPlayer /* "client" */
 {
 public:
-   unsigned char pad_0[0x2338]; // 0x0 - 0x2338
-}; // size - 0x2338
+   unsigned char pad_0[0x2340]; // 0x0 - 0x2340
+}; // size - 0x2340
 
 
 class C_CSGO_TeamIntroCounterTerroristPosition /* "client" */ : public C_CSGO_TeamIntroCharacterPosition /* "client" */
@@ -18853,8 +18853,8 @@ public:
 class C_CSGO_TeamPreviewModel /* "client" */ : public C_CSGO_PreviewPlayer /* "client" */
 {
 public:
-   unsigned char pad_0[0x2338]; // 0x0 - 0x2338
-}; // size - 0x2338
+   unsigned char pad_0[0x2340]; // 0x0 - 0x2340
+}; // size - 0x2340
 
 
 class C_CSGO_TeamSelectCamera /* "client" */ : public C_CSGO_TeamPreviewCamera /* "client" */
