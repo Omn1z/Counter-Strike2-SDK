@@ -2211,6 +2211,8 @@ class SelectedEditItemInfo_t;
 class SellbackPurchaseEntry_t;
 class SellbackPurchaseEntry_t;
 class SequenceWeightedList_t;
+class ServerAuthoritativeWeaponSlot_t;
+class ServerAuthoritativeWeaponSlot_t;
 class SimpleConstraintSoundProfile;
 class SkeletalInputOpFixedSettings_t;
 class SkeletonBoneBounds_t;
