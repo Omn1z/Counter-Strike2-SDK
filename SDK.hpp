@@ -1355,6 +1355,7 @@ class C_FireSprite;
 class C_Fish;
 class C_Fists;
 class C_Flashbang;
+class C_FlashbangProjectile;
 class C_FogController;
 class C_FootstepControl;
 class C_FuncBrush;
