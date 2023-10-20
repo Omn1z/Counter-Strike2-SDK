@@ -1371,6 +1371,7 @@ class C_GameRulesProxy;
 class C_GlobalLight;
 class C_GradientFog;
 class C_HEGrenade;
+class C_HEGrenadeProjectile;
 class C_HandleTest;
 class C_Hostage;
 class C_HostageCarriableProp;
