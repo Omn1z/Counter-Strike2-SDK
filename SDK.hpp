@@ -2204,6 +2204,7 @@ class RnSoftbodySpring_t;
 class RnSphereDesc_t;
 class RnSphere_t;
 class RnTriangle_t;
+class RnVertex_t;
 class RnWing_t;
 class SampleCode;
 class SceneObject_t;
