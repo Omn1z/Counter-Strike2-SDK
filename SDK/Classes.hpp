@@ -17206,8 +17206,8 @@ public:
    CUtlVector< uint8 > m_VoxelFrameData; // 0xA70 - 0xA88
    GameTime_t m_flLastBounce; // 0xA88 - 0xA8C
    GameTime_t m_fllastSimulationTime; // 0xA8C - 0xA90
-   unsigned char pad_A90[0x1A0]; // 0xA90 - 0xC30
-}; // size - 0xC30
+   unsigned char pad_A90[0x200]; // 0xA90 - 0xC90
+}; // size - 0xC90
 
 
 class CSmoothFunc /* "server" */
