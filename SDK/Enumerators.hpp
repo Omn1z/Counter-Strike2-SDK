@@ -2089,7 +2089,8 @@ enum class TakeDamageFlags_t : std::uint32_t
    DFLAG_ALWAYS_FIRE_DAMAGE_EVENTS = 512,
    DFLAG_RADIUS_DMG = 1024,
    DMG_LASTDFLAG = 1024,
-   DFLAG_IGNORE_ARMOR = 2048
+   DFLAG_IGNORE_ARMOR = 2048,
+   DFLAG_SUPPRESS_UTILREMOVE = 4096
 };
 
 enum class DamageTypes_t : std::uint32_t
@@ -3254,6 +3255,13 @@ enum class CSWeaponMode : std::uint32_t
    Primary_Mode = 0,
    Secondary_Mode = 1,
    WeaponMode_MAX = 2
+};
+
+enum class C4LightEffect_t : std::uint32_t
+{
+   eLightEffectNone = 0,
+   eLightEffectDropped = 1,
+   eLightEffectThirdPersonHeld = 2
 };
 
 enum class EGrenadeThrowState : std::uint32_t
