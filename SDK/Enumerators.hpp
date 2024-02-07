@@ -89,7 +89,8 @@ enum class fieldtype_t : std::uint8_t
    FIELD_ENGINE_TIME = 76,
    FIELD_ENGINE_TICK = 77,
    FIELD_WORLD_GROUP_ID = 78,
-   FIELD_TYPECOUNT = 79
+   FIELD_GLOBALSYMBOL = 79,
+   FIELD_TYPECOUNT = 80
 };
 
 enum class FuseVariableAccess_t : std::uint8_t
@@ -128,7 +129,10 @@ enum class RenderBufferFlags_t : std::uint32_t
    RENDER_BUFFER_STRUCTURED_BUFFER = 32,
    RENDER_BUFFER_APPEND_CONSUME_BUFFER = 64,
    RENDER_BUFFER_UAV_COUNTER = 128,
-   RENDER_BUFFER_UAV_DRAW_INDIRECT_ARGS = 256
+   RENDER_BUFFER_UAV_DRAW_INDIRECT_ARGS = 256,
+   RENDER_BUFFER_ACCELERATION_STRUCTURE = 512,
+   RENDER_BUFFER_SHADER_BINDING_TABLE = 1024,
+   RENDER_BUFFER_PER_FRAME_WRITE_ONCE = 2048
 };
 
 enum class RenderPrimitiveType_t : std::uint32_t
@@ -156,7 +160,7 @@ enum class InputLayoutVariation_t : std::uint32_t
    INPUT_LAYOUT_VARIATION_MAX = 3
 };
 
-enum class RenderMultisampleType_t : std::int32_t
+enum class RenderMultisampleType_t : std::int8_t
 {
    RENDER_MULTISAMPLE_INVALID = -1,
    RENDER_MULTISAMPLE_NONE = 0,
@@ -323,7 +327,7 @@ enum class AnimParamType_t : std::uint8_t
    ANIMPARAM_FLOAT = 4,
    ANIMPARAM_VECTOR = 5,
    ANIMPARAM_QUATERNION = 6,
-   ANIMPARAM_STRINGTOKEN = 7,
+   ANIMPARAM_GLOBALSYMBOL = 7,
    ANIMPARAM_COUNT = 8
 };
 
@@ -377,26 +381,6 @@ enum class RagdollPoseControl : std::uint32_t
 {
    Absolute = 0,
    Relative = 1
-};
-
-enum class AnimVRHandMotionRange_t : std::uint32_t
-{
-   MotionRange_WithController = 0,
-   MotionRange_WithoutController = 1
-};
-
-enum class AnimVrFingerSplay_t : std::uint32_t
-{
-   AnimVrFingerSplay_Thumb_Index = 0,
-   AnimVrFingerSplay_Index_Middle = 1,
-   AnimVrFingerSplay_Middle_Ring = 2,
-   AnimVrFingerSplay_Ring_Pinky = 3
-};
-
-enum class AnimVrBoneTransformSource_t : std::uint32_t
-{
-   AnimVrBoneTransformSource_LiveStream = 0,
-   AnimVrBoneTransformSource_GripLimit = 1
 };
 
 enum class VPhysXFlagEnum_t : std::uint32_t
@@ -550,19 +534,59 @@ enum class MorphBundleType_t : std::uint32_t
    MORPH_BUNDLE_TYPE_COUNT = 3
 };
 
-enum class AnimVRHand_t : std::uint32_t
+enum class MovementGait_t : std::int8_t
 {
-   AnimVRHand_Left = 0,
-   AnimVRHand_Right = 1
+   eInvalid = -1,
+   eWalk = 0,
+   eJog = 1,
+   eRun = 2,
+   eSprint = 3
 };
 
-enum class AnimVRFinger_t : std::uint32_t
+enum class WeightInfo_t : std::uint8_t
 {
-   AnimVrFinger_Thumb = 0,
-   AnimVrFinger_Index = 1,
-   AnimVrFinger_Middle = 2,
-   AnimVrFinger_Ring = 3,
-   AnimVrFinger_Pinky = 4
+   Zero = 0,
+   Mixed = 1,
+   One = 2
+};
+
+enum class NmFootPhase_t : std::uint8_t
+{
+   LeftFootDown = 0,
+   RightFootPassing = 1,
+   RightFootDown = 2,
+   LeftFootPassing = 3
+};
+
+enum class NmFootPhaseCondition_t : std::uint8_t
+{
+   LeftFootDown = 0,
+   LeftFootPassing = 1,
+   LeftPhase = 4,
+   RightFootDown = 2,
+   RightFootPassing = 3,
+   RightPhase = 5
+};
+
+enum class NmTransitionRule_t : std::uint8_t
+{
+   AllowTransition = 0,
+   ConditionallyAllowTransition = 1,
+   BlockTransition = 2
+};
+
+enum class NmTransitionRuleCondition_t : std::uint8_t
+{
+   AnyAllowed = 0,
+   FullyAllowed = 1,
+   ConditionallyAllowed = 2,
+   Blocked = 3
+};
+
+enum class NmFrameSnapEventMode_t : std::uint32_t
+{
+   Floor = 0,
+   Round = 1
 };
 
 enum class IKChannelMode : std::uint32_t
@@ -941,7 +965,9 @@ enum class ActionType_t : std::uint32_t
    SOS_ACTION_NONE = 0,
    SOS_ACTION_LIMITER = 1,
    SOS_ACTION_TIME_LIMIT = 2,
-   SOS_ACTION_SET_SOUNDEVENT_PARAM = 3
+   SOS_ACTION_TIME_BLOCK_LIMITER = 3,
+   SOS_ACTION_SET_SOUNDEVENT_PARAM = 4,
+   SOS_ACTION_SOUNDEVENT_CLUSTER = 5
 };
 
 enum class SosActionStopType_t : std::uint32_t
@@ -1077,9 +1103,6 @@ enum class DisableShadows_t : std::uint8_t
 enum class ObjectTypeFlags_t : std::uint32_t
 {
    OBJECT_TYPE_NONE = 0,
-   OBJECT_TYPE_IMAGE_LOD = 1,
-   OBJECT_TYPE_GEOMETRY_LOD = 2,
-   OBJECT_TYPE_DECAL = 4,
    OBJECT_TYPE_MODEL = 8,
    OBJECT_TYPE_BLOCK_LIGHT = 16,
    OBJECT_TYPE_NO_SHADOWS = 32,
@@ -1109,64 +1132,75 @@ enum class PulseInstructionCode_t : std::uint16_t
    PULSE_CALL_ASYNC_FIRE = 10,
    CELL_INVOKE = 11,
    LIBRARY_INVOKE = 12,
-   TARGET_INVOKE = 13,
-   SET_VAR = 14,
-   GET_VAR = 15,
-   SET_REGISTER_LIT_BOOL = 16,
-   SET_REGISTER_LIT_INT = 17,
-   SET_REGISTER_LIT_FLOAT = 18,
-   SET_REGISTER_LIT_STR = 19,
-   SET_REGISTER_LIT_INVAL_EHANDLE = 20,
-   SET_REGISTER_LIT_INVAL_SNDEVT_GUID = 21,
-   SET_REGISTER_LIT_VEC3 = 22,
-   SET_REGISTER_DOMAIN_VALUE = 23,
-   COPY = 24,
-   NOT = 25,
-   NEGATE = 26,
-   ADD = 27,
-   SUB = 28,
-   MUL = 29,
-   DIV = 30,
-   MOD = 31,
-   LT = 32,
-   LTE = 33,
-   EQ = 34,
-   NE = 35,
-   AND = 36,
-   OR = 37,
-   CONVERT_VALUE = 38,
-   LAST_SERIALIZED_CODE = 39,
-   NEGATE_INT = 40,
-   NEGATE_FLOAT = 41,
-   ADD_INT = 42,
-   ADD_FLOAT = 43,
-   ADD_STRING = 44,
-   SUB_INT = 45,
-   SUB_FLOAT = 46,
-   MUL_INT = 47,
-   MUL_FLOAT = 48,
-   DIV_INT = 49,
-   DIV_FLOAT = 50,
-   MOD_INT = 51,
-   MOD_FLOAT = 52,
-   LT_INT = 53,
-   LT_FLOAT = 54,
-   LTE_INT = 55,
-   LTE_FLOAT = 56,
-   EQ_BOOL = 57,
-   EQ_INT = 58,
-   EQ_FLOAT = 59,
-   EQ_STRING = 60,
-   NE_BOOL = 61,
-   NE_INT = 62,
-   NE_FLOAT = 63,
-   NE_STRING = 64
+   SET_VAR = 13,
+   GET_VAR = 14,
+   GET_CONST = 15,
+   SET_REGISTER_DOMAIN_VALUE = 16,
+   COPY = 17,
+   NOT = 18,
+   NEGATE = 19,
+   ADD = 20,
+   SUB = 21,
+   MUL = 22,
+   DIV = 23,
+   MOD = 24,
+   LT = 25,
+   LTE = 26,
+   EQ = 27,
+   NE = 28,
+   AND = 29,
+   OR = 30,
+   CONVERT_VALUE = 31,
+   LAST_SERIALIZED_CODE = 32,
+   NEGATE_INT = 33,
+   NEGATE_FLOAT = 34,
+   ADD_INT = 35,
+   ADD_FLOAT = 36,
+   ADD_STRING = 37,
+   SUB_INT = 38,
+   SUB_FLOAT = 39,
+   MUL_INT = 40,
+   MUL_FLOAT = 41,
+   DIV_INT = 42,
+   DIV_FLOAT = 43,
+   MOD_INT = 44,
+   MOD_FLOAT = 45,
+   LT_INT = 46,
+   LT_FLOAT = 47,
+   LTE_INT = 48,
+   LTE_FLOAT = 49,
+   EQ_BOOL = 50,
+   EQ_INT = 51,
+   EQ_FLOAT = 52,
+   EQ_STRING = 53,
+   EQ_ENTITY_NAME = 54,
+   NE_BOOL = 55,
+   NE_INT = 56,
+   NE_FLOAT = 57,
+   NE_STRING = 58,
+   NE_ENTITY_NAME = 59,
+   GET_CONST_INLINE_STORAGE = 60
 };
 
 enum class PulseMethodCallMode_t : std::uint32_t
 {
    SYNC_WAIT_FOR_COMPLETION = 0,
    ASYNC_FIRE_AND_FORGET = 1
+};
+
+enum class PulseCursorExecResult_t : std::uint32_t
+{
+   Succeeded = 0,
+   Canceled = 1,
+   Failed = 2
+};
+
+enum class PulseCursorCancelPriority_t : std::uint32_t
+{
+   None = 0,
+   CancelOnSucceeded = 1,
+   SoftCancel = 2,
+   HardCancel = 3
 };
 
 enum class PulseValueType_t : std::int32_t
@@ -1178,13 +1212,33 @@ enum class PulseValueType_t : std::int32_t
    PVAL_STRING = 3,
    PVAL_VEC3 = 4,
    PVAL_TRANSFORM = 5,
-   PVAL_EHANDLE = 6,
-   PVAL_RESOURCE = 7,
-   PVAL_SNDEVT_GUID = 8,
-   PVAL_SCHEMA_PTR = 9,
-   PVAL_CURSOR_FLOW = 10,
-   PVAL_ANY = 11,
-   PVAL_COUNT = 12
+   PVAL_COLOR_RGB = 6,
+   PVAL_EHANDLE = 7,
+   PVAL_RESOURCE = 8,
+   PVAL_SNDEVT_GUID = 9,
+   PVAL_ENTITY_NAME = 10,
+   PVAL_SCHEMA_PTR = 11,
+   PVAL_TYPESAFE_INT = 12,
+   PVAL_CURSOR_FLOW = 13,
+   PVAL_ANY = 14,
+   PVAL_SCHEMA_ENUM = 15,
+   PVAL_COUNT = 16
+};
+
+enum class PulseTestEnumColor_t : std::uint32_t
+{
+   BLACK = 0,
+   WHITE = 1,
+   RED = 2,
+   GREEN = 3,
+   BLUE = 4
+};
+
+enum class PulseTestEnumShape_t : std::uint32_t
+{
+   CIRCLE = 100,
+   SQUARE = 200,
+   TRIANGLE = 300
 };
 
 enum class ParticleControlPointAxis_t : std::uint32_t
@@ -1239,6 +1293,12 @@ enum class ParticleHitboxBiasType_t : std::uint32_t
 {
    PARTICLE_HITBOX_BIAS_ENTITY = 0,
    PARTICLE_HITBOX_BIAS_HITBOX = 1
+};
+
+enum class ParticleAttrBoxFlags_t : std::uint32_t
+{
+   PARTICLE_ATTR_BOX_FLAGS_NONE = 0,
+   PARTICLE_ATTR_BOX_FLAGS_WATER = 1
 };
 
 enum class PFuncVisualizationType_t : std::uint32_t
@@ -1519,6 +1579,12 @@ enum class ParticleHitboxDataSelection_t : std::uint32_t
 {
    PARTICLE_HITBOX_AVERAGE_SPEED = 0,
    PARTICLE_HITBOX_COUNT = 1
+};
+
+enum class SnapshotIndexType_t : std::uint32_t
+{
+   SNAPSHOT_INDEX_INCREMENT = 0,
+   SNAPSHOT_INDEX_DIRECT = 1
 };
 
 enum class ParticleOrientationChoiceList_t : std::uint32_t
@@ -1889,6 +1955,13 @@ enum class NavDirType : std::uint32_t
    NUM_NAV_DIR_TYPE_DIRECTIONS = 4
 };
 
+enum class SequenceFinishNotifyState_t : std::uint8_t
+{
+   eDoNotNotify = 0,
+   eNotifyWhenFinished = 1,
+   eNotifyTriggered = 2
+};
+
 enum class PointTemplateOwnerSpawnGroupType_t : std::uint32_t
 {
    INSERT_INTO_POINT_TEMPLATE_SPAWN_GROUP = 0,
@@ -1965,28 +2038,32 @@ enum class GameAnimEventIndex_t : std::uint32_t
    AE_CL_STOP_RAGDOLL_CONTROL = 14,
    AE_CL_ENABLE_BODYGROUP = 15,
    AE_CL_DISABLE_BODYGROUP = 16,
-   AE_CL_BODYGROUP_SET_VALUE = 17,
-   AE_SV_BODYGROUP_SET_VALUE = 18,
-   AE_CL_BODYGROUP_SET_VALUE_CMODEL_WPN = 19,
-   AE_WEAPON_PERFORM_ATTACK = 20,
-   AE_FIRE_INPUT = 21,
-   AE_CL_CLOTH_ATTR = 22,
-   AE_CL_CLOTH_GROUND_OFFSET = 23,
-   AE_CL_CLOTH_STIFFEN = 24,
-   AE_CL_CLOTH_EFFECT = 25,
-   AE_CL_CREATE_ANIM_SCOPE_PROP = 26,
-   AE_CL_WEAPON_TRANSITION_INTO_HAND = 27,
-   AE_CL_BODYGROUP_SET_TO_CLIP = 28,
-   AE_CL_BODYGROUP_SET_TO_NEXTCLIP = 29,
-   AE_SV_SHOW_SILENCER = 30,
-   AE_SV_ATTACH_SILENCER_COMPLETE = 31,
-   AE_SV_HIDE_SILENCER = 32,
-   AE_SV_DETACH_SILENCER_COMPLETE = 33,
-   AE_CL_EJECT_MAG = 34,
-   AE_WPN_COMPLETE_RELOAD = 35,
-   AE_WPN_HEALTHSHOT_INJECT = 36,
-   AE_CL_C4_SCREEN_TEXT = 37,
-   AE_GRENADE_THROW_COMPLETE = 38
+   AE_BODYGROUP_SET_VALUE = 17,
+   AE_CL_BODYGROUP_SET_VALUE_CMODEL_WPN = 18,
+   AE_WEAPON_PERFORM_ATTACK = 19,
+   AE_FIRE_INPUT = 20,
+   AE_CL_CLOTH_ATTR = 21,
+   AE_CL_CLOTH_GROUND_OFFSET = 22,
+   AE_CL_CLOTH_STIFFEN = 23,
+   AE_CL_CLOTH_EFFECT = 24,
+   AE_CL_CREATE_ANIM_SCOPE_PROP = 25,
+   AE_PULSE_GRAPH = 26,
+   AE_PULSE_GRAPH_LOOKAT = 27,
+   AE_PULSE_GRAPH_AIMAT = 28,
+   AE_PULSE_GRAPH_IKLOCKLEFTARM = 29,
+   AE_PULSE_GRAPH_IKLOCKRIGHTARM = 30,
+   AE_CL_WEAPON_TRANSITION_INTO_HAND = 31,
+   AE_CL_BODYGROUP_SET_TO_CLIP = 32,
+   AE_CL_BODYGROUP_SET_TO_NEXTCLIP = 33,
+   AE_SV_SHOW_SILENCER = 34,
+   AE_SV_ATTACH_SILENCER_COMPLETE = 35,
+   AE_SV_HIDE_SILENCER = 36,
+   AE_SV_DETACH_SILENCER_COMPLETE = 37,
+   AE_CL_EJECT_MAG = 38,
+   AE_WPN_COMPLETE_RELOAD = 39,
+   AE_WPN_HEALTHSHOT_INJECT = 40,
+   AE_CL_C4_SCREEN_TEXT = 41,
+   AE_GRENADE_THROW_COMPLETE = 42
 };
 
 enum class ObserverMode_t : std::uint32_t
@@ -2044,20 +2121,20 @@ enum class WeaponSound_t : std::uint32_t
    WEAPON_SOUND_SECONDARY_EMPTY = 1,
    WEAPON_SOUND_SINGLE = 2,
    WEAPON_SOUND_SECONDARY_ATTACK = 3,
-   WEAPON_SOUND_RELOAD = 4,
-   WEAPON_SOUND_MELEE_MISS = 5,
-   WEAPON_SOUND_MELEE_HIT = 6,
-   WEAPON_SOUND_MELEE_HIT_WORLD = 7,
-   WEAPON_SOUND_MELEE_HIT_PLAYER = 8,
-   WEAPON_SOUND_MELEE_HIT_NPC = 9,
-   WEAPON_SOUND_SPECIAL1 = 10,
-   WEAPON_SOUND_SPECIAL2 = 11,
-   WEAPON_SOUND_SPECIAL3 = 12,
-   WEAPON_SOUND_NEARLYEMPTY = 13,
-   WEAPON_SOUND_IMPACT = 14,
-   WEAPON_SOUND_REFLECT = 15,
-   WEAPON_SOUND_SECONDARY_IMPACT = 16,
-   WEAPON_SOUND_SECONDARY_REFLECT = 17,
+   WEAPON_SOUND_MELEE_MISS = 4,
+   WEAPON_SOUND_MELEE_HIT = 5,
+   WEAPON_SOUND_MELEE_HIT_WORLD = 6,
+   WEAPON_SOUND_MELEE_HIT_PLAYER = 7,
+   WEAPON_SOUND_MELEE_HIT_NPC = 8,
+   WEAPON_SOUND_SPECIAL1 = 9,
+   WEAPON_SOUND_SPECIAL2 = 10,
+   WEAPON_SOUND_SPECIAL3 = 11,
+   WEAPON_SOUND_NEARLYEMPTY = 12,
+   WEAPON_SOUND_IMPACT = 13,
+   WEAPON_SOUND_REFLECT = 14,
+   WEAPON_SOUND_SECONDARY_IMPACT = 15,
+   WEAPON_SOUND_SECONDARY_REFLECT = 16,
+   WEAPON_SOUND_RELOAD = 17,
    WEAPON_SOUND_SINGLE_ACCURATE = 18,
    WEAPON_SOUND_ZOOM_IN = 19,
    WEAPON_SOUND_ZOOM_OUT = 20,
@@ -2278,8 +2355,7 @@ enum class DebugOverlayBits_t : std::int64_t
    OVERLAY_NPC_SELECTED_BIT = 131072,
    OVERLAY_JOINT_INFO_BIT = 262144,
    OVERLAY_NPC_ROUTE_BIT = 524288,
-   OVERLAY_NPC_TRIANGULATE_BIT = 1048576,
-   OVERLAY_NPC_ZAP_BIT = 2097152,
+   OVERLAY_VISIBILITY_TRACES_BIT = 1048576,
    OVERLAY_NPC_ENEMIES_BIT = 4194304,
    OVERLAY_NPC_CONDITIONS_BIT = 8388608,
    OVERLAY_NPC_COMBAT_BIT = 16777216,
@@ -2295,9 +2371,9 @@ enum class DebugOverlayBits_t : std::int64_t
    OVERLAY_NPC_RELATION_BIT = 0,
    OVERLAY_VIEWOFFSET = 0,
    OVERLAY_VCOLLIDE_WIREFRAME_BIT = 0,
-   OVERLAY_NPC_NEAREST_NODE_BIT = 0,
    OVERLAY_ACTORNAME_BIT = 0,
-   OVERLAY_NPC_CONDITIONS_TEXT_BIT = 0
+   OVERLAY_NPC_CONDITIONS_TEXT_BIT = 0,
+   OVERLAY_NPC_ABILITY_RANGE_DEBUG_BIT = 0
 };
 
 enum class MoveType_t : std::uint8_t
@@ -2305,16 +2381,16 @@ enum class MoveType_t : std::uint8_t
    MOVETYPE_NONE = 0,
    MOVETYPE_OBSOLETE = 1,
    MOVETYPE_WALK = 2,
-   MOVETYPE_STEP = 3,
-   MOVETYPE_FLY = 4,
-   MOVETYPE_FLYGRAVITY = 5,
-   MOVETYPE_VPHYSICS = 6,
-   MOVETYPE_PUSH = 7,
-   MOVETYPE_NOCLIP = 8,
-   MOVETYPE_OBSERVER = 9,
-   MOVETYPE_LADDER = 10,
-   MOVETYPE_CUSTOM = 11,
-   MOVETYPE_LAST = 12,
+   MOVETYPE_FLY = 3,
+   MOVETYPE_FLYGRAVITY = 4,
+   MOVETYPE_VPHYSICS = 5,
+   MOVETYPE_PUSH = 6,
+   MOVETYPE_NOCLIP = 7,
+   MOVETYPE_OBSERVER = 8,
+   MOVETYPE_LADDER = 9,
+   MOVETYPE_CUSTOM = 10,
+   MOVETYPE_LAST = 11,
+   MOVETYPE_INVALID = 11,
    MOVETYPE_MAX_BITS = 5
 };
 
@@ -2557,6 +2633,22 @@ enum class TRAIN_CODE : std::uint32_t
    TRAIN_FOLLOWING = 2
 };
 
+enum class NPCFollowFormation_t : std::int32_t
+{
+   Default = -1,
+   CloseCircle = 0,
+   WideCircle = 1,
+   MediumCircle = 5,
+   Sidekick = 6
+};
+
+enum class NPCLookType_t : std::uint32_t
+{
+   Chest = 0,
+   Head = 1,
+   Eyes = 2
+};
+
 enum class SoundEventStartType_t : std::uint32_t
 {
    SOUNDEVENT_START_PLAYER = 0,
@@ -2708,8 +2800,9 @@ enum class SurroundingBoundsType_t : std::uint8_t
    USE_SPECIFIED_BOUNDS = 3,
    USE_GAME_CODE = 4,
    USE_ROTATION_EXPANDED_BOUNDS = 5,
-   USE_COLLISION_BOUNDS_NEVER_VPHYSICS = 6,
-   USE_ROTATION_EXPANDED_SEQUENCE_BOUNDS = 7,
+   USE_ROTATION_EXPANDED_ORIENTED_BOUNDS = 6,
+   USE_COLLISION_BOUNDS_NEVER_VPHYSICS = 7,
+   USE_ROTATION_EXPANDED_SEQUENCE_BOUNDS = 8,
    SURROUNDING_TYPE_BIT_COUNT = 3
 };
 
@@ -2783,6 +2876,13 @@ enum class PlayerConnectedState : std::int32_t
    PlayerDisconnecting = 3,
    PlayerDisconnected = 4,
    PlayerReserved = 5
+};
+
+enum class WeaponSwitchReason_t : std::uint32_t
+{
+   eDrawn = 0,
+   eEquipped = 1,
+   eUserInitiatedSwitchToLast = 2
 };
 
 enum class WeaponAttackType_t : std::int32_t
@@ -3077,6 +3177,7 @@ enum class Reason : std::uint32_t
 
 enum class loadout_slot_t : std::int32_t
 {
+   LOADOUT_SLOT_PROMOTED = -2,
    LOADOUT_SLOT_INVALID = -1,
    LOADOUT_SLOT_MELEE = 0,
    LOADOUT_SLOT_C4 = 1,
@@ -3162,6 +3263,56 @@ enum class EKillTypes_t : std::uint8_t
    KILL_SLASH = 5,
    KILL_SHOCK = 6,
    KILLTYPE_COUNT = 7
+};
+
+enum class PreviewCharacterMode : std::uint32_t
+{
+   DIORAMA = 0,
+   MAIN_MENU = 1,
+   BUY_MENU = 2,
+   TEAM_SELECT = 3,
+   END_OF_MATCH = 4,
+   INVENTORY_INSPECT = 5,
+   WALKING = 6,
+   TEAM_INTRO = 7,
+   WINGMAN_INTRO = 8
+};
+
+enum class PreviewWeaponState : std::uint32_t
+{
+   DROPPED = 0,
+   HOLSTERED = 1,
+   DEPLOYED = 2,
+   PLANTED = 3,
+   INSPECT = 4,
+   ICON = 5
+};
+
+enum class PreviewEOMCelebration : std::uint32_t
+{
+   WALKUP = 0,
+   PUNCHING = 1,
+   SWAGGER = 2,
+   DROPDOWN = 3,
+   STRETCH = 4,
+   SWAT_FEMALE = 5,
+   MASK_F = 6,
+   GUERILLA = 7,
+   GUERILLA02 = 8,
+   GENDARMERIE = 9,
+   SCUBA_FEMALE = 10,
+   SCUBA_MALE = 11,
+   AVA_DEFEAT = 12,
+   GENDARMERIE_DEFEAT = 13,
+   MAE_DEFEAT = 14,
+   RICKSAW_DEFEAT = 15,
+   SCUBA_FEMALE_DEFEAT = 16,
+   SCUBA_MALE_DEFEAT = 17,
+   CRASSWATER_DEFEAT = 18,
+   DARRYL_DEFEAT = 19,
+   DOCTOR_DEFEAT = 20,
+   MUHLIK_DEFEAT = 21,
+   VYPA_DEFEAT = 22
 };
 
 enum class CSWeaponType : std::uint32_t
@@ -3262,13 +3413,6 @@ enum class C4LightEffect_t : std::uint32_t
    eLightEffectNone = 0,
    eLightEffectDropped = 1,
    eLightEffectThirdPersonHeld = 2
-};
-
-enum class EGrenadeThrowState : std::uint32_t
-{
-   NotThrowing = 0,
-   Throwing = 1,
-   ThrowComplete = 2
 };
 
 enum class gear_slot_t : std::int32_t
