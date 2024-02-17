@@ -701,7 +701,7 @@ public:
    int32_t m_iAlpha; // 0x16B8 - 0x16BC
    int32_t m_iScopeTextureID; // 0x16BC - 0x16C0
    int32_t m_iCrosshairTextureID; // 0x16C0 - 0x16C4
-   float m_flGunAccuracyPosition; // 0x16C4 - 0x16C8
+   float m_flGunAccuracyPositionDeprecated; // 0x16C4 - 0x16C8
    int32_t m_nLastEmptySoundCmdNum; // 0x16C8 - 0x16CC
    uint32_t m_nViewModelIndex; // 0x16CC - 0x16D0
    bool m_bReloadsWithClips; // 0x16D0 - 0x16D1
@@ -5754,9 +5754,9 @@ public:
 class C_PredictedViewModel /* "client" */ : public C_BaseViewModel /* "client" */
 {
 public:
-   QAngle m_LagAnglesHistory; // 0xF40 - 0xF4C
-   unsigned char pad_F4C[0xC]; // 0xF4C - 0xF58
-   Vector m_vPredictedOffset; // 0xF58 - 0xF64
+   Vector m_vPredictedLagOffset; // 0xF40 - 0xF4C
+   QAngle m_targetSpeed; // 0xF4C - 0xF58
+   QAngle m_currentSpeed; // 0xF58 - 0xF64
    unsigned char pad_F64[0x4]; // 0xF64 - 0xF68
 }; // size - 0xF68
 
@@ -19521,9 +19521,9 @@ public:
    uint32_t m_nOldWeaponParity; // 0xF70 - 0xF74
    CEntityIndex m_nLastKnownAssociatedWeaponEntIndex; // 0xF74 - 0xF78
    bool m_bNeedToQueueHighResComposite; // 0xF78 - 0xF79
-   unsigned char pad_F79[0x43]; // 0xF79 - 0xFBC
-   QAngle m_vLoweredWeaponOffset; // 0xFBC - 0xFC8
-}; // size - 0xFC8
+   unsigned char pad_F79[0x63]; // 0xF79 - 0xFDC
+   QAngle m_vLoweredWeaponOffset; // 0xFDC - 0xFE8
+}; // size - 0xFE8
 
 
 class C_CSGO_CounterTerroristTeamIntroCamera /* "client" */ : public C_CSGO_TeamPreviewCamera /* "client" */
