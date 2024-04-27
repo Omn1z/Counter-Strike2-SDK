@@ -1875,7 +1875,6 @@ class C_PhysMagnet;
 class C_PhysPropClientside;
 class C_PhysicsProp;
 class C_PhysicsPropMultiplayer;
-class C_PickUpModelSlerper;
 class C_PlantedC4;
 class C_PlayerPing;
 class C_PlayerSprayDecal;

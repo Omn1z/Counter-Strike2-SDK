@@ -1969,7 +1969,8 @@ enum class WeaponSwitchReason_t : std::uint32_t
 {
    eDrawn = 0,
    eEquipped = 1,
-   eUserInitiatedSwitchToLast = 2
+   eUserInitiatedSwitchToLast = 2,
+   eUserInitiatedSwitchHands = 3
 };
 
 enum class SosActionSortType_t : std::uint32_t
