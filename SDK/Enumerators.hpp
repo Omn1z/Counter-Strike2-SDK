@@ -1,6 +1,30 @@
 #pragma once
 
 
+enum class LogicBranchListenerLastState_t : std::uint32_t
+{
+   LOGIC_BRANCH_LISTENER_NOT_INIT = 0,
+   LOGIC_BRANCH_LISTENER_ALL_TRUE = 1,
+   LOGIC_BRANCH_LISTENER_ALL_FALSE = 2,
+   LOGIC_BRANCH_LISTENER_MIXED = 3
+};
+
+enum class Move_t : std::uint32_t
+{
+   MOVE_LOOP = 0,
+   MOVE_OSCILLATE = 1,
+   MOVE_STOP_AT_END = 2
+};
+
+enum class WaterWakeMode_t : std::uint32_t
+{
+   WATER_WAKE_NONE = 0,
+   WATER_WAKE_IDLE = 1,
+   WATER_WAKE_WALKING = 2,
+   WATER_WAKE_RUNNING = 3,
+   WATER_WAKE_WATER_OVERHEAD = 4
+};
+
 enum class Hull_t : std::uint32_t
 {
    HULL_HUMAN = 0,
