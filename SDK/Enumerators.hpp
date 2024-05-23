@@ -1,31 +1,6 @@
 #pragma once
 
 
-enum class LogicBranchListenerLastState_t : std::uint32_t
-{
-   LOGIC_BRANCH_LISTENER_NOT_INIT = 0,
-   LOGIC_BRANCH_LISTENER_ALL_TRUE = 1,
-   LOGIC_BRANCH_LISTENER_ALL_FALSE = 2,
-   LOGIC_BRANCH_LISTENER_MIXED = 3
-};
-
-enum class BotDefaultBehavior_t : std::uint32_t
-{
-   DEFEND_AREA = 0,
-   HUNT = 1,
-   CHARGE_ENEMY = 2,
-   DEFEND_INVESTIGATE = 3
-};
-
-enum class WaterWakeMode_t : std::uint32_t
-{
-   WATER_WAKE_NONE = 0,
-   WATER_WAKE_IDLE = 1,
-   WATER_WAKE_WALKING = 2,
-   WATER_WAKE_RUNNING = 3,
-   WATER_WAKE_WATER_OVERHEAD = 4
-};
-
 enum class Hull_t : std::uint32_t
 {
    HULL_HUMAN = 0,
@@ -140,7 +115,7 @@ enum class PulseInstructionCode_t : std::uint16_t
    SET_VAR = 13,
    GET_VAR = 14,
    GET_CONST = 15,
-   SET_REGISTER_DOMAIN_VALUE = 16,
+   GET_DOMAIN_VALUE = 16,
    COPY = 17,
    NOT = 18,
    NEGATE = 19,
@@ -156,35 +131,47 @@ enum class PulseInstructionCode_t : std::uint16_t
    AND = 29,
    OR = 30,
    CONVERT_VALUE = 31,
-   LAST_SERIALIZED_CODE = 32,
-   NEGATE_INT = 33,
-   NEGATE_FLOAT = 34,
-   ADD_INT = 35,
-   ADD_FLOAT = 36,
-   ADD_STRING = 37,
-   SUB_INT = 38,
-   SUB_FLOAT = 39,
-   MUL_INT = 40,
-   MUL_FLOAT = 41,
-   DIV_INT = 42,
-   DIV_FLOAT = 43,
-   MOD_INT = 44,
-   MOD_FLOAT = 45,
-   LT_INT = 46,
-   LT_FLOAT = 47,
-   LTE_INT = 48,
-   LTE_FLOAT = 49,
-   EQ_BOOL = 50,
-   EQ_INT = 51,
-   EQ_FLOAT = 52,
-   EQ_STRING = 53,
-   EQ_ENTITY_NAME = 54,
-   NE_BOOL = 55,
-   NE_INT = 56,
-   NE_FLOAT = 57,
-   NE_STRING = 58,
-   NE_ENTITY_NAME = 59,
-   GET_CONST_INLINE_STORAGE = 60
+   REINTERPRET_INSTANCE = 32,
+   GET_BLACKBOARD_REFERENCE = 33,
+   SET_BLACKBOARD_REFERENCE = 34,
+   REQUIREMENT_RESULT = 35,
+   LAST_SERIALIZED_CODE = 36,
+   NEGATE_INT = 37,
+   NEGATE_FLOAT = 38,
+   ADD_INT = 39,
+   ADD_FLOAT = 40,
+   ADD_STRING = 41,
+   SUB_INT = 42,
+   SUB_FLOAT = 43,
+   MUL_INT = 44,
+   MUL_FLOAT = 45,
+   DIV_INT = 46,
+   DIV_FLOAT = 47,
+   MOD_INT = 48,
+   MOD_FLOAT = 49,
+   LT_INT = 50,
+   LT_FLOAT = 51,
+   LTE_INT = 52,
+   LTE_FLOAT = 53,
+   EQ_BOOL = 54,
+   EQ_INT = 55,
+   EQ_FLOAT = 56,
+   EQ_STRING = 57,
+   EQ_ENTITY_NAME = 58,
+   EQ_EHANDLE = 59,
+   EQ_PANEL_HANDLE = 60,
+   EQ_OPAQUE_HANDLE = 61,
+   EQ_TEST_HANDLE = 62,
+   NE_BOOL = 63,
+   NE_INT = 64,
+   NE_FLOAT = 65,
+   NE_STRING = 66,
+   NE_ENTITY_NAME = 67,
+   NE_EHANDLE = 68,
+   NE_PANEL_HANDLE = 69,
+   NE_OPAQUE_HANDLE = 70,
+   NE_TEST_HANDLE = 71,
+   GET_CONST_INLINE_STORAGE = 72
 };
 
 enum class StateActionBehavior : std::uint32_t
@@ -294,6 +281,14 @@ enum class ParticleLightingQuality_t : std::int32_t
    PARTICLE_LIGHTING_PER_PIXEL = -1
 };
 
+enum class NmRootMotionBlendMode_t : std::uint8_t
+{
+   Blend = 0,
+   Additive = 1,
+   IgnoreSource = 2,
+   IgnoreTarget = 3
+};
+
 enum class RenderFx_t : std::uint8_t
 {
    kRenderFxNone = 0,
@@ -344,7 +339,7 @@ enum class PointWorldTextJustifyVertical_t : std::uint32_t
    POINT_WORLD_TEXT_JUSTIFY_VERTICAL_TOP = 2
 };
 
-enum class TakeDamageFlags_t : std::uint32_t
+enum class TakeDamageFlags_t : std::uint64_t
 {
    DFLAG_NONE = 0,
    DFLAG_SUPPRESS_HEALTH_CHANGES = 1,
@@ -358,9 +353,10 @@ enum class TakeDamageFlags_t : std::uint32_t
    DFLAG_SUPPRESS_DAMAGE_MODIFICATION = 256,
    DFLAG_ALWAYS_FIRE_DAMAGE_EVENTS = 512,
    DFLAG_RADIUS_DMG = 1024,
-   DMG_LASTDFLAG = 1024,
-   DFLAG_IGNORE_ARMOR = 2048,
-   DFLAG_SUPPRESS_UTILREMOVE = 4096
+   DFLAG_FORCEREDUCEARMOR_DMG = 2048,
+   DMG_LASTDFLAG = 2048,
+   DFLAG_IGNORE_ARMOR = 4096,
+   DFLAG_SUPPRESS_UTILREMOVE = 8192
 };
 
 enum class CSWeaponSilencerType : std::uint32_t
@@ -387,6 +383,12 @@ enum class PointTemplateOwnerSpawnGroupType_t : std::uint32_t
    INSERT_INTO_POINT_TEMPLATE_SPAWN_GROUP = 0,
    INSERT_INTO_CURRENTLY_ACTIVE_SPAWN_GROUP = 1,
    INSERT_INTO_NEWLY_CREATED_SPAWN_GROUP = 2
+};
+
+enum class ParticleReplicationMode_t : std::uint32_t
+{
+   PARTICLE_REPLICATIONMODE_NONE = 0,
+   PARTICLE_REPLICATIONMODE_REPLICATE_FOR_EACH_PARENT_PARTICLE = 1
 };
 
 enum class ParticleOutputBlendMode_t : std::uint32_t
@@ -428,6 +430,13 @@ enum class NavDirType : std::uint32_t
    NUM_NAV_DIR_TYPE_DIRECTIONS = 4
 };
 
+enum class NmPoseBlendMode_t : std::uint8_t
+{
+   Overlay = 0,
+   Additive = 1,
+   GlobalSpace = 2
+};
+
 enum class ViewFadeMode_t : std::uint32_t
 {
    VIEW_FADE_CONSTANT_COLOR = 0,
@@ -446,7 +455,8 @@ enum class PulseCursorExecResult_t : std::uint32_t
 {
    Succeeded = 0,
    Canceled = 1,
-   Failed = 2
+   Failed = 2,
+   OngoingNotify = 3
 };
 
 enum class SurroundingBoundsType_t : std::uint8_t
@@ -562,6 +572,14 @@ enum class PulseCursorCancelPriority_t : std::uint32_t
    CancelOnSucceeded = 1,
    SoftCancel = 2,
    HardCancel = 3
+};
+
+enum class CVSoundFormat_t : std::uint8_t
+{
+   PCM16 = 0,
+   PCM8 = 1,
+   MP3 = 2,
+   ADPCM = 3
 };
 
 enum class GrenadeType_t : std::uint32_t
@@ -757,7 +775,7 @@ enum class loadout_slot_t : std::int32_t
    LOADOUT_SLOT_FIRST_WHEEL_EQUIPMENT = 32,
    LOADOUT_SLOT_LAST_WHEEL_EQUIPMENT = 37,
    LOADOUT_SLOT_CLOTHING_CUSTOMPLAYER = 38,
-   LOADOUT_SLOT_PET = 39,
+   LOADOUT_SLOT_CLOTHING_CUSTOMHEAD = 39,
    LOADOUT_SLOT_CLOTHING_FACEMASK = 40,
    LOADOUT_SLOT_CLOTHING_HANDS = 41,
    LOADOUT_SLOT_FIRST_COSMETIC = 41,
@@ -793,10 +811,11 @@ enum class JointAxis_t : std::uint32_t
 enum class MovementGait_t : std::int8_t
 {
    eInvalid = -1,
-   eWalk = 0,
-   eJog = 1,
-   eRun = 2,
-   eSprint = 3
+   eSlow = 0,
+   eMedium = 1,
+   eFast = 2,
+   eVeryFast = 3,
+   eCount = 4
 };
 
 enum class ParticleRotationLockType_t : std::uint32_t
@@ -843,7 +862,8 @@ enum class CompositeMaterialInputLooseVariableType_t : std::uint32_t
    LOOSE_VARIABLE_TYPE_STRING = 10,
    LOOSE_VARIABLE_TYPE_SYSTEMVAR = 11,
    LOOSE_VARIABLE_TYPE_RESOURCE_MATERIAL = 12,
-   LOOSE_VARIABLE_TYPE_RESOURCE_TEXTURE = 13
+   LOOSE_VARIABLE_TYPE_RESOURCE_TEXTURE = 13,
+   LOOSE_VARIABLE_TYPE_PANORAMA_RENDER = 14
 };
 
 enum class BlurFilterType_t : std::uint32_t
@@ -911,6 +931,12 @@ enum class ParticleFloatType_t : std::int32_t
    PF_TYPE_PARTICLE_NUMBER = 20,
    PF_TYPE_PARTICLE_NUMBER_NORMALIZED = 21,
    PF_TYPE_COUNT = 22
+};
+
+enum class EMode_t : std::uint32_t
+{
+   Peak = 0,
+   RMS = 1
 };
 
 enum class MedalRank_t : std::uint32_t
@@ -1030,6 +1056,21 @@ enum class AnimLoopMode_t : std::int32_t
    ANIM_LOOP_MODE_COUNT = 3
 };
 
+enum class ChoreoLookAtSpeed_t : std::int32_t
+{
+   eInvalid = -1,
+   eSlow = 0,
+   eMedium = 1,
+   eFast = 2
+};
+
+enum class eSplinePushType : std::uint32_t
+{
+   k_eSplinePushAlong = 0,
+   k_eSplinePushAway = 1,
+   k_eSplinePushTowards = 2
+};
+
 enum class ParticleAttrBoxFlags_t : std::uint32_t
 {
    PARTICLE_ATTR_BOX_FLAGS_NONE = 0,
@@ -1058,6 +1099,21 @@ enum class MissingParentInheritBehavior_t : std::int32_t
    MISSING_PARENT_KILL = 0,
    MISSING_PARENT_FIND_NEW = 1,
    MISSING_PARENT_SAME_INDEX = 2
+};
+
+enum class EventTypeSelection_t : std::uint32_t
+{
+   PARTICLE_EVENT_TYPE_MASK_NONE = 0,
+   PARTICLE_EVENT_TYPE_MASK_SPAWNED = 1,
+   PARTICLE_EVENT_TYPE_MASK_KILLED = 2,
+   PARTICLE_EVENT_TYPE_MASK_COLLISION = 4,
+   PARTICLE_EVENT_TYPE_MASK_FIRST_COLLISION = 8,
+   PARTICLE_EVENT_TYPE_MASK_COLLISION_STOPPED = 16,
+   PARTICLE_EVENT_TYPE_MASK_KILLED_ON_COLLISION = 32,
+   PARTICLE_EVENT_TYPE_MASK_USER_1 = 64,
+   PARTICLE_EVENT_TYPE_MASK_USER_2 = 128,
+   PARTICLE_EVENT_TYPE_MASK_USER_3 = 256,
+   PARTICLE_EVENT_TYPE_MASK_USER_4 = 512
 };
 
 enum class AnimationType_t : std::uint32_t
@@ -1199,6 +1255,25 @@ enum class ParticleFogType_t : std::uint32_t
    PARTICLE_FOG_DISABLED = 2
 };
 
+enum class BloodType : std::int32_t
+{
+   None = -1,
+   ColorRed = 0,
+   ColorYellow = 1,
+   ColorGreen = 2,
+   ColorBrightGreen = 3,
+   EntityMech = 4,
+   EntityAntlion = 5,
+   EntityZombie = 6,
+   EntityBlob = 7,
+   EntityBlobFrozen = 8,
+   ColorRedLVL2 = 9,
+   ColorRedLVL3 = 10,
+   ColorRedLVL4 = 11,
+   ColorRedLVL5 = 12,
+   ColorRedLVL6 = 13
+};
+
 enum class BrushSolidities_e : std::uint32_t
 {
    BRUSHSOLID_TOGGLE = 0,
@@ -1217,31 +1292,17 @@ enum class Detail2Combo_t : std::int32_t
    DETAIL_2_COMBO_CROSSFADE = 5
 };
 
-enum class SoundFlags_t : std::int32_t
+enum class SoundFlags_t : std::uint16_t
 {
-   SOUND_NONE = 0,
-   SOUND_COMBAT = 1,
-   SOUND_WORLD = 2,
-   SOUND_PLAYER = 4,
-   SOUND_DANGER = 8,
-   SOUND_BULLET_IMPACT = 16,
-   SOUND_THUMPER = 32,
-   SOUND_PHYSICS_DANGER = 64,
-   SOUND_MOVE_AWAY = 128,
-   SOUND_PLAYER_VEHICLE = 256,
-   SOUND_GLASS_BREAK = 512,
-   SOUND_PHYSICS_OBJECT = 1024,
-   SOUND_CONTEXT_GUNFIRE = 1048576,
-   SOUND_CONTEXT_COMBINE_ONLY = 2097152,
-   SOUND_CONTEXT_REACT_TO_SOURCE = 4194304,
-   SOUND_CONTEXT_EXPLOSION = 8388608,
-   SOUND_CONTEXT_EXCLUDE_COMBINE = 16777216,
-   SOUND_CONTEXT_DANGER_APPROACH = 33554432,
-   SOUND_CONTEXT_ALLIES_ONLY = 67108864,
-   SOUND_CONTEXT_PANIC_NPCS = 134217728,
-   ALL_CONTEXTS = -1048576,
-   ALL_SCENTS = 0,
-   ALL_SOUNDS = 1048575
+   SOUND_FLAGS_NONE = 0,
+   SOUND_FLAG_GUNFIRE = 1,
+   SOUND_FLAG_COMBINE_ONLY = 2,
+   SOUND_FLAG_REACT_TO_SOURCE = 4,
+   SOUND_FLAG_EXPLOSION = 8,
+   SOUND_FLAG_EXCLUDE_COMBINE = 16,
+   SOUND_FLAG_DANGER_APPROACH = 32,
+   SOUND_FLAG_ALLIES_ONLY = 64,
+   SOUND_FLAG_PANIC_NPCS = 128
 };
 
 enum class ValueRemapperInputType_t : std::uint32_t
@@ -1366,6 +1427,23 @@ enum class AnimPoseControl : std::uint32_t
    RelativePoseControl = 2
 };
 
+enum class EMidiNote : std::uint8_t
+{
+   C = 0,
+   C_Sharp = 1,
+   D = 2,
+   D_Sharp = 3,
+   E = 4,
+   F = 5,
+   F_Sharp = 6,
+   G = 7,
+   G_Sharp = 8,
+   A = 9,
+   A_Sharp = 10,
+   B = 11,
+   Count = 12
+};
+
 enum class FootLockSubVisualization : std::uint32_t
 {
    FOOTLOCKSUBVISUALIZATION_ReachabilityAnalysis = 0,
@@ -1386,13 +1464,14 @@ enum class PulseValueType_t : std::int32_t
    PVAL_RESOURCE = 8,
    PVAL_SNDEVT_GUID = 9,
    PVAL_ENTITY_NAME = 10,
-   PVAL_SCHEMA_PTR = 11,
+   PVAL_OPAQUE_HANDLE = 11,
    PVAL_TYPESAFE_INT = 12,
    PVAL_CURSOR_FLOW = 13,
    PVAL_ANY = 14,
    PVAL_SCHEMA_ENUM = 15,
    PVAL_PANORAMA_PANEL_HANDLE = 16,
-   PVAL_COUNT = 17
+   PVAL_TEST_HANDLE = 17,
+   PVAL_COUNT = 18
 };
 
 enum class CanPlaySequence_t : std::uint32_t
@@ -1402,11 +1481,13 @@ enum class CanPlaySequence_t : std::uint32_t
    CAN_PLAY_ENQUEUED = 2
 };
 
-enum class FacingMode : std::uint32_t
+enum class FacingMode : std::uint8_t
 {
-   FacingMode_Manual = 0,
-   FacingMode_Path = 1,
-   FacingMode_LookTarget = 2
+   FacingMode_Invalid = 0,
+   FacingMode_Manual = 1,
+   FacingMode_Path = 2,
+   FacingMode_LookTarget = 3,
+   FacingMode_ManualPosition = 4
 };
 
 enum class SeqCmd_t : std::uint32_t
@@ -1475,6 +1556,16 @@ enum class ParticleParentSetMode_t : std::uint32_t
    PARTICLE_SET_PARENT_ROOT = 1
 };
 
+enum class EPulseGraphExecutionHistoryFlag : std::uint32_t
+{
+   NO_FLAGS = 0,
+   CURSOR_ADD_TAG = 1,
+   CURSOR_REMOVE_TAG = 2,
+   CURSOR_RETIRED = 4,
+   REQUIREMENT_PASS = 8,
+   REQUIREMENT_FAIL = 16
+};
+
 enum class Explosions : std::uint32_t
 {
    expRandom = 0,
@@ -1482,38 +1573,62 @@ enum class Explosions : std::uint32_t
    expUsePrecise = 2
 };
 
+enum class SoundTypes_t : std::uint16_t
+{
+   SOUND_NONE = 0,
+   SOUND_COMBAT = 1,
+   SOUND_PLAYER = 2,
+   SOUND_DANGER = 3,
+   SOUND_BULLET_IMPACT = 4,
+   SOUND_THUMPER = 5,
+   SOUND_PHYSICS_DANGER = 6,
+   SOUND_MOVE_AWAY = 7,
+   SOUND_PLAYER_VEHICLE = 8,
+   SOUND_GLASS_BREAK = 9,
+   SOUND_PHYSICS_OBJECT = 10,
+   NUM_AI_SOUND_TYPES = 11
+};
+
 enum class VMixProcessorType_t : std::uint16_t
 {
    VPROCESSOR_UNKNOWN = 0,
-   VPROCESSOR_STEAMAUDIO_REVERB = 1,
-   VPROCESSOR_RT_PITCH = 2,
-   VPROCESSOR_STEAMAUDIO_HRTF = 3,
-   VPROCESSOR_DYNAMICS = 4,
-   VPROCESSOR_PRESETDSP = 5,
-   VPROCESSOR_DELAY = 6,
-   VPROCESSOR_MOD_DELAY = 7,
-   VPROCESSOR_DIFFUSOR = 8,
-   VPROCESSOR_BOXVERB = 9,
-   VPROCESSOR_FREEVERB = 10,
-   VPROCESSOR_PLATEVERB = 11,
-   VPROCESSOR_FULLWAVE_INTEGRATOR = 12,
-   VPROCESSOR_FILTER = 13,
-   VPROCESSOR_STEAMAUDIO_PATHING = 14,
-   VPROCESSOR_EQ8 = 15,
-   VPROCESSOR_ENVELOPE = 16,
-   VPROCESSOR_VOCODER = 17,
-   VPROCESSOR_CONVOLUTION = 18,
-   VPROCESSOR_DYNAMICS_3BAND = 19,
-   VPROCESSOR_DYNAMICS_COMPRESSOR = 20,
-   VPROCESSOR_SHAPER = 21,
-   VPROCESSOR_PANNER = 22,
-   VPROCESSOR_UTILITY = 23,
-   VPROCESSOR_AUTOFILTER = 24,
-   VPROCESSOR_OSC = 25,
-   VPROCESSOR_STEREODELAY = 26,
-   VPROCESSOR_EFFECT_CHAIN = 27,
-   VPROCESSOR_SUBGRAPH_SWITCH = 28,
-   VPROCESSOR_STEAMAUDIO_DIRECT = 29
+   VPROCESSOR_RT_PITCH = 1,
+   VPROCESSOR_STEAMAUDIO_HRTF = 2,
+   VPROCESSOR_DYNAMICS = 3,
+   VPROCESSOR_PRESETDSP = 4,
+   VPROCESSOR_DELAY = 5,
+   VPROCESSOR_MOD_DELAY = 6,
+   VPROCESSOR_DIFFUSOR = 7,
+   VPROCESSOR_BOXVERB = 8,
+   VPROCESSOR_FREEVERB = 9,
+   VPROCESSOR_PLATEVERB = 10,
+   VPROCESSOR_FULLWAVE_INTEGRATOR = 11,
+   VPROCESSOR_FILTER = 12,
+   VPROCESSOR_STEAMAUDIO_PATHING = 13,
+   VPROCESSOR_EQ8 = 14,
+   VPROCESSOR_ENVELOPE = 15,
+   VPROCESSOR_VOCODER = 16,
+   VPROCESSOR_CONVOLUTION = 17,
+   VPROCESSOR_DYNAMICS_3BAND = 18,
+   VPROCESSOR_DYNAMICS_COMPRESSOR = 19,
+   VPROCESSOR_SHAPER = 20,
+   VPROCESSOR_PANNER = 21,
+   VPROCESSOR_UTILITY = 22,
+   VPROCESSOR_AUTOFILTER = 23,
+   VPROCESSOR_OSC = 24,
+   VPROCESSOR_STEREODELAY = 25,
+   VPROCESSOR_EFFECT_CHAIN = 26,
+   VPROCESSOR_SUBGRAPH_SWITCH = 27,
+   VPROCESSOR_STEAMAUDIO_DIRECT = 28,
+   VPROCESSOR_STEAMAUDIO_HYBRIDREVERB = 29
+};
+
+enum class PlayBackMode_t : std::uint32_t
+{
+   Random = 0,
+   RandomNoRepeats = 1,
+   RandomAvoidLast = 2,
+   Sequential = 3
 };
 
 enum class ChoiceChangeMethod : std::uint32_t
@@ -1567,6 +1682,27 @@ enum class PreviewEOMCelebration : std::uint32_t
    VYPA_DEFEAT = 22
 };
 
+enum class PulseNPCCondition_t : std::uint32_t
+{
+   COND_SEE_PLAYER = 1,
+   COND_LOST_PLAYER = 2,
+   COND_HEAR_PLAYER = 3,
+   COND_PLAYER_PUSHING = 4,
+   COND_NO_PRIMARY_AMMO = 5
+};
+
+enum class TransitionOptions_t : std::uint8_t
+{
+   None = 0,
+   ClampDuration = 1,
+   Synchronized = 2,
+   MatchSourceTime = 4,
+   MatchSyncEventIndex = 8,
+   MatchSyncEventID = 16,
+   MatchSyncEventPercentage = 32,
+   PreferClosestSyncEventID = 64
+};
+
 enum class SceneOnPlayerDeath_t : std::uint32_t
 {
    SCENE_ONPLAYERDEATH_DO_NOTHING = 0,
@@ -1582,12 +1718,12 @@ enum class CSWeaponState_t : std::uint32_t
 
 enum class ScriptedMoveTo_t : std::uint32_t
 {
-   CINE_MOVETO_WAIT = 0,
-   CINE_MOVETO_WALK = 1,
-   CINE_MOVETO_RUN = 2,
-   CINE_MOVETO_CUSTOM = 3,
-   CINE_MOVETO_TELEPORT = 4,
-   CINE_MOVETO_WAIT_FACING = 5
+   eWait = 0,
+   eMoveWithGait = 3,
+   eTeleport = 4,
+   eWaitFacing = 5,
+   eObsoleteBackCompat1 = 1,
+   eObsoleteBackCompat2 = 2
 };
 
 enum class BinaryNodeChildOption : std::uint32_t
@@ -1653,6 +1789,14 @@ enum class DetailCombo_t : std::uint32_t
    DETAIL_COMBO_MOD2X = 3
 };
 
+enum class HandshakeTagType_t : std::int32_t
+{
+   eInvalid = -1,
+   eTask = 0,
+   eMovement = 1,
+   eCount = 2
+};
+
 enum class DoorState_t : std::uint32_t
 {
    DOOR_STATE_CLOSED = 0,
@@ -1698,7 +1842,8 @@ enum class AnimVectorSource : std::uint32_t
    LookTarget_WorldSpace = 9,
    WayPointPosition = 10,
    GoalPosition = 11,
-   RootMotionVelocity = 12
+   RootMotionVelocity = 12,
+   ManualTarget_WorldSpace = 13
 };
 
 enum class TextureRepetitionMode_t : std::uint32_t
@@ -1928,13 +2073,6 @@ enum class ParticleSortingChoiceList_t : std::uint32_t
 {
    PARTICLE_SORTING_NEAREST = 0,
    PARTICLE_SORTING_CREATION_TIME = 1
-};
-
-enum class NPCLookType_t : std::uint32_t
-{
-   Chest = 0,
-   Head = 1,
-   Eyes = 2
 };
 
 enum class PlayerAnimEvent_t : std::uint32_t
@@ -2252,6 +2390,19 @@ enum class MorphFlexControllerRemapType_t : std::uint32_t
    MORPH_FLEXCONTROLLER_REMAP_EYELID = 3
 };
 
+enum class NmGraphValueType_t : std::uint8_t
+{
+   Unknown = 0,
+   Bool = 1,
+   ID = 2,
+   Float = 3,
+   Vector = 4,
+   Target = 5,
+   BoneMask = 6,
+   Pose = 7,
+   Special = 8
+};
+
 enum class attributeprovidertypes_t : std::uint32_t
 {
    PROVIDER_GENERIC = 0,
@@ -2285,6 +2436,7 @@ enum class NavAttributeEnum : std::uint32_t
    NAV_MESH_STAIRS = 4096,
    NAV_MESH_NON_ZUP = 32768,
    NAV_MESH_SHORT_HEIGHT = 65536,
+   NAV_MESH_NON_ZUP_TRANSITION = 131072,
    NAV_MESH_CROUCH = 65536,
    NAV_MESH_JUMP = 2,
    NAV_MESH_PRECISE = 4,
@@ -2322,7 +2474,8 @@ enum class RenderBufferFlags_t : std::uint32_t
    RENDER_BUFFER_UAV_DRAW_INDIRECT_ARGS = 256,
    RENDER_BUFFER_ACCELERATION_STRUCTURE = 512,
    RENDER_BUFFER_SHADER_BINDING_TABLE = 1024,
-   RENDER_BUFFER_PER_FRAME_WRITE_ONCE = 2048
+   RENDER_BUFFER_PER_FRAME_WRITE_ONCE = 2048,
+   RENDER_BUFFER_POOL_ALLOCATED = 4096
 };
 
 enum class ParticleDetailLevel_t : std::uint32_t
@@ -2338,6 +2491,14 @@ enum class TRAIN_CODE : std::uint32_t
    TRAIN_SAFE = 0,
    TRAIN_BLOCKING = 1,
    TRAIN_FOLLOWING = 2
+};
+
+enum class ModelHitboxType_t : std::uint32_t
+{
+   MODEL_HITBOX_TYPE_STANDARD = 0,
+   MODEL_HITBOX_TYPE_RAW_BONES = 1,
+   MODEL_HITBOX_TYPE_RENDERBOUNDS = 2,
+   MODEL_HITBOX_TYPE_SNAPSHOT = 3
 };
 
 enum class FootstepLandedFootSoundType_t : std::uint32_t
@@ -2361,6 +2522,14 @@ enum class filter_t : std::uint32_t
 {
    FILTER_AND = 0,
    FILTER_OR = 1
+};
+
+enum class PulseDomainValueType_t : std::int32_t
+{
+   INVALID = -1,
+   ENTITY_NAME = 0,
+   PANEL_ID = 1,
+   COUNT = 2
 };
 
 enum class SosActionStopType_t : std::uint32_t
@@ -2446,6 +2615,12 @@ enum class FuncDoorSpawnPos_t : std::uint32_t
    FUNC_DOOR_SPAWN_OPEN = 1
 };
 
+enum class ParticleMassMode_t : std::uint32_t
+{
+   PARTICLE_MASSMODE_RADIUS_CUBED = 0,
+   PARTICLE_MASSMODE_RADIUS_SQUARED = 2
+};
+
 enum class ParticleOrientationChoiceList_t : std::uint32_t
 {
    PARTICLE_ORIENTATION_SCREEN_ALIGNED = 0,
@@ -2463,6 +2638,19 @@ enum class EntityDisolveType_t : std::int32_t
    ENTITY_DISSOLVE_ELECTRICAL = 1,
    ENTITY_DISSOLVE_ELECTRICAL_LIGHT = 2,
    ENTITY_DISSOLVE_CORE = 3
+};
+
+enum class NmEasingFunction_t : std::uint8_t
+{
+   Linear = 0,
+   Quad = 1,
+   Cubic = 2,
+   Quart = 3,
+   Quint = 4,
+   Sine = 5,
+   Expo = 6,
+   Circ = 7,
+   Back = 8
 };
 
 enum class NmFrameSnapEventMode_t : std::uint32_t
@@ -2598,6 +2786,7 @@ enum class DebugOverlayBits_t : std::int64_t
    OVERLAY_NPC_RELATION_BIT = 0,
    OVERLAY_VIEWOFFSET = 0,
    OVERLAY_VCOLLIDE_WIREFRAME_BIT = 0,
+   OVERLAY_NPC_SCRIPTED_COMMANDS_BIT = 0,
    OVERLAY_ACTORNAME_BIT = 0,
    OVERLAY_NPC_CONDITIONS_TEXT_BIT = 0,
    OVERLAY_NPC_ABILITY_RANGE_DEBUG_BIT = 0
@@ -2862,6 +3051,15 @@ enum class SpriteCardPerParticleScale_t : std::uint32_t
    SPRITECARD_TEXTURE_PP_SCALE_NEG_RANDOM_TIME = 13
 };
 
+enum class EWaveform : std::uint8_t
+{
+   Sine = 0,
+   Square = 1,
+   Saw = 2,
+   Triangle = 3,
+   Noise = 4
+};
+
 enum class FixAngleSet_t : std::uint8_t
 {
    None = 0,
@@ -2971,23 +3169,24 @@ enum class GameAnimEventIndex_t : std::uint32_t
    AE_CL_CLOTH_STIFFEN = 23,
    AE_CL_CLOTH_EFFECT = 24,
    AE_CL_CREATE_ANIM_SCOPE_PROP = 25,
-   AE_PULSE_GRAPH = 26,
-   AE_PULSE_GRAPH_LOOKAT = 27,
-   AE_PULSE_GRAPH_AIMAT = 28,
-   AE_PULSE_GRAPH_IKLOCKLEFTARM = 29,
-   AE_PULSE_GRAPH_IKLOCKRIGHTARM = 30,
-   AE_CL_WEAPON_TRANSITION_INTO_HAND = 31,
-   AE_CL_BODYGROUP_SET_TO_CLIP = 32,
-   AE_CL_BODYGROUP_SET_TO_NEXTCLIP = 33,
-   AE_SV_SHOW_SILENCER = 34,
-   AE_SV_ATTACH_SILENCER_COMPLETE = 35,
-   AE_SV_HIDE_SILENCER = 36,
-   AE_SV_DETACH_SILENCER_COMPLETE = 37,
-   AE_CL_EJECT_MAG = 38,
-   AE_WPN_COMPLETE_RELOAD = 39,
-   AE_WPN_HEALTHSHOT_INJECT = 40,
-   AE_CL_C4_SCREEN_TEXT = 41,
-   AE_GRENADE_THROW_COMPLETE = 42
+   AE_SV_IKLOCK = 26,
+   AE_PULSE_GRAPH = 27,
+   AE_PULSE_GRAPH_LOOKAT = 28,
+   AE_PULSE_GRAPH_AIMAT = 29,
+   AE_PULSE_GRAPH_IKLOCKLEFTARM = 30,
+   AE_PULSE_GRAPH_IKLOCKRIGHTARM = 31,
+   AE_CL_WEAPON_TRANSITION_INTO_HAND = 32,
+   AE_CL_BODYGROUP_SET_TO_CLIP = 33,
+   AE_CL_BODYGROUP_SET_TO_NEXTCLIP = 34,
+   AE_SV_SHOW_SILENCER = 35,
+   AE_SV_ATTACH_SILENCER_COMPLETE = 36,
+   AE_SV_HIDE_SILENCER = 37,
+   AE_SV_DETACH_SILENCER_COMPLETE = 38,
+   AE_CL_EJECT_MAG = 39,
+   AE_WPN_COMPLETE_RELOAD = 40,
+   AE_WPN_HEALTHSHOT_INJECT = 41,
+   AE_CL_C4_SCREEN_TEXT = 42,
+   AE_GRENADE_THROW_COMPLETE = 43
 };
 
 enum class ELayoutNodeType : std::uint32_t
@@ -3020,6 +3219,41 @@ enum class PulseTestEnumShape_t : std::uint32_t
    CIRCLE = 100,
    SQUARE = 200,
    TRIANGLE = 300
+};
+
+enum class NmEasingOperation_t : std::uint8_t
+{
+   Linear = 0,
+   InQuad = 1,
+   OutQuad = 2,
+   InOutQuad = 3,
+   InCubic = 4,
+   OutCubic = 5,
+   InOutCubic = 6,
+   InQuart = 7,
+   OutQuart = 8,
+   InOutQuart = 9,
+   InQuint = 10,
+   OutQuint = 11,
+   InOutQuint = 12,
+   InSine = 13,
+   OutSine = 14,
+   InOutSine = 15,
+   InExpo = 16,
+   OutExpo = 17,
+   InOutExpo = 18,
+   InCirc = 19,
+   OutCirc = 20,
+   InOutCirc = 21,
+   None = 22
+};
+
+enum class ChoreoLookAtMode_t : std::int32_t
+{
+   eInvalid = -1,
+   eChest = 0,
+   eHead = 1,
+   eEyesOnly = 2
 };
 
 enum class ParticleColorBlendMode_t : std::uint32_t
@@ -3081,9 +3315,7 @@ enum class ScriptState_t : std::uint32_t
    SCRIPT_WAIT = 1,
    SCRIPT_POST_IDLE = 2,
    SCRIPT_CLEANUP = 3,
-   SCRIPT_WALK_TO_MARK = 4,
-   SCRIPT_RUN_TO_MARK = 5,
-   SCRIPT_CUSTOM_MOVE_TO_MARK = 6
+   SCRIPT_MOVE_TO_MARK = 4
 };
 
 enum class EntitySubclassScope_t : std::int32_t
@@ -3104,12 +3336,12 @@ enum class EntFinderMethod_t : std::uint32_t
 enum class ChickenActivity : std::uint32_t
 {
    IDLE = 0,
-   WALK = 1,
-   RUN = 2,
-   HOP = 3,
-   JUMP = 4,
-   GLIDE = 5,
-   LAND = 6
+   SQUAT = 1,
+   WALK = 2,
+   RUN = 3,
+   GLIDE = 4,
+   LAND = 5,
+   PANIC = 6
 };
 
 enum class IkEndEffectorType : std::uint32_t
@@ -3134,7 +3366,8 @@ enum class EStyleNodeType : std::uint32_t
    EXPRESSION_CONCAT = 11,
    REFERENCE_CONTENT = 12,
    REFERENCE_COMPILED = 13,
-   REFERENCE_PASSTHROUGH = 14
+   REFERENCE_PASSTHROUGH = 14,
+   COMPILER_CONDITIONAL = 15
 };
 
 enum class WeaponSound_t : std::uint32_t
@@ -3276,44 +3509,51 @@ enum class AnimValueSource : std::uint32_t
    ForwardSpeed = 2,
    StrafeSpeed = 3,
    FacingHeading = 4,
-   ManualFacingHeading = 5,
-   LookHeading = 6,
-   LookPitch = 7,
-   LookDistance = 8,
-   Parameter = 9,
-   WayPointHeading = 10,
-   WayPointDistance = 11,
-   BoundaryRadius = 12,
-   TargetMoveHeading = 13,
-   TargetMoveSpeed = 14,
-   AccelerationHeading = 15,
-   AccelerationSpeed = 16,
-   SlopeHeading = 17,
-   SlopeAngle = 18,
-   SlopePitch = 19,
-   SlopeYaw = 20,
-   GoalDistance = 21,
-   AccelerationLeftRight = 22,
-   AccelerationFrontBack = 23,
-   RootMotionSpeed = 24,
-   RootMotionTurnSpeed = 25,
-   MoveHeadingRelativeToLookHeading = 26,
-   MaxMoveSpeed = 27,
-   FingerCurl_Thumb = 28,
-   FingerCurl_Index = 29,
-   FingerCurl_Middle = 30,
-   FingerCurl_Ring = 31,
-   FingerCurl_Pinky = 32,
-   FingerSplay_Thumb_Index = 33,
-   FingerSplay_Index_Middle = 34,
-   FingerSplay_Middle_Ring = 35,
-   FingerSplay_Ring_Pinky = 36
+   LookHeading = 5,
+   LookPitch = 6,
+   LookDistance = 7,
+   Parameter = 8,
+   WayPointHeading = 9,
+   WayPointDistance = 10,
+   BoundaryRadius = 11,
+   TargetMoveHeading = 12,
+   TargetMoveSpeed = 13,
+   AccelerationHeading = 14,
+   AccelerationSpeed = 15,
+   SlopeHeading = 16,
+   SlopeAngle = 17,
+   SlopePitch = 18,
+   SlopeYaw = 19,
+   GoalDistance = 20,
+   AccelerationLeftRight = 21,
+   AccelerationFrontBack = 22,
+   RootMotionSpeed = 23,
+   RootMotionTurnSpeed = 24,
+   MoveHeadingRelativeToLookHeading = 25,
+   MaxMoveSpeed = 26,
+   FingerCurl_Thumb = 27,
+   FingerCurl_Index = 28,
+   FingerCurl_Middle = 29,
+   FingerCurl_Ring = 30,
+   FingerCurl_Pinky = 31,
+   FingerSplay_Thumb_Index = 32,
+   FingerSplay_Index_Middle = 33,
+   FingerSplay_Middle_Ring = 34,
+   FingerSplay_Ring_Pinky = 35
 };
 
 enum class HitboxLerpType_t : std::uint32_t
 {
    HITBOX_LERP_LIFETIME = 0,
    HITBOX_LERP_CONSTANT = 1
+};
+
+enum class RenderModelSubModelFieldType_t : std::uint32_t
+{
+   SUBMODEL_AS_BODYGROUP_SUBMODEL = 0,
+   SUBMODEL_AS_MESHGROUP_INDEX = 1,
+   SUBMODEL_AS_MESHGROUP_MASK = 2,
+   SUBMODEL_IGNORED_USE_MODEL_DEFAULT_MESHGROUP_MASK = 3
 };
 
 enum class WeaponAttackType_t : std::int32_t
@@ -3448,7 +3688,9 @@ enum class ActionType_t : std::uint32_t
    SOS_ACTION_TIME_LIMIT = 2,
    SOS_ACTION_TIME_BLOCK_LIMITER = 3,
    SOS_ACTION_SET_SOUNDEVENT_PARAM = 4,
-   SOS_ACTION_SOUNDEVENT_CLUSTER = 5
+   SOS_ACTION_SOUNDEVENT_CLUSTER = 5,
+   SOS_ACTION_SOUNDEVENT_PRIORITY = 6,
+   SOS_ACTION_COUNT_ENVELOPE = 7
 };
 
 enum class MoodType_t : std::uint32_t
